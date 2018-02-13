@@ -1,0 +1,15 @@
+- name: MONIT MANAGER - running Docker containers
+  docker_container:
+    name: son-monitor-manager
+    image: "{{ repository }}/son-monitor-manager:{{ version }}"
+    state: started
+    pull: true
+    restart_policy: "always"
+    network_mode: bridge
+    networks:
+      - name: "{{ docker_network_name }}"
+        aliases:
+          - son-monitor-manager
+    published_ports:
+      - "8000:8000"
+      - "8888:8888"
