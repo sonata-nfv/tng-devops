@@ -1,0 +1,22 @@
+---
+
+- debug: msg="##### SP GTK-PACKAGEs DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+
+# Running the Sonata GK PACKAGES (Docker container)
+
+- name: GATEKEEPER PACKAGES - running Docker containers
+  docker_container:
+    name: son-gtkpkg
+    image: "{{ repository }}/son-gtkpkg:{{ version }}"
+    env:
+      CATALOGUES_URL: http://son-catalogue-repos:4011/catalogues/api/v2
+      RACK_ENV: integration
+    state: started
+    pull: true
+    network_mode: bridge
+    networks:
+      - name: "{{ docker_network_name }}"
+        aliases:
+          - son-gtkpkg
+    published_ports: "5100:5100"
+    restart_policy: "always"

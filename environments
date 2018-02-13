@@ -1,0 +1,35 @@
+[pre-int-sp]
+pre-int-sp-ath.5gtango.eu ansible_user=sonata
+
+[pre-int-vnv]
+pre-int-vnv-bcn.5gtango.eu ansible_user=sonata
+
+[pre-int-sdk]
+pre-int-sdk-ath.5gtango.eu ansible_user=sonata
+
+[int-sp]
+int-sp-ath.5gtango.eu ansible_user=sonata
+
+[int-vnv]
+int-vnv-bcn.5gtango.eu ansible_user=sonata
+
+[qual-sp]
+qual-sp-bcn.5gtango.eu ansible_user=sonata
+
+[qual-vnv]
+qual-vnv-bcn.5gtango.eu ansible_user=sonata
+
+[sta-sp]
+sta-sp-ath.5gtango.eu ansible_user=sonata
+sta-sp-pad.5gtango.eu ansible_user=sonata
+sta-sp-ave.5gtango.eu ansible_user=sonata
+
+[sta-vnv]
+sta-vnv-ath.5gtango.eu ansible_user=sonata
+sta-vnv-pad.5gtango.eu ansible_user=sonata
+sta-vnv-ave.5gtango.eu ansible_user=sonata
+
+[sta-sdk]
+sta-sdk-ath.5gtango.eu ansible_user=sonata
+sta-sdk-pad.5gtango.eu ansible_user=sonata
+sta-sdk-ave.5gtango.eu ansible_user=sonata

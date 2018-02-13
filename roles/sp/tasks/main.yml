@@ -1,0 +1,48 @@
+---
+# Deploying databases
+# deploy postgreSQL database engine
+- import_tasks: pgsql.yml
+
+# deploy MongoDB (NoSQL) database engine
+- import_tasks: mongo.yml
+
+# deploy Redis database engine
+- import_tasks: redis.yml
+
+# deploy postgreSQL database engine for monitoring
+- import_tasks: pgsql-monitoring.yml
+
+# deploy RabbitMQ message bus
+- import_tasks: rabbitmq.yml
+
+# deploy Influxdb
+- import_tasks: influxdb.yml
+
+
+# Deploying Gatekeeper components
+# deploy Keycloak
+- import_tasks: keycloak.yml
+
+# deploy GUI
+#- include: gui.yml
+
+# deploy BSS
+#- include: bss.yml
+
+# deploy Gatekepper module
+#- include: gtk-all.yml
+
+# deploy Repositories
+#- include: repos.yml
+
+# deploy MANO framework
+#- include: mano-all.yml
+
+# deploy Infastructure Adaptor
+#- include: ifta-all.yml
+
+# deploy Monitoring
+#- include: monit-all.yml
+
+# deploy Security Gateway
+#- include: sec-gw.yml
