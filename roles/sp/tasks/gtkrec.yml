@@ -1,9 +1,6 @@
 ---
-
-- debug: msg="##### SP GTK-RECORDs DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
-
 # Running the Sonata GK RECORDs (Docker container)
-
+- debug: msg="##### SP GTK-RECORDs DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
 - name: GATEKEEPER RECORDS - running Docker containers
   docker_container:
     name: son-gtkrec

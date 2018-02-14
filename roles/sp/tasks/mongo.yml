@@ -1,6 +1,6 @@
 ---
+# Running the Sonata MONGODB (Docker container)
 - debug: msg="##### SP MONGODB DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
-
 - name: deploy MongoDB as a Container (used by Monitory)
   docker_container:
     name: "son-mongo"

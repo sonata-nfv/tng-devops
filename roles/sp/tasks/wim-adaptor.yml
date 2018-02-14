@@ -1,4 +1,6 @@
 ---
+# Running the Sonata Infrastructure Abstractor WIM Adaptor (Docker container)
+- debug: msg="##### SP Infrastructure Abstractor WIM Adaptor DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
 - name: deploying Infrastructure Abstractor WIM Adaptor (Docker container)
   docker_container:
     name: wim-adaptor

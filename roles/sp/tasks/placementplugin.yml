@@ -1,5 +1,6 @@
 ---
-
+# Running the Sonata MANO Placement Plugin (Docker container)
+- debug: msg="##### SP MANO Placement Plugin DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
 - name: MANO Placement Plugin (Docker container)
   docker_container:
     name: placementplugin

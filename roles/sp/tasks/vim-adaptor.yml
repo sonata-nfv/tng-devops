@@ -1,4 +1,6 @@
 ---
+# Running the Sonata Infrastructure Abstractor VIM Adaptor (Docker container)
+- debug: msg="##### SP Infrastructure Abstractor VIM Adaptor DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
 - name: deploying Infrastructure Abstractor VIM Adaptor (Docker container)
   docker_container:
     name: son-sp-infrabstract

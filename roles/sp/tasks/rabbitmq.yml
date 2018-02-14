@@ -1,7 +1,6 @@
 ---
-
+# Running the Sonata SP BROKER (Docker container)
 - debug: msg="##### SP BROKER DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
-
 - name: run the SP Message Bus
   docker_container:
     name: "son-broker"

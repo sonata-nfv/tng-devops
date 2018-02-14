@@ -1,3 +1,6 @@
+---
+# Running the Sonata MONIT Push Gateway (Docker container)
+- debug: msg="##### SP MONIT Push Gateway {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
 - name: MONIT Push Gateway - running Docker containers
   docker_container:
     name: son-monitor-pushgateway

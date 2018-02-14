@@ -1,6 +1,6 @@
 ---
+# Running the Sonata REPOSITORIES (Docker container)
 - debug: msg="##### SP REPOs DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
-
 - name: deploy REPOSITORIES as a Docker container (from the Registry to the SP VM appliance)
   docker_container:
     name: son-catalogue-repos

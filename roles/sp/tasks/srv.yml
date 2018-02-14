@@ -1,5 +1,5 @@
 ---
-
+# Running the Sonata SP GTK-SERVICES Docker Image
 - debug: msg="##### SP GTK-SERVICES DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
 
 # Ensure son-gtksrv is not present
