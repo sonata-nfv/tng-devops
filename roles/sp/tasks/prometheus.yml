@@ -1,3 +1,6 @@
+---
+# Running the Sonata MONIT PROMETHEUS (Docker container)
+- debug: msg="##### SP MONIT PROMETHEUS DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
 - name: MONIT PROMETHEUS - running Docker containers
   docker_container:
     name: son-monitor-prometheus

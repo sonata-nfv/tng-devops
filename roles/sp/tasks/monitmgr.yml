@@ -1,3 +1,6 @@
+---
+# Running the Sonata MONIT MANAGER (Docker container)
+- debug: msg="##### SP MONIT MANAGER DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
 - name: MONIT MANAGER - running Docker containers
   docker_container:
     name: son-monitor-manager

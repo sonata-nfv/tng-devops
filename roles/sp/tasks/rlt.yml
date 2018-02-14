@@ -1,6 +1,6 @@
 ---
-- debug: msg="##### SP GTK-RATE-LIMITER DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
 # Running the Sonata GK RATE LIMITER (Docker container)
+- debug: msg="##### SP GTK-RATE-LIMITER DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
 - name: GATEKEEPER RATE LIMITER (GTKRLT) (Docker container)
   docker_container:
     name: son-gtkrlt

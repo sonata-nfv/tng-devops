@@ -1,5 +1,6 @@
 ---
-
+# Running the MANO Plug-in Manager (Docker container)
+- debug: msg="##### MANO Plug-in ManagerDEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
 - name: MANO Plug-in Manager (Docker container)
   docker_container:
     name: pluginmanager

@@ -1,6 +1,6 @@
 ---
+# Running the Sonata PGSQL-MONITORING (Docker container)
 - debug: msg="##### SP PGSQL-MONITORING DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
-
 - name: deploy a PostgreSQL database server as a Container
   docker_container:
     name: son-monitor-postgres

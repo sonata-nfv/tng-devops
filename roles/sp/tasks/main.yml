@@ -18,31 +18,83 @@
 # deploy Influxdb
 - import_tasks: influxdb.yml
 
-
-# Deploying Gatekeeper components
+## Deploying Gatekeeper components
 # deploy Keycloak
 - import_tasks: keycloak.yml
 
 # deploy GUI
-#- include: gui.yml
+- import_tasks: gui.yml
 
 # deploy BSS
-#- include: bss.yml
+- import_tasks: bss.yml
 
-# deploy Gatekepper module
-#- include: gtk-all.yml
+# deploy Gatekepper Validator module
+- import_tasks: val.yml
+
+# deploy Gatekepper Package module
+- import_tasks: pkg.yml
+
+# deploy Gatekepper Server module
+- import_tasks: srv.yml
+
+# deploy Gatekepper Function module
+- import_tasks: fnct.yml
+
+# deploy Gatekepper Records module
+- import_tasks: gtkrec.yml
+
+# deploy Gatekepper VIM module
+- import_tasks: vim.yml
+
+# deploy Gatekepper Lisense module
+- import_tasks: lic.yml
+
+# deploy Gatekepper KPIs module
+- import_tasks: kpi.yml
+
+# deploy Gatekepper User Management module
+- import_tasks: usr.yml
+
+# deploy Gatekepper Rate Limit module
+- import_tasks: rlt.yml
+
+# deploy Gatekepper API module
+- import_tasks: gtkapi.yml
 
 # deploy Repositories
-#- include: repos.yml
+- import_tasks: repos.yml
 
-# deploy MANO framework
-#- include: mano-all.yml
+## Deploying Mano Components
+# deploy PluginManager of MANO framework
+- import_tasks: pluginmgr.yml
 
-# deploy Infastructure Adaptor
-#- include: ifta-all.yml
+# deploy Service Lifecycle Manager of MANO framework
+- import_tasks: slm.yml
 
-# deploy Monitoring
-#- include: monit-all.yml
+# deploy Function Lifecycle Manager of MANO framework
+- import_tasks: flm.yml
+
+# deploy Specific Manager Registry of MANO framework
+- import_tasks: smr.yml
+
+# deploy Placement of MANO framework
+- import_tasks: placement.yml
+
+# deploy Placement Plugin of MANO framework
+- import_tasks: placementplugin.yml
+
+## Deploying Monitoring Components
+# deploy Monitoring Pushgateway
+- import_tasks: pushgw.yml
+
+# deploy Monitoring Prometheus
+- import_tasks: prometheus.yml
+
+# deploy Monitoring Manager
+- import_tasks: monitmgr.yml
+
+# deploy Monitoring Probe
+- import_tasks: probe.yml
 
 # deploy Security Gateway
-#- include: sec-gw.yml
+- import_tasks: sec-gw.yml

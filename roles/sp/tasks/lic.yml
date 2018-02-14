@@ -1,7 +1,6 @@
 ---
-
+# Running the Sonata GTK-LICENSING (Docker container)
 - debug: msg="##### SP GTK-LICENSING DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
-
 # Ensure son-gtklic is not present
 - name: DELETE GATEKEEPER LICENSE MANAGER (GTKLIC) (Docker container)
   docker_container:

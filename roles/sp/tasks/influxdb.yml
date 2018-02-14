@@ -1,10 +1,10 @@
 ---
+# Running the Sonata INFLUXDB (Docker container)
 - debug: msg="##### SP INFLUXDB DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
-
 - name: MONIT InfluxDB  - running Docker containers
   docker_container:
     name: son-monitor-influxdb
-    image: {{ repository }}/son-monitor-influxdb:{{ version }}
+    image: "{{ repository }}/son-monitor-influxdb:{{ version }}"
     state: started
     pull: true
     restart_policy: "always"
