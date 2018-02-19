@@ -15,4 +15,5 @@
           - redis
     published_ports: 6379:6379
 
-- wait_for: host=0.0.0.0 port=6379 timeout=30 delay=10 state=started
+- name: Wait until the string "Redis" is UP
+  wait_for: host=0.0.0.0 port=6379 timeout=30 delay=10 state=started
