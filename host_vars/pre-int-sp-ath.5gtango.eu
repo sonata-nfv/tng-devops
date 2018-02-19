@@ -1,7 +1,7 @@
 ---
 ## Containers configuration
 # Docker Network
-docker_network_name: tng-sp
+docker_network_name: tango
 
 ## Version
 version: latest

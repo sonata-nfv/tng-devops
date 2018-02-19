@@ -1,35 +1,35 @@
 [pre-int-sp]
-pre-int-sp-ath.5gtango.eu ansible_user=sonata
+pre-int-sp-ath.5gtango.eu ansible_user=tango
 
 [pre-int-vnv]
-pre-int-vnv-bcn.5gtango.eu ansible_user=sonata
+pre-int-vnv-bcn.5gtango.eu ansible_user=tango
 
 [pre-int-sdk]
-pre-int-sdk-ath.5gtango.eu ansible_user=sonata
+pre-int-sdk-ath.5gtango.eu ansible_user=tango
 
 [int-sp]
-int-sp-ath.5gtango.eu ansible_user=sonata
+int-sp-ath.5gtango.eu ansible_user=tango
 
 [int-vnv]
-int-vnv-bcn.5gtango.eu ansible_user=sonata
+int-vnv-bcn.5gtango.eu ansible_user=tango
 
 [qual-sp]
-qual-sp-bcn.5gtango.eu ansible_user=sonata
+qual-sp-bcn.5gtango.eu ansible_user=tango
 
 [qual-vnv]
-qual-vnv-bcn.5gtango.eu ansible_user=sonata
+qual-vnv-bcn.5gtango.eu ansible_user=tango
 
 [sta-sp]
-sta-sp-ath.5gtango.eu ansible_user=sonata
-sta-sp-pad.5gtango.eu ansible_user=sonata
-sta-sp-ave.5gtango.eu ansible_user=sonata
+sta-sp-ath.5gtango.eu ansible_user=tango
+sta-sp-pad.5gtango.eu ansible_user=tango
+sta-sp-ave.5gtango.eu ansible_user=tango
 
 [sta-vnv]
-sta-vnv-ath.5gtango.eu ansible_user=sonata
-sta-vnv-pad.5gtango.eu ansible_user=sonata
-sta-vnv-ave.5gtango.eu ansible_user=sonata
+sta-vnv-ath.5gtango.eu ansible_user=tango
+sta-vnv-pad.5gtango.eu ansible_user=tango
+sta-vnv-ave.5gtango.eu ansible_user=tango
 
 [sta-sdk]
-sta-sdk-ath.5gtango.eu ansible_user=sonata
-sta-sdk-pad.5gtango.eu ansible_user=sonata
-sta-sdk-ave.5gtango.eu ansible_user=sonata
+sta-sdk-ath.5gtango.eu ansible_user=tango
+sta-sdk-pad.5gtango.eu ansible_user=tango
+sta-sdk-ave.5gtango.eu ansible_user=tango
