@@ -13,3 +13,6 @@
         aliases:
           - tng-portal
     restart_policy: "always"
+    published_ports:
+      - "4200:4200"
+
