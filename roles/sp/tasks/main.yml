@@ -23,7 +23,10 @@
 - import_tasks: keycloak.yml
 
 # deploy GUI
-- import_tasks: gui.yml
+#- import_tasks: gui.yml
+
+# deploy GUI
+- import_tasks: portal.yml
 
 # deploy BSS
 - import_tasks: bss.yml
@@ -59,7 +62,10 @@
 - import_tasks: rlt.yml
 
 # deploy Gatekepper API module
-- import_tasks: gtkapi.yml
+#- import_tasks: gtkapi.yml
+
+# deploy Gatekepper API module
+- import_tasks: api-gtw.yml
 
 # deploy Repositories
 - import_tasks: repos.yml
@@ -97,4 +103,4 @@
 - import_tasks: probe.yml
 
 # deploy Security Gateway
-- import_tasks: sec-gw.yml
+- import_tasks: sec-gtw.yml

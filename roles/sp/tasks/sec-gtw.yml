@@ -1,10 +1,10 @@
 ---
-# Running the Sonata SP Security Gateway (Docker container)
-- debug: msg="##### SP SEC-GW DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
-- name: run the SP Security Gateway
+# Running the 5GTANGO Security Gateway (Docker container)
+- debug: msg="##### 5GTANGO SEC-GTW DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- name: run the 5GTANGO Security Gateway
   docker_container:
-    name: "son-sec-gw"
-    image: "{{ repository }}/son-sec-gw:{{ version }}"
+    name: "tng-sec-gtw"
+    image: "{{ repository }}/tng-sec-gtw:{{ version }}"
     state: started
     pull: true
     restart_policy: "always"
@@ -12,7 +12,7 @@
     networks:
       - name: "{{ docker_network_name }}"
         aliases:
-          - son-sec-gw
+          - tng-sec-gtw
     published_ports:
       - "80:80"
       - "443:443"
