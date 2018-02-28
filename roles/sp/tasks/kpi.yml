@@ -6,6 +6,7 @@
     name: son-gtkkpi
     image: "{{ repository }}/son-gtkkpi:{{ version }}"
     state: started
+    recreate: yes
     pull: true
     restart_policy: "always"
     env:

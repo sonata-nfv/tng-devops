@@ -8,6 +8,7 @@
     env:
       REDIS_URL=redis://son-redis:6379
     state: started
+    recreate: yes
     pull: true
     restart_policy: "always"
     network_mode: bridge

@@ -32,6 +32,7 @@
         aliases:
           - son-gtksrv
     state: started
+    recreate: yes
     pull: true
     restart_policy: "always"
     published_ports: "5300:5300"

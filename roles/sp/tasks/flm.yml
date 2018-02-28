@@ -18,4 +18,5 @@
         aliases:
           - functionlifecyclemanagement
     state: started
+    recreate: yes
     pull: true

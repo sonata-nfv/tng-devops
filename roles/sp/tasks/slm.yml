@@ -20,4 +20,5 @@
           - son-broker
     restart_policy: "always"
     state: started
+    recreate: yes
     pull: true

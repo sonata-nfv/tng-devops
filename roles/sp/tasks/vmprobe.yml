@@ -5,6 +5,7 @@
     name: son-mon-vmprobe
     image: "{{ repository }}/son-monitor-vmprobe:{{ version }}"
     state: started
+    recreate: yes
     pull: true
     network_mode: host
     privileged: yes

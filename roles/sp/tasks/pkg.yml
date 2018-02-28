@@ -9,6 +9,7 @@
       CATALOGUES_URL: http://son-catalogue-repos:4011/catalogues/api/v2
       RACK_ENV: integration
     state: started
+    recreate: yes
     pull: true
     network_mode: bridge
     networks:

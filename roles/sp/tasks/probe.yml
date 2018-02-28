@@ -6,6 +6,7 @@
     name: son-monitor-probe
     image: "{{ repository }}/son-monitor-probe:{{ version }}"
     state: started
+    recreate: yes
     pull: true
     restart_policy: "always"
     privileged: yes

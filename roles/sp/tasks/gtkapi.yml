@@ -25,6 +25,7 @@
         aliases:
           - son-gtkapi
     state: started
+    recreate: yes
     pull: true
     published_ports: "32001:5000"
     restart_policy: "always"

@@ -6,6 +6,7 @@
     name: "tng-api-gtw"
     image: "{{ repository }}/tng-api-gtw:{{ version }}"
     state: started
+    recreate: yes
     pull: true
     restart_policy: "always"
     network_mode: bridge

@@ -6,6 +6,8 @@
     name: "son-redis"
     image: "redis"
     state: started
+    recreate: yes
+    pull: true
     restart_policy: "always"
     network_mode: bridge
     networks:

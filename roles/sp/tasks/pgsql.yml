@@ -11,6 +11,8 @@
       POSTGRES_USER: "{{ gtk_db_user }}"
       POSTGRES_PASSWORD: "{{ gtk_db_pass }}"
     state: started
+    recreate: yes
+    pull: true
     restart_policy: "always"
     network_mode: bridge
     networks:

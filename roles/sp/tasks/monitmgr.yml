@@ -6,6 +6,7 @@
     name: son-monitor-manager
     image: "{{ repository }}/son-monitor-manager:{{ version }}"
     state: started
+    recreate: yes
     pull: true
     restart_policy: "always"
     network_mode: bridge

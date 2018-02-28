@@ -7,6 +7,8 @@
     image: "{{ repository }}/son-yo-gen-bss:{{ version }}"
     command: "grunt serve:integration --gkApiUrl=http://{{ target }}/api/v2 --hostname=0.0.0.0 --userManagementEnabled=true --licenseManagementEnabled=true --debug"
     state: started
+    recreate: yes
+    pull: true
     network_mode: bridge
     networks:
       - name: "{{ docker_network_name }}"

@@ -18,6 +18,7 @@
           - son-mongo
     restart_policy: "always"
     state: started
+    recreate: yes
     pull: true
     published_ports: 8001:8001
 

@@ -6,6 +6,7 @@
     name: son-monitor-influxdb
     image: "{{ repository }}/son-monitor-influxdb:{{ version }}"
     state: started
+    recreate: yes
     pull: true
     restart_policy: "always"
     network_mode: bridge

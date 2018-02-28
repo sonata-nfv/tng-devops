@@ -7,6 +7,7 @@
     image: "{{ repository }}/son-monitor-pushgateway:{{ version }}"
     restart_policy: "always"
     state: started
+    recreate: yes
     pull: true
     network_mode: bridge
     networks:

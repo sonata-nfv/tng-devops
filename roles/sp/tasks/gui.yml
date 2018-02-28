@@ -9,6 +9,7 @@
       MON_URL: "http://{{ target }}/monitoring"
       GK_URL: "http://{{ target }}/api/v2"
     state: started
+    recreate: yes
     pull: true
     network_mode: bridge
     networks:
