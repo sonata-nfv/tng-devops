@@ -5,7 +5,8 @@
   docker_container:
     name: son-catalogue-repos
     image: "{{ repository }}/son-catalogue-repos:{{ version }}"
-    state: reloaded
+    state: started
+    recreate: yes
     pull: true
     restart_policy: "always"
     network_mode: bridge

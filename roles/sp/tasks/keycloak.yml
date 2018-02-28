@@ -12,7 +12,8 @@
       SONATA_USER: "sonata"
       SONATA_PASSWORD: "1234"
       SONATA_EMAIL: "sonatanfv@gmail.com"
-    state: reloaded
+    state: started
+    recreate: yes
     pull: true
     network_mode: bridge
     networks:

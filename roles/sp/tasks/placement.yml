@@ -13,5 +13,6 @@
       - name: "{{ docker_network_name }}"
         aliases:
           - placementexecutive
-    state: reloaded
+    state: started
+    recreate: yes
     pull: true

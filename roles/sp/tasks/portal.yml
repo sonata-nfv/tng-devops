@@ -5,7 +5,8 @@
   docker_container:
     name: tng-portal
     image: "{{ repository }}/tng-portal:{{ version }}"
-    state: reloaded
+    state: started
+    recreate: yes
     pull: true
     network_mode: bridge
     networks:

@@ -17,5 +17,6 @@
       - name: "{{ docker_network_name }}"
         aliases:
           - functionlifecyclemanagement
-    state: reloaded
+    state: started
+    recreate: yes
     pull: true

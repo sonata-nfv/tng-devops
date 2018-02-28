@@ -5,7 +5,9 @@
   docker_container:
     name: "son-mongo"
     image: "mongo"
-    state: reloaded
+    state: started
+    recreate: yes
+    pull: true
     restart_policy: "always"
     network_mode: bridge
     networks:

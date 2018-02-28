@@ -13,5 +13,6 @@
       - name: "{{ docker_network_name }}"
         aliases:
           - placementplugin
-    state: reloaded
+    state: started
+    recreate: yes
     pull: true

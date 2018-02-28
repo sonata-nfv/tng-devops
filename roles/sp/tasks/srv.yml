@@ -31,7 +31,8 @@
       - name: "{{ docker_network_name }}"
         aliases:
           - son-gtksrv
-    state: reloaded
+    state: started
+    recreate: yes
     pull: true
     restart_policy: "always"
     published_ports: "5300:5300"

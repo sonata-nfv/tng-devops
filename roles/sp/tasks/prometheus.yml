@@ -6,7 +6,8 @@
     name: son-monitor-prometheus
     image: "{{ repository }}/son-monitor-prometheus:{{ version }}"
     restart_policy: "always"
-    state: reloaded
+    state: started
+    recreate: yes
     pull: true
     env:
       RABBIT_URL: "son-broker:5672"

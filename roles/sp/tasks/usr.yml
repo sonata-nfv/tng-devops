@@ -5,7 +5,8 @@
   docker_container:
     name: son-gtkusr
     image: "{{ repository }}/son-gtkusr:{{ version }}"
-    state: reloaded
+    state: started
+    recreate: yes
     pull: true
     env:
       KEYCLOAK_ADDRESS: son-keycloak

@@ -5,7 +5,8 @@
   docker_container:
     name: "tng-api-gtw"
     image: "{{ repository }}/tng-api-gtw:{{ version }}"
-    state: reloaded
+    state: started
+    recreate: yes
     pull: true
     restart_policy: "always"
     network_mode: bridge
