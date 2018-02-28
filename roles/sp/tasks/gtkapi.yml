@@ -24,7 +24,7 @@
       - name: "{{ docker_network_name }}"
         aliases:
           - son-gtkapi
-    state: started
+    state: reloaded
     pull: true
     published_ports: "32001:5000"
     restart_policy: "always"

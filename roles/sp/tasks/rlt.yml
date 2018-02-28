@@ -7,7 +7,7 @@
     image: "{{ repository }}/son-gtkrlt:{{ version }}"
     env:
       REDIS_URL=redis://son-redis:6379
-    state: started
+    state: reloaded
     pull: true
     restart_policy: "always"
     network_mode: bridge

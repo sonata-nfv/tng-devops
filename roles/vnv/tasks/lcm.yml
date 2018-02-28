@@ -8,7 +8,7 @@
   docker_container:
     name: tng-vnv-lcm
     image: "{{ repository }}/tng-vnv-lcm:{{ version }}"
-    state: started
+    state: reloaded
     pull: true
     network_mode: bridge
     networks:

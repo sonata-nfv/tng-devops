@@ -5,7 +5,7 @@
   docker_container:
     name: son-monitor-probe
     image: "{{ repository }}/son-monitor-probe:{{ version }}"
-    state: started
+    state: reloaded
     pull: true
     restart_policy: "always"
     privileged: yes

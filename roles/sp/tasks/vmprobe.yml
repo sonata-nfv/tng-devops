@@ -4,7 +4,7 @@
   docker_container:
     name: son-mon-vmprobe
     image: "{{ repository }}/son-monitor-vmprobe:{{ version }}"
-    state: started
+    state: reloaded
     pull: true
     network_mode: host
     privileged: yes

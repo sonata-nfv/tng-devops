@@ -16,7 +16,7 @@
         links:
           - son-broker
     restart_policy: "always"
-    state: started
+    state: reloaded
     pull: true
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"

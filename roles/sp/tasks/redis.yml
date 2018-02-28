@@ -5,7 +5,7 @@
   docker_container:
     name: "son-redis"
     image: "redis"
-    state: started
+    state: reloaded
     restart_policy: "always"
     network_mode: bridge
     networks:

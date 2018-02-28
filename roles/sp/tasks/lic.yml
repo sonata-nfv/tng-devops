@@ -22,7 +22,7 @@
       POSTGRES_PASSWORD: "{{ gtk_db_pass }}"
       POSTGRES_USER: "{{ gtk_db_user }}"
       POSTGRES_DB: "{{ gtk_db_name }}"
-    state: started
+    state: reloaded
     pull: true
     restart_policy: "always"
     network_mode: bridge

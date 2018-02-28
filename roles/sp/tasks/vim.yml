@@ -29,7 +29,7 @@
       - name: "{{ docker_network_name }}"
         aliases:
           - son-gtkvim
-    state: started
+    state: reloaded
     pull: true
     restart_policy: "always"
     published_ports: "5700:5700"

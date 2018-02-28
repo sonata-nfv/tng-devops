@@ -6,7 +6,7 @@
     name: son-sp-infrabstract
     image: "{{ repository }}/son-sp-infrabstract:{{ version }}"
     restart_policy: "always"
-    state: started
+    state: reloaded
     pull: true
     env:
       broker_host: "son-broker"

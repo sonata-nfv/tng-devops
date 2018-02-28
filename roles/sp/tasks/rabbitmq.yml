@@ -7,7 +7,7 @@
     image: "rabbitmq:3-management"
     env:
       RABBITMQ_CONSOLE_LOG: new
-    state: started
+    state: reloaded
     restart_policy: "always"
     network_mode: bridge
     networks:

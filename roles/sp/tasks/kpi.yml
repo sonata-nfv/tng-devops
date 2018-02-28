@@ -5,7 +5,7 @@
   docker_container:
     name: son-gtkkpi
     image: "{{ repository }}/son-gtkkpi:{{ version }}"
-    state: started
+    state: reloaded
     pull: true
     restart_policy: "always"
     env:
