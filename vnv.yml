@@ -3,4 +3,4 @@
   become: true
   gather_facts: no
   roles:
-   - sp
+    - vnv

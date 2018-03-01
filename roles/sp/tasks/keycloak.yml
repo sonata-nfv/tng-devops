@@ -1,6 +1,8 @@
 ---
-# Running the Sonata GTK-KEYCLOAK (Docker container)
-- debug: msg="##### SP GTK-KEYCLOAK DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+# Running the SONATA GTK-KEYCLOAK (Docker container)
+
+- debug: msg="##### SP GTK-KEYCLOAK DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H:%M:%S') }}"
+
 - name: run the SP Keycloak service
   docker_container:
     name: "son-keycloak"
@@ -9,9 +11,9 @@
       #Default: KEYCLOAK_USER: admin KEYCLOAK_PASSWORD: admin
       KEYCLOAK_USER: "{{ gtk_keycloak_user }}" 
       KEYCLOAK_PASSWORD: "{{ gtk_keycloak_pass }}"
-      SONATA_USER: "sonata"
+      SONATA_USER: "{{ tng_user }}"
       SONATA_PASSWORD: "1234"
-      SONATA_EMAIL: "sonatanfv@gmail.com"
+      SONATA_EMAIL: "{{ tng_user }}@{{ tng_fqdn }}"
     state: started
     recreate: yes
     pull: true

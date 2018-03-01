@@ -1,6 +1,8 @@
 ---
-# Running the Sonata GK SERVICES (Docker container)
-- debug: msg="##### SP SON-VALIDATE DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+# Running the SONATA GK SERVICES (Docker container)
+
+- debug: msg="##### SP SON-VALIDATE DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H:%M%S') }}"
+
 - name: SONATA VALIDATOR (son-validate) (Docker container)
   docker_container:
     name: son-validate

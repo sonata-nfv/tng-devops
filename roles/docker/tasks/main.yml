@@ -1,0 +1,37 @@
+
+# tasks file for docker
+
+#- include_vars: "{{ item }}"
+#  with_first_found:
+#    - "{{ ansible_distribution_release }}.yml"
+#    - "{{ ansible_os_family }}.yml"
+#    - "default.yml"
+
+#- include_vars: "{{ lookup('env','PWD') }}/roles/docker/defaults/main.yml"
+
+- group:
+    name: docker
+    state: present
+
+- user:
+    name: tango
+    shell: /bin/bash
+    groups: docker
+    append: yes
+
+- name: create a directory for Docker logging
+  file:
+    path: /var/log/docker
+    state: directory
+    owner: tango
+    group: docker
+    mode: 0775
+  become: true
+
+- include_tasks: "{{ ansible_distribution_release }}.yml"
+
+- include_tasks: "{{ lookup('env','PWD') }}/roles/docker/tasks/networks.yml"
+
+- name: restart docker on Systemd (Ubuntu 16 and CentOS 7)
+  systemd: name=docker state=reloaded daemon_reload=yes
+
