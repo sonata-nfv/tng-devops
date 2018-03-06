@@ -67,6 +67,9 @@
 # deploy Gatekepper API module
 - import_tasks: api-gtw.yml
 
+# deploy Gatekepper Common module
+- import_tasks: gtk-common.yml
+
 # deploy Repositories
 - import_tasks: repos.yml
 
