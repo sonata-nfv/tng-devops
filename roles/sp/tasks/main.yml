@@ -31,6 +31,9 @@
 # deploy BSS
 - import_tasks: bss.yml
 
+# deploy SDK packager
+- import_tasks: tng-sdk-pkg.yml
+
 # deploy Gatekepper Validator module
 - import_tasks: val.yml
 
