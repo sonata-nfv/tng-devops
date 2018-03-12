@@ -3,7 +3,7 @@
 - debug: msg="##### 5GTANGO GTK-COMMON DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
 - name: run the 5GTANGO GTK-COMMON
   docker_container:
-    name: "tng-gtk-common"
+    name: tng-gtk-common
     image: "{{ repository }}/tng-gtk-common:{{ version }}"
     state: started
     recreate: yes
