@@ -1,5 +1,7 @@
 ---
 # Installing environment tools
+#- import_tasks: opsys_tools.yml
+
 # Install python
 - import_tasks: python.yml
 

@@ -17,22 +17,22 @@ This is the tree structure of the repository:
 .
 ├── environments
 ├── host_vars
-│   ├── int-sp-ath.5gtango.eu
-│   ├── int-vnv-bcn.5gtango.eu
-│   ├── pre-int-sdk-ath.5gtango.eu
-│   ├── pre-int-sp-ath.5gtango.eu
-│   ├── pre-int-vnv-bcn.5gtango.eu
-│   ├── qual-sp-bcn.5gtango.eu
-│   ├── qual-vnv-bcn.5gtango.eu
-│   ├── sta-sdk-ath.5gtango.eu
-│   ├── sta-sdk-ave.5gtango.eu
-│   ├── sta-sdk-pad.5gtango.eu
-│   ├── sta-sp-ath.5gtango.eu
-│   ├── sta-sp-ave.5gtango.eu
-│   ├── sta-sp-pad.5gtango.eu
-│   ├── sta-vnv-ath.5gtango.eu
-│   ├── sta-vnv-ave.5gtango.eu
-│   ├── sta-vnv-pad.5gtango.eu
+│   ├── int-sp-ath
+│   ├── int-vnv-bcn
+│   ├── pre-int-sdk-ath
+│   ├── pre-int-sp-ath
+│   ├── pre-int-vnv-bcn
+│   ├── qual-sp-bcn
+│   ├── qual-vnv-bcn
+│   ├── sta-sdk-ath
+│   ├── sta-sdk-ave
+│   ├── sta-sdk-pad
+│   ├── sta-sp-ath
+│   ├── sta-sp-ave
+│   ├── sta-sp-pad
+│   ├── sta-vnv-ath
+│   ├── sta-vnv-ave
+│   ├── sta-vnv-pad
 │   └── localhost
 ├── roles
 │   ├── sp
@@ -82,30 +82,30 @@ To use the playbooks, the command is composed by `ansible-playbook` + the role (
 
 Here is the list of commands to deploy each environment.
 
-* int-sp-ath.5gtango.eu
+* int-sp-ath
   * `ansible-playbook roles/sp.yml -i environments -e "target=int-sp"`
-* int-vnv-bcn.5gtango.eu
+* int-vnv-bcn
   * `ansible-playbook roles/vnv.yml -i environments -e "target=int-vnv"`
-* pre-int-sdk-ath.5gtango.eu
+* pre-int-sdk-ath
   * `ansible-playbook roles/sdk.yml -i environments -e "target=pre-int-sdk"`
-* pre-int-sp-ath.5gtango.eu
+* pre-int-sp-ath
   * `ansible-playbook roles/sp.yml -i environments -e "target=pre-int-sp"`
-* pre-int-vnv-bcn.5gtango.eu
+* pre-int-vnv-bcn
   * `ansible-playbook roles/vnv.yml -i environments -e "target=pre-int-vnv"`
-* qual-sp-bcn.5gtango.eu
+* qual-sp-bcn
   * `ansible-playbook roles/sp.yml -i environments -e "target=qual-sp"`
-* qual-vnv-bcn.5gtango.eu
+* qual-vnv-bcn
   * `ansible-playbook roles/vnv.yml -i environments -e "target=qual-vnv"`
-* sta-sdk-ath.5gtango.eu, sta-sdk-ave.5gtango.eu and sta-sdk-pad.5gtango.eu
+* sta-sdk-ath, sta-sdk-ave and sta-sdk-pad
   * `ansible-playbook roles/sdk.yml -i environments -e "target=sta-sdk"`
-* sta-sp-ath.5gtango.eu, sta-sp-ave.5gtango.eu and sta-sp-pad.5gtango.eu
+* sta-sp-ath, sta-sp-ave and sta-sp-pad
   * `ansible-playbook roles/sp.yml -i environments -e "target=sta-sp"`
-* sta-vnv-ath.5gtango.eu, sta-vnv-ave.5gtango.eu and sta-vnv-pad.5gtango.eu
+* sta-vnv-ath, sta-vnv-ave and sta-vnv-pad
   * `ansible-playbook roles/vnv.yml -i environments -e "target=sta-vnv"`
 
 Or it can be deployed directly deployed using the hostname of the environment like:
 
-* `ansible-playbook roles/sp.yml -i environments -e "target=sta-sp-ath.5gtango.eu"`
+* `ansible-playbook roles/sp.yml -i environments -e "target=sta-sp-ath"`
 
 ## Contributing
 
