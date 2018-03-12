@@ -74,7 +74,10 @@
 - import_tasks: gtk-common.yml
 
 # deploy Repositories
-- import_tasks: repos.yml
+- import_tasks: rep.yml
+
+# deploy Catalogues
+- import_tasks: cat.yml
 
 ## Deploying Mano Components
 # deploy PluginManager of MANO framework
