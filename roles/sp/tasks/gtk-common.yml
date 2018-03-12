@@ -15,5 +15,5 @@
         aliases:
           - tng-gtk-common
     published_ports:
-      - "32002:5000"
+      - "32003:5000"
 
