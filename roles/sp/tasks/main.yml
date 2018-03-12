@@ -31,6 +31,9 @@
 # deploy BSS
 - import_tasks: bss.yml
 
+# deploy SDK packager
+- import_tasks: tng-sdk-pkg.yml
+
 # deploy Gatekepper Validator module
 - import_tasks: val.yml
 
@@ -66,6 +69,9 @@
 
 # deploy Gatekepper API module
 - import_tasks: api-gtw.yml
+
+# deploy Gatekepper Common module
+- import_tasks: gtk-common.yml
 
 # deploy Repositories
 - import_tasks: repos.yml
