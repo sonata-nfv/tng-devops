@@ -2,7 +2,8 @@
 pre-int-sp-ath.5gtango.eu ansible_user=tango
 
 [pre-int-vnv]
-pre-int-vnv-bcn.5gtango.eu ansible_user=tango
+#pre-int-vnv-bcn.5gtango.eu ansible_user=tango
+pre-int-vnv-ave.5gtango.eu ansible_user=tango
 
 [pre-int-sdk]
 pre-int-sdk-ath.5gtango.eu ansible_user=tango
@@ -11,13 +12,16 @@ pre-int-sdk-ath.5gtango.eu ansible_user=tango
 int-sp-ath.5gtango.eu ansible_user=tango
 
 [int-vnv]
-int-vnv-bcn.5gtango.eu ansible_user=tango
+#int-vnv-bcn.5gtango.eu ansible_user=tango
+int-vnv-ave.5gtango.eu ansible_user=tango
+
 
 [qual-sp]
 qual-sp-bcn.5gtango.eu ansible_user=tango
 
 [qual-vnv]
-qual-vnv-bcn.5gtango.eu ansible_user=tango
+#qual-vnv-bcn.5gtango.eu ansible_user=tango
+qual-vnv-ave.5gtango.eu ansible_user=tango
 
 [sta-sp]
 sta-sp-ath.5gtango.eu ansible_user=tango
