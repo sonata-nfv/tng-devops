@@ -11,7 +11,7 @@
     - ca-certificates
     - curl
     - software-properties-common
-
+    
 - name: Install Python 2.x
   raw: test -e /usr/bin/python || (apt update && apt install -y python-simplejson)
   register: test
@@ -35,3 +35,11 @@
   pip:
     name: docker-py
     version: "1.9.0"
+
+- name: Install cryptography python module
+  pip:
+    name: cryptography
+
+- name: Install idna python module
+  pip:
+    name: idna
