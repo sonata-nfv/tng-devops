@@ -18,10 +18,10 @@ int-vnv-ave.5gtango.eu ansible_user=tango
 
 [qual-sp]
 qual-sp-bcn.5gtango.eu ansible_user=tango
+qual-sp-ave.5gtango.eu ansible_user=tango
 
 [qual-vnv]
-#qual-vnv-bcn.5gtango.eu ansible_user=tango
-qual-vnv-ave.5gtango.eu ansible_user=tango
+qual-vnv-bcn.5gtango.eu ansible_user=tango
 
 [sta-sp]
 sta-sp-ath.5gtango.eu ansible_user=tango
