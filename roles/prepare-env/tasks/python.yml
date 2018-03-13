@@ -8,21 +8,25 @@
   raw: test -e /usr/bin/python || (apt update && apt install -y python-simplejson)
   register: test
   changed_when: test.stdout
+
 - name: check to see if pip is already installed
   command: "pip --version"
   ignore_errors: true
   register: pip_is_installed
   changed_when: false
-- block:
+
+- name: download PIP package and install it
+  block:
    - name: download get-pip.py
      get_url:
        url: https://bootstrap.pypa.io/get-pip.py
-       dest: /tmp
+       dest: /tmp/get-pip.py
        validate_certs: no
    - name: install pip
-     command: "python /tmp/get-pip.py"
+     shell: "python /tmp/get-pip.py"
    - name: delete get-pip.py
      file: state=absent path=/tmp/get-pip.py
+
 - name: Install docker-py python module
   pip:
     name: docker-py

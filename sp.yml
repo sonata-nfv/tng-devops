@@ -2,7 +2,18 @@
 - hosts: "{{ target | default('localhost') }}"
   become: true
   gather_facts: no
+
+  vars_files:
+    - "environments/{{ env }}/group_vars/all"
+    - "environments/{{ env }}/group_vars/{{ pop }}//vars.yml"
+    - "environments/{{ env }}/group_vars/{{ pop }}/vault.yml"
+    - "environments/{{ env }}/group_vars/{{ plat }}//vars.yml"
+    - "environments/{{ env }}/group_vars/{{ plat }}/vault.yml"
+
   roles:
+    - prepare-env
+    - docker
     - sp
+
   tasks:
      - debug: msg="##### START-DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H:%M:%S') }}"

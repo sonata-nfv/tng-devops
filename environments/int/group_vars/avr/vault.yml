@@ -1,0 +1,23 @@
+---
+sp_user: tango
+sp_pass: t4ngo
+
+# VARs for MONITOR pgSQL database
+upassword: tango
+urootpw: 1234
+dbname: monitoring
+dbuser: monitoringuser
+
+# VARs for GATEKEEPER pgSQL database
+gtk_db_name: gatekeeper
+gtk_db_user: tangotest
+gtk_db_pass: t4ng0
+
+# VARs for GATEKEEPER USER MGMT
+gtk_keycloak_user: admin
+gtk_keycloak_pass: admin
+
+# VARs for IA
+ia_repo_user: tangotest
+ia_repo_pass: t4ngo
+
