@@ -1,6 +1,6 @@
 ---
 
-- debug: msg="##### VnV Lifecycle Manager Deployment {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- debug: msg="##### VnV Lifecycle Manager Deployment {{ lookup('pipe', 'date +%Y%m%d-%H:%M:%S') }}"
 
 # Running the 5GTANGO VnV Lyfecycle Manager Deployment (Docker container)
 

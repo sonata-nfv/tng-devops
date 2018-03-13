@@ -1,6 +1,6 @@
 ---
 # Running the Sonata GTK-KPI (Docker container)
-- debug: msg="##### SP GTK-KPI DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- debug: msg="##### SP GTK-KPI DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H:%M:%S') }}"
 - name: GATEKEEPER KEY PERFORMANCE INDICATORS (GTKKPI) (Docker container)
   docker_container:
     name: son-gtkkpi

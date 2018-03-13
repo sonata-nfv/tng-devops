@@ -1,5 +1,5 @@
 # Running the Sonata MONIT VM Probe (Docker container)
-- debug: msg="##### SP MONIT VM Probe DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- debug: msg="##### SP MONIT VM Probe DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H:%M:%S') }}"
 - name: MONIT VM Probe
   docker_container:
     name: son-mon-vmprobe

@@ -1,6 +1,6 @@
 ---
 # Running the Sonata MANO Function Lifecycle Management Docker Image
-- debug: msg="##### MANO Function Lifecycle Management DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- debug: msg="##### MANO Function Lifecycle Management DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H:%M:%S') }}"
 - name: MANO Function Lifecycle Management Plugin (Docker container)
   docker_container:
     name: functionlifecyclemanagement

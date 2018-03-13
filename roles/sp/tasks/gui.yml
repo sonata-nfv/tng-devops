@@ -1,6 +1,6 @@
 ---
 # Running the Sonata GK GUI (Docker container)
-- debug: msg="##### SP GUI DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- debug: msg="##### SP GUI DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H:%M:%S') }}"
 - name: GATEKEEPER GUI - running Docker containers
   docker_container:
     name: son-gui

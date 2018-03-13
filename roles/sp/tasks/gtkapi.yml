@@ -1,6 +1,6 @@
 ---
 # Running the Sonata GK API Docker Image
-- debug: msg="##### SP GTK-API DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- debug: msg="##### SP GTK-API DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H:%M:%S') }}"
 - name: deploying GATEKEEPER API (Docker containers)
   docker_container:
     name: son-gtkapi

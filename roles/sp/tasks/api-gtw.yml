@@ -1,6 +1,6 @@
 ---
 # Running the 5GTANGO API Gateway (Docker container)
-- debug: msg="##### 5GTANGO API-GTW DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- debug: msg="##### 5GTANGO API-GTW DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H:%M:%S') }}"
 - name: run the 5GTANGO Security Gateway
   docker_container:
     name: "tng-api-gtw"

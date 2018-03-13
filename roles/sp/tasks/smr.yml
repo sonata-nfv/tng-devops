@@ -1,6 +1,6 @@
 ---
 # Running the Sonata SP SPECIFIC MANAGER REGISTRY Docker Image
-- debug: msg="##### SP SPECIFIC MANAGER REGISTRY DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- debug: msg="##### SP SPECIFIC MANAGER REGISTRY DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H:%M:%S') }}"
 - name: MANO Specific Manager Registry (SMR) (Docker container)
   docker_container:
     name: specificmanagerregistry
