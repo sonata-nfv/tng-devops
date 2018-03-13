@@ -1,5 +1,5 @@
 - name: Docker User Defined Network
-  shell: "sudo docker network inspect {{ docker_network_name }}"
+  shell: docker network inspect {{ docker_network_name }} 
   become: true
   ignore_errors: true
   no_log: true

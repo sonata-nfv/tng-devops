@@ -1,0 +1,6 @@
+---
+
+- name:  upgrade all packages to the latest version
+  become: true
+  yum: name='*' state=latest update_cache=yes
+
