@@ -1,4 +1,6 @@
 ---
+docker_network_name: tng_net
+fqdn: sp.alabs.5gtango.eu
 
 img_name: xenial64
 flv_name: m1.tng
