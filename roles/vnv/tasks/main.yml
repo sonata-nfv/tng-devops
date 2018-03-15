@@ -5,3 +5,6 @@
 # deploy tng-vnv-lcm
 - import_tasks: lcm.yml
 
+# deploy tng-vnv-tee
+- import_tasks: tee.yml
+
