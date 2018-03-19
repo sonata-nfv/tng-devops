@@ -79,6 +79,9 @@
 # deploy Catalogues
 - import_tasks: cat.yml
 
+# deploy Catalogues
+- import_tasks: slice-mngr.yml
+
 ## Deploying Mano Components
 # deploy PluginManager of MANO framework
 - import_tasks: pluginmgr.yml
