@@ -11,4 +11,4 @@ repository: registry.sonata-nfv.eu:5000
 
 ## VnV Specific Variables
 
-app_gk_host: 172.31.6.42
+app_gk_base_url: http://qual-sp-ave.5gtango.eu/api/v2

@@ -9,7 +9,7 @@
     name: tng-vnv-tee
     image: "{{ repository }}/tng-vnv-tee:{{ version }}"
     env:
-      APP_GK_HOST: "{{ app_gk_host }}"
+      APP_GK_BASE_URL: "{{ app_gk_base_url }}"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "/usr/bin/docker:/usr/bin/docker"
