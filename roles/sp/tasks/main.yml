@@ -65,7 +65,7 @@
 - import_tasks: rlt.yml
 
 # deploy Gatekepper API module
-#- import_tasks: gtkapi.yml
+- import_tasks: gtkapi.yml
 
 # deploy Gatekepper API module
 - import_tasks: api-gtw.yml
@@ -78,6 +78,9 @@
 
 # deploy Catalogues
 - import_tasks: cat.yml
+
+# deploy Catalogues
+- import_tasks: slice-mngr.yml
 
 # deploy SLA Management Framework
 - import_tasks: sla_mgmt.yml

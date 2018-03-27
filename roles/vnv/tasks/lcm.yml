@@ -8,6 +8,10 @@
   docker_container:
     name: tng-vnv-lcm
     image: "{{ repository }}/tng-vnv-lcm:{{ version }}"
+    env:
+      APP_GK_BASE_URL: "{{ app_gk_base_url }}"
+    log_driver: gelf
+    log_options: gelf-address=udp://10.30.0.219:12900
     state: started
     recreate: yes
     pull: true
