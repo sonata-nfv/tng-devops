@@ -79,6 +79,9 @@
 # deploy Catalogues
 - import_tasks: cat.yml
 
+# deploy SLA Management Framework
+- import_tasks: sla_mgmt.yml
+
 ## Deploying Mano Components
 # deploy PluginManager of MANO framework
 - import_tasks: pluginmgr.yml
