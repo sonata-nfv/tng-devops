@@ -82,6 +82,9 @@
 # deploy Catalogues
 - import_tasks: slice-mngr.yml
 
+# deploy SLA Management Framework
+- import_tasks: sla-mgmt.yml
+
 ## Deploying Mano Components
 # deploy PluginManager of MANO framework
 - import_tasks: pluginmgr.yml
