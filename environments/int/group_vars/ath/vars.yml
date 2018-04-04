@@ -1,9 +1,0 @@
----
-img_name: xenial64
-flv_name: m1.tng
-secgrp_name: ssh_secgrp
-fip_pool_name: admin_floating_net
-key_name: tng_infra.pem
-int_net_id: 83468d84-9ed3-4b83-a2b1-ca589b927ac1 # TNG
-ext_net_id: c004d6e7-1caf-4271-a677-79ae924674d6 # FIP
-

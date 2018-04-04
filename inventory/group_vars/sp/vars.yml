@@ -1,0 +1,12 @@
+---
+nbofvms: 1
+
+# Docker network segment
+docker_network_name: sp-docker-net
+
+# 5G TANGO NFV SP version
+sp_ver: latest
+
+sp_user: tango
+sp_pass: "$1$SRc2ws2Z$rSdCC/UKiatagNdfsTVuf0"
+

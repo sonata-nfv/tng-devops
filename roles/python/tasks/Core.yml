@@ -1,0 +1,23 @@
+- name:  upgrade all packages to the latest version
+  yum: name='*' state=latest update_cache=yes
+
+- name: DevTools group install
+  yum: name="@Development tools" state=present
+
+- name: install required libraries and tools for PIP
+  yum: name={{ item }} state=latest
+  with_items:
+    - python-devel
+    - python-pip
+    - openssl-devel
+    - libffi-devel
+
+# INSTALL VIA PIP - The packaged version might install older clients.
+# NOTE: If you want to make sure the latest clients are installed, you might need to install the clients with PIP.
+#- command: pip install --upgrade pip
+- name: Upgrade PIP
+  pip:
+    name: pip
+    extra_args: --upgrade
+    state: latest
+

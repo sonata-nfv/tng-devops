@@ -1,2 +1,2 @@
 ---
-- include_tasks: "{{ ansible_distribution_release }}.yml"
+- include_tasks: "{{ lookup('env','PWD') }}/roles/python/tasks/{{ ansible_distribution_release }}.yml"

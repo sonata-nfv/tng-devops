@@ -1,14 +1,18 @@
 ---
 - hosts: "{{ target | default('localhost') }}"
   become: no
+  connection: ssh
   gather_facts: true
 
   vars_files:
-    - "environments/{{ env }}/group_vars/all"
-    - "environments/{{ env }}/group_vars/{{ pop }}/vars.yml"
-    - "environments/{{ env }}/group_vars/{{ pop }}/vault.yml"
-    - "environments/{{ env }}/group_vars/{{ plat }}/vars.yml"
-    - "environments/{{ env }}/group_vars/{{ plat }}/vault.yml"
+    - "inventory/host_vars/all"
+    - "inventory/group_vars/all"
+    - "inventory/group_vars/{{ env }}/vars.yml"
+    #- "inventory/group_vars/{{ env }}/vault.yml"
+    - "inventory/group_vars/{{ pop }}/vars.yml"
+    #- "inventory/group_vars/{{ pop }}/vault.yml"
+    - "inventory/group_vars/{{ plat }}/vars.yml"
+    #- "inventory/group_vars/{{ plat }}/vault.yml"
 
   pre_tasks:
     - name: get my public IP

@@ -1,0 +1,2 @@
+domain_name: sonata-nfv.eu
+fqdn: "{{ plat }}.{{ pop }}.{{ domain_name }}"

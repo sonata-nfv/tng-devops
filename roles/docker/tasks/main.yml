@@ -28,7 +28,7 @@
     mode: 0775
   become: true
 
-- include_tasks: "{{ ansible_distribution_release }}.yml"
+- include_tasks: "{{ lookup('env','PWD') }}/roles/docker/tasks/{{ ansible_distribution_release }}.yml"
 
 - include_tasks: "{{ lookup('env','PWD') }}/roles/docker/tasks/networks.yml"
 

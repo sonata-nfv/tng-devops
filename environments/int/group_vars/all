@@ -1,6 +1,0 @@
----
-sp_ver: latest
-domain_name: 5gtango.eu
-#fqdn: "{{ plat }}.{{ pop }}.{{ domain_name }}"
-docker_network_name: tng_net
-
