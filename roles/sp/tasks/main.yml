@@ -82,6 +82,9 @@
 # deploy Catalogues
 - import_tasks: slice-mngr.yml
 
+# deploy Policy Manager
+- import_tasks: tng-policy-mngr.yml
+
 # deploy SLA Management Framework
 - import_tasks: sla-mgmt.yml
 
