@@ -70,20 +70,13 @@
 - name: "Ensure Docker is started at boot"
   service: name=docker enabled=yes
 
-- name: "Add user to group"
-  user: name="{{ tng_user }}" shell=/bin/bash groups=docker append=yes
-
-- name: "Add default image user to group"
-  user: name="{{ tng_user }}" shell=/bin/bash groups=docker append=yes
+#- name: "Add user to group"
+#  user: name="{{ tng_user }}" shell=/bin/bash groups=docker append=yes
 
 - name: "Configuring Docker Options"
   copy: src=docker2upstart dest=/etc/default/docker owner=root group=root mode=0644
 #  notify:
 #    - restart docker
-
-#- name: restart docker on Systemd (Ubuntu 16.04 and CentOS 7)
-#  systemd: name=docker state=reloaded daemon_reload=yes
-
 
 #- name: configure RSYSLOG
 #  template:

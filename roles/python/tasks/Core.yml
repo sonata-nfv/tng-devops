@@ -4,6 +4,9 @@
 - name: DevTools group install
   yum: name="@Development tools" state=present
 
+- name: install EPEL (to provide 'python-pip')
+  yum: name=epel-release state=latest
+
 - name: install required libraries and tools for PIP
   yum: name={{ item }} state=latest
   with_items:

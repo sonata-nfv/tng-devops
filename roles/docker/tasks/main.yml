@@ -7,17 +7,22 @@
 #    - "{{ ansible_os_family }}.yml"
 #    - "default.yml"
 
-#- include_vars: "{{ lookup('env','PWD') }}/roles/docker/defaults/main.yml"
+- include_vars: "{{ lookup('env','PWD') }}/inventory/group_vars/all"
 
-- group:
+- name: create Docker group
+  group:
     name: docker
     state: present
 
-- user:
-    name: tango
+- name: add Docker group to TNG user
+  user:
+    name: "{{ tng_user }}"
     shell: /bin/bash
     groups: docker
     append: yes
+
+- name: "Add user to group"
+  user: name="{{ tng_user }}" shell=/bin/bash groups=docker append=yes
 
 - name: create a directory for Docker logging
   file:

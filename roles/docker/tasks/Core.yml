@@ -25,11 +25,8 @@
 - name: install Docker on CentOS7
   yum: name=docker-engine state=present update_cache=yes
 
-- name: add user to Docker group
-  user: name="{{ tng_user }}" shell=/bin/bash groups=docker append=yes
-
-- name: "Add default image user to group"
-  user: name="{{ tng_user }}" shell=/bin/bash groups=docker append=yes
+#- name: add user to Docker group
+#  user: name="{{ tng_user }}" shell=/bin/bash groups=docker append=yes
 
 - name: add Docker configuration options
   copy: src=docker2systemd dest=/etc/sysconfig/docker owner=root group=root mode=0644
