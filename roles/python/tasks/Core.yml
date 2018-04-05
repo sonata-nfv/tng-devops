@@ -11,7 +11,7 @@
   yum: name={{ item }} state=latest
   with_items:
     - python-devel
-    - python-pip
+    - python2-pip
     - openssl-devel
     - libffi-devel
 

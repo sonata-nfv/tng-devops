@@ -1,32 +1,27 @@
 ---
 
-- yum: name=epel-release state=latest
+#- yum: name=epel-release state=latest
 
-- name: install Docker dependency libraries
-  yum: name={{ item }} state=present update_cache=yes
-  with_items:
-  - python-pip
+#- name: install Docker dependency libraries
+#  yum: name={{ item }} state=present update_cache=yes
+#  with_items:
+#  - python-pip
+
+- include_tasks: "{{ lookup('env','PWD') }}/roles/python/tasks/{{ ansible_distribution_release }}.yml"
 
 - name: make sure docker-python RPM is not installed
   yum: name=docker-python state=absent
 
 - name: make sure required PyPi packages are installed
   pip:
-    name: '{{ item }}'
+    name: docker-py
     state: present
-  with_items: 
-    #- docker-py==1.9.0
-    - docker-py
-    - six
 
 - name: add Docker repo to YUM
   copy: src=docker.repo dest=/etc/yum.repos.d/docker.repo owner=root group=root mode=0644
 
 - name: install Docker on CentOS7
   yum: name=docker-engine state=present update_cache=yes
-
-#- name: add user to Docker group
-#  user: name="{{ tng_user }}" shell=/bin/bash groups=docker append=yes
 
 - name: add Docker configuration options
   copy: src=docker2systemd dest=/etc/sysconfig/docker owner=root group=root mode=0644
@@ -41,11 +36,8 @@
 #  - restart docker
 
 - shell: systemctl daemon-reload
-  when: result|changed
+  when: result is changed
 
 - pause:
     seconds: 3
-
-- name: restart docker on Systemd (Ubuntu 16 and CentOS 7)
-  systemd: name=docker state=reloaded daemon_reload=yes
 

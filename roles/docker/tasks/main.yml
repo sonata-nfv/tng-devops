@@ -21,9 +21,6 @@
     groups: docker
     append: yes
 
-- name: "Add user to group"
-  user: name="{{ tng_user }}" shell=/bin/bash groups=docker append=yes
-
 - name: create a directory for Docker logging
   file:
     path: /var/log/docker
