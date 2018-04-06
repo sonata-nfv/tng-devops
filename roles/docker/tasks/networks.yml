@@ -1,22 +1,30 @@
-- name: Docker User Defined Network
+- name: list Docker networks
   shell: docker network list
   become: true
   ignore_errors: true
   no_log: true
   register: dockernet
-
 - debug:
     var: dockernet
 
-- name: stop all the running Docker containers 
-  shell: "docker stop $(docker ps -a -q)"
+- name: list running Docker containers
+  shell: docker ps
   become: true
-  when: "'tng_docker_net' in dockernet"
+  ignore_errors: true
+  no_log: true
+  register: dockerps
+- debug:
+    var: dockerps
+
+#- name: stop all the running Docker containers 
+#  shell: "docker stop $(sudo docker ps -a -q)"
+#  become: true
+#  when: dockerps.stdout != -1
 
 - name: remove Docker network
   shell: "docker network rm tng_docker_net"
   become: true
-  when: "'tng_docker_net' in dockernet"
+  when: dockernet.stdout.find('tng_docker_net') != -1
 
 - name: Docker creating network
   shell: 'docker network create --driver=bridge --subnet={{ docker_addr_space }} --gateway={{ docker_gateway }} --ip-range={{ docker_ip_range }} "tng_docker_net"'
