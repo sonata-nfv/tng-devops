@@ -35,8 +35,14 @@
 #  notify:
 #  - restart docker
 
-- shell: systemctl daemon-reload
-  when: result is changed
+#- shell: systemctl daemon-reload
+#  when: result is changed
+
+- name: restart service Docker-engine on CentOS, in all cases, also issue daemon-reload to pick up config changes
+  systemd:
+    state: restarted
+    daemon_reload: yes
+    name: docker
 
 - pause:
     seconds: 3

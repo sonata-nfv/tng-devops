@@ -16,7 +16,7 @@
          get_url: 
            url: https://bootstrap.pypa.io/get-pip.py  
            dest: /tmp
-           validate_certs: no
+           #validate_certs: no
        - name: install pip
          command: "python /tmp/get-pip.py" 
        - name: delete get-pip.py

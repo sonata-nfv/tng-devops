@@ -18,7 +18,7 @@
       CLIENT_NAME: adapter 
     network_mode: bridge
     networks:
-      - name: "{{ docker_network_name }}"
+      - name: "{{ docker_netw_name }}"
         aliases:
           - son-gtkusr
     published_ports: "5600:5600"

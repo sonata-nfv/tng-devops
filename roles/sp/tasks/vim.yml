@@ -9,7 +9,7 @@
 
 # Populate pgSQL database VIM
 - name: create data model and populate db
-  shell: /usr/bin/docker run --net={{ docker_network_name }} -i -e DATABASE_HOST=son-postgres -e MQSERVER=amqp://guest:guest@son-broker:5672 -e RACK_ENV=integration -e DATABASE_PORT=5432 -e POSTGRES_PASSWORD={{ gtk_db_pass }} -e POSTGRES_USER={{ gtk_db_user }} -e POSTGRES_DB={{ gtk_db_name }} --rm=true {{ repository }}/son-gtkvim:{{ version }} bundle exec rake db:migrate
+  shell: /usr/bin/docker run --net={{ docker_netw_name }} -i -e DATABASE_HOST=son-postgres -e MQSERVER=amqp://guest:guest@son-broker:5672 -e RACK_ENV=integration -e DATABASE_PORT=5432 -e POSTGRES_PASSWORD={{ gtk_db_pass }} -e POSTGRES_USER={{ gtk_db_user }} -e POSTGRES_DB={{ gtk_db_name }} --rm=true {{ repository }}/son-gtkvim:{{ version }} bundle exec rake db:migrate
 
 # Start GTK VIM (Docker container)
 - name: GATEKEEPER VIM
@@ -26,7 +26,7 @@
       POSTGRES_DB: "{{ gtk_db_name }}"
     network_mode: bridge
     networks:
-      - name: "{{ docker_network_name }}"
+      - name: "{{ docker_netw_name }}"
         aliases:
           - son-gtkvim
     state: started

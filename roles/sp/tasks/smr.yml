@@ -10,7 +10,7 @@
       broker_name: son-broker,broker
     network_mode: bridge
     networks:
-      - name: "{{ docker_network_name }}"
+      - name: "{{ docker_netw_name }}"
         aliases:
           - specificmanagerregistry
         links:

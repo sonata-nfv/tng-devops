@@ -1,3 +1,3 @@
 ---
 # defaults file for docker
-docker_network_name: vl-mgmt
+docker_netw_name: vl-mgmt

@@ -10,7 +10,7 @@
       broker_host: amqp://guest:guest@son-broker:5672/%2F
     network_mode: bridge
     networks:
-      - name: "{{ docker_network_name }}"
+      - name: "{{ docker_netw_name }}"
         aliases:
           - pluginmanager
         links:

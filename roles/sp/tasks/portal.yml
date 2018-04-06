@@ -10,7 +10,7 @@
     pull: true
     network_mode: bridge
     networks:
-      - name: "{{ docker_network_name }}"
+      - name: "{{ docker_netw_name }}"
         aliases:
           - tng-portal
     restart_policy: "always"

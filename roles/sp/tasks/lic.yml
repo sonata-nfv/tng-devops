@@ -9,7 +9,7 @@
 
 # Populate pgSQL database LIC
 - name: create data model and populate db
-  shell: /usr/bin/docker run --name son-gtklic --net={{ docker_network_name }} --network-alias=son-gtklic -i -e DATABASE_HOST=son-postgres -e DATABASE_PORT=5432 -e POSTGRES_PASSWORD={{ gtk_db_pass }} -e POSTGRES_USER={{ gtk_db_user }} -e POSTGRES_DB={{ gtk_db_name }} --rm=true {{ repository }}/son-gtklic:{{ version }} python manage.py db upgrade
+  shell: /usr/bin/docker run --name son-gtklic --net={{ docker_netw_name }} --network-alias=son-gtklic -i -e DATABASE_HOST=son-postgres -e DATABASE_PORT=5432 -e POSTGRES_PASSWORD={{ gtk_db_pass }} -e POSTGRES_USER={{ gtk_db_user }} -e POSTGRES_DB={{ gtk_db_name }} --rm=true {{ repository }}/son-gtklic:{{ version }} python manage.py db upgrade
 
 # Running the Sonata GK SERVICES (Docker container)
 - name: GATEKEEPER LICENSE MANAGER (GTKLIC) (Docker container)
@@ -28,7 +28,7 @@
     restart_policy: "always"
     network_mode: bridge
     networks:
-      - name: "{{ docker_network_name }}"
+      - name: "{{ docker_netw_name }}"
         aliases:
           - son-gtklic
     exposed_ports: 5900

@@ -18,7 +18,7 @@
     restart_policy: "always"
     network_mode: bridge
     networks:
-      - name: "{{ docker_network_name }}"
+      - name: "{{ docker_netw_name }}"
         aliases:
           - son-validate
     exposed_ports: 5050

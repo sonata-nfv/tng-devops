@@ -18,7 +18,7 @@
     command: postgres -p 5433
     network_mode: bridge
     networks:
-      - name: "{{ docker_network_name }}"
+      - name: "{{ docker_netw_name }}"
         aliases:
           - son-monitor-postgres
           - postgsql

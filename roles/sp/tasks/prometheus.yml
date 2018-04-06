@@ -14,7 +14,7 @@
       EMAIL_PASS: "czBuQHRAX21vbl9zeXNfMTY="
     network_mode: bridge
     networks:
-      - name: "{{ docker_network_name }}"
+      - name: "{{ docker_netw_name }}"
         aliases:
           - son-monitor-prometheus
           - prometheus

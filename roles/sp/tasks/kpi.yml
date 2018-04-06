@@ -16,7 +16,7 @@
       RACK_ENV: integration
     network_mode: bridge
     networks:
-      - name: "{{ docker_network_name }}"
+      - name: "{{ docker_netw_name }}"
         aliases:
           - son-gtkkpi
     published_ports: "5400:5400"

@@ -21,7 +21,7 @@
       RATE_LIMITER_URL: http://son-gtkrlt:5150      
     network_mode: bridge
     networks:
-      - name: "{{ docker_network_name }}"
+      - name: "{{ docker_netw_name }}"
         aliases:
           - son-gtkapi
     state: started

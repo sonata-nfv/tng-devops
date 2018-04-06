@@ -2,11 +2,14 @@
 nbofvms: 1
 
 # Docker network segment
-docker_network_name: sp-docker-net
+docker_netw_name: tng_docker_net
+docker_addr_space: 172.22.0.0/24
+docker_gateway: 172.22.0.1
+docker_ip_range: 172.22.0.128/25
 
 # 5G TANGO NFV SP version
-sp_ver: latest
+tng_ver: latest
 
-sp_user: tango
-sp_pass: "$1$SRc2ws2Z$rSdCC/UKiatagNdfsTVuf0"
+tng_user: tango
+tng_pass: "$1$SRc2ws2Z$rSdCC/UKiatagNdfsTVuf0"
 

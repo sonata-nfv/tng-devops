@@ -7,5 +7,5 @@
   tasks:
     - name: Create a docker network
       docker_network:
-        name: "{{ docker_network_name }}"
+        name: "{{ docker_netw_name }}"
         state: present
