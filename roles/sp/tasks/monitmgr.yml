@@ -4,7 +4,7 @@
 - name: MONIT MANAGER - running Docker containers
   docker_container:
     name: son-monitor-manager
-    image: "{{ repository }}/son-monitor-manager:{{ version }}"
+    image: "{{ repository }}/son-monitor-manager:{{ tng_ver }}"
     state: started
     recreate: yes
     pull: true

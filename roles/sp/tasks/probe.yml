@@ -4,7 +4,7 @@
 - name: MONIT Probe - running Docker containers
   docker_container:
     name: son-monitor-probe
-    image: "{{ repository }}/son-monitor-probe:{{ version }}"
+    image: "{{ repository }}/son-monitor-probe:{{ tng_ver }}"
     state: started
     recreate: yes
     pull: true

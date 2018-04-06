@@ -10,13 +10,13 @@
 
 # Populate pgSQL database SRV
 - name: create data model and populate db
-  shell: /usr/bin/docker run -i --net={{ docker_netw_name }} -e DATABASE_HOST=son-postgres -e RACK_ENV=integration -e CATALOGUES_URL=http://son-catalogue-repos:4002/catalogues/api/v2  -e DATABASE_PORT=5432 -e POSTGRES_PASSWORD={{ gtk_db_pass }} -e POSTGRES_USER={{ gtk_db_user }} -e POSTGRES_DB={{ gtk_db_name }} -e MQSERVER=amqp://guest:guest@son-broker:5672 --rm=true {{ repository }}/son-gtksrv:{{ version }} bundle exec rake db:migrate
+  shell: /usr/bin/docker run -i --net={{ docker_netw_name }} -e DATABASE_HOST=son-postgres -e RACK_ENV=integration -e CATALOGUES_URL=http://son-catalogue-repos:4002/catalogues/api/v2  -e DATABASE_PORT=5432 -e POSTGRES_PASSWORD={{ gtk_db_pass }} -e POSTGRES_USER={{ gtk_db_user }} -e POSTGRES_DB={{ gtk_db_name }} -e MQSERVER=amqp://guest:guest@son-broker:5672 --rm=true {{ repository }}/son-gtksrv:{{ tng_ver }} bundle exec rake db:migrate
 
 # Running the Sonata GK SERVICES (GTKSRV) (Docker container)
 - name: GATEKEEPER SERVICES - running Docker containers
   docker_container:
     name: son-gtksrv
-    image: "{{ repository }}/son-gtksrv:{{ version }}"
+    image: "{{ repository }}/son-gtksrv:{{ tng_ver }}"
     env:
       CATALOGUES_URL: http://son-catalogue-repos:4011/catalogues/api/v2
       RACK_ENV: integration

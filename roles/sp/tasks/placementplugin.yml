@@ -4,7 +4,7 @@
 - name: MANO Placement Plugin (Docker container)
   docker_container:
     name: placementplugin
-    image: "{{ repository }}/placementplugin:{{ version }}"
+    image: "{{ repository }}/placementplugin:{{ tng_ver }}"
     env:
       broker_host: amqp://guest:guest@son-broker:5672/%2F
     restart_policy: "always"

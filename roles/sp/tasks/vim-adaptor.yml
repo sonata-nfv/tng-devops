@@ -4,7 +4,7 @@
 - name: deploying Infrastructure Abstractor VIM Adaptor (Docker container)
   docker_container:
     name: son-sp-infrabstract
-    image: "{{ repository }}/son-sp-infrabstract:{{ version }}"
+    image: "{{ repository }}/son-sp-infrabstract:{{ tng_ver }}"
     restart_policy: "always"
     state: started
     recreate: yes

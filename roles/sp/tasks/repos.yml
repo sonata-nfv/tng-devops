@@ -4,7 +4,7 @@
 - name: deploy REPOSITORIES as a Docker container (from the Registry to the SP VM appliance)
   docker_container:
     name: son-catalogue-repos
-    image: "{{ repository }}/son-catalogue-repos:{{ version }}"
+    image: "{{ repository }}/son-catalogue-repos:{{ tng_ver }}"
     state: started
     recreate: yes
     pull: true

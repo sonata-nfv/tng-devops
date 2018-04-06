@@ -6,7 +6,7 @@
 - name: run the SP Keycloak service
   docker_container:
     name: "son-keycloak"
-    image: "{{ repository }}/son-keycloak:{{ version }}"
+    image: "{{ repository }}/son-keycloak:{{ tng_ver }}"
     env:
       #Default: KEYCLOAK_USER: admin KEYCLOAK_PASSWORD: admin
       KEYCLOAK_USER: "{{ gtk_keycloak_user }}" 

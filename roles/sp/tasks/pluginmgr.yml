@@ -4,7 +4,7 @@
 - name: MANO Plug-in Manager (Docker container)
   docker_container:
     name: pluginmanager
-    image: "{{ repository }}/pluginmanager:{{ version }}"
+    image: "{{ repository }}/pluginmanager:{{ tng_ver }}"
     env:
       mongo_host: son-mongo
       broker_host: amqp://guest:guest@son-broker:5672/%2F

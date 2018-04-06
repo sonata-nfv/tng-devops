@@ -4,7 +4,7 @@
 - name: GATEKEEPER PACKAGES - running Docker containers
   docker_container:
     name: son-gtkpkg
-    image: "{{ repository }}/son-gtkpkg:{{ version }}"
+    image: "{{ repository }}/son-gtkpkg:{{ tng_ver }}"
     env:
       CATALOGUES_URL: http://son-catalogue-repos:4011/catalogues/api/v2
       RACK_ENV: integration

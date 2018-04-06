@@ -4,7 +4,7 @@
 - name: run the 5GTANGO Security Gateway
   docker_container:
     name: "tng-api-gtw"
-    image: "{{ repository }}/tng-api-gtw:{{ version }}"
+    image: "{{ repository }}/tng-api-gtw:{{ tng_ver }}"
     state: started
     recreate: yes
     pull: true

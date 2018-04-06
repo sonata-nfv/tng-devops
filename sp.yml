@@ -10,20 +10,20 @@
     - "inventory/group_vars/{{ env }}/vars.yml"
     #- "inventory/group_vars/{{ env }}/vault.yml"
     - "inventory/group_vars/{{ pop }}/vars.yml"
-    #- "inventory/group_vars/{{ pop }}/vault.yml"
+    - "inventory/group_vars/{{ pop }}/vault.yml"
     - "inventory/group_vars/{{ plat }}/vars.yml"
-    #- "inventory/group_vars/{{ plat }}/vault.yml"
+    - "inventory/group_vars/{{ plat }}/vault.yml"
 
   pre_tasks:
     - name: get my public IP
       ipify_facts:
-      validate_certs: no
+      #validate_certs: no
 
   roles:
     - { role: update-os-pckgs, become: true }
     - { role: python, become: true }
     - { role: docker, become: true }
-    - sp
+    - { role: sp, become: true }
 
   tasks:
     - name: check if SP is running

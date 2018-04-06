@@ -4,7 +4,7 @@
 - name: MANO Placement Executive Plugin (Docker container)
   docker_container:
     name: placementexecutive
-    image: "{{ repository }}/placementexecutive:{{ version }}"
+    image: "{{ repository }}/placementexecutive:{{ tng_ver }}"
     env:
       broker_host: amqp://guest:guest@son-broker:5672/%2F
     restart_policy: "always"

@@ -6,7 +6,7 @@
 - name: MONIT InfluxDB  - running Docker containers
   docker_container:
     name: son-monitor-influxdb
-    image: "{{ repository }}/son-monitor-influxdb:{{ version }}"
+    image: "{{ repository }}/son-monitor-influxdb:{{ tng_ver }}"
     state: started
     recreate: yes
     pull: true

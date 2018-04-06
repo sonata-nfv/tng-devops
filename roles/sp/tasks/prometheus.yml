@@ -4,7 +4,7 @@
 - name: MONIT PROMETHEUS - running Docker containers
   docker_container:
     name: son-monitor-prometheus
-    image: "{{ repository }}/son-monitor-prometheus:{{ version }}"
+    image: "{{ repository }}/son-monitor-prometheus:{{ tng_ver }}"
     restart_policy: "always"
     state: started
     recreate: yes

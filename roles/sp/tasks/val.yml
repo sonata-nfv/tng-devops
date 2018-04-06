@@ -6,7 +6,7 @@
 - name: SONATA VALIDATOR (son-validate) (Docker container)
   docker_container:
     name: son-validate
-    image: "{{ repository }}/son-validate:{{ version }}"
+    image: "{{ repository }}/son-validate:{{ tng_ver }}"
     env:
       VAPI_DEBUG: "True"
       VAPI_REDIS_HOST: "son-redis"

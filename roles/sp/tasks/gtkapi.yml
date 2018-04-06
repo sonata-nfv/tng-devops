@@ -4,7 +4,7 @@
 - name: deploying GATEKEEPER API (Docker containers)
   docker_container:
     name: son-gtkapi
-    image: "{{ repository }}/son-gtkapi:{{ version }}"
+    image: "{{ repository }}/son-gtkapi:{{ tng_ver }}"
     env:
       RACK_ENV: integration
       USER_MANAGEMENT_URL: http://son-gtkusr:5600

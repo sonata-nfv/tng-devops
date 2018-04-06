@@ -4,7 +4,7 @@
 - name: GATEKEEPER RECORDS - running Docker containers
   docker_container:
     name: son-gtkrec
-    image: "{{ repository }}/son-gtkrec:{{ version }}"
+    image: "{{ repository }}/son-gtkrec:{{ tng_ver }}"
     env:
       REPOSITORIES_URL: http://son-catalogue-repos:4011/records
       RACK_ENV: integration

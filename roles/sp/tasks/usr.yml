@@ -6,7 +6,7 @@
 - name: GATEKEEPER USER MANAGEMENT (GTKUSR) (Docker container)
   docker_container:
     name: son-gtkusr
-    image: "{{ repository }}/son-gtkusr:{{ version }}"
+    image: "{{ repository }}/son-gtkusr:{{ tng_ver }}"
     state: started
     recreate: yes
     pull: true

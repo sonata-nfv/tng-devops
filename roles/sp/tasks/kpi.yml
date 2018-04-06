@@ -4,7 +4,7 @@
 - name: GATEKEEPER KEY PERFORMANCE INDICATORS (GTKKPI) (Docker container)
   docker_container:
     name: son-gtkkpi
-    image: "{{ repository }}/son-gtkkpi:{{ version }}"
+    image: "{{ repository }}/son-gtkkpi:{{ tng_ver }}"
     state: started
     recreate: yes
     pull: true

@@ -4,7 +4,7 @@
 - name: MONIT Push Gateway - running Docker containers
   docker_container:
     name: son-monitor-pushgateway
-    image: "{{ repository }}/son-monitor-pushgateway:{{ version }}"
+    image: "{{ repository }}/son-monitor-pushgateway:{{ tng_ver }}"
     restart_policy: "always"
     state: started
     recreate: yes

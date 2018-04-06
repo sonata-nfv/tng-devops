@@ -4,7 +4,7 @@
 - name: MANO Function Lifecycle Management Plugin (Docker container)
   docker_container:
     name: functionlifecyclemanagement
-    image: "{{ repository }}/functionlifecyclemanagement:{{ version }}"
+    image: "{{ repository }}/functionlifecyclemanagement:{{ tng_ver }}"
     env:
       url_gk_api: "http://son-gtkapi:5000/api/v2/"
       url_nsr_repository: "http://son-catalogue-repos:4011/records/nsr/"

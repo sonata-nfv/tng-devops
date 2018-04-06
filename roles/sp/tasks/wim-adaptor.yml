@@ -4,7 +4,7 @@
 - name: deploying Infrastructure Abstractor WIM Adaptor (Docker container)
   docker_container:
     name: wim-adaptor
-    image: "{{ repository }}/wim-adaptor:{{ version }}"
+    image: "{{ repository }}/wim-adaptor:{{ tng_ver }}"
     restart_policy: "always"
     state: started
     recreate: yes

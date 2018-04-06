@@ -3,7 +3,7 @@
 - name: MONIT VM Probe
   docker_container:
     name: son-mon-vmprobe
-    image: "{{ repository }}/son-monitor-vmprobe:{{ version }}"
+    image: "{{ repository }}/son-monitor-vmprobe:{{ tng_ver }}"
     state: started
     recreate: yes
     pull: true

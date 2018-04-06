@@ -4,7 +4,7 @@
 - name: MANO Specific Manager Registry (SMR) (Docker container)
   docker_container:
     name: specificmanagerregistry
-    image: "{{ repository }}/specificmanagerregistry:{{ version }}"
+    image: "{{ repository }}/specificmanagerregistry:{{ tng_ver }}"
     env:
       broker_host: amqp://guest:guest@son-broker:5672/%2F
       broker_name: son-broker,broker
