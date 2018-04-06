@@ -7,9 +7,7 @@ docker_addr_space: 172.22.0.0/24
 docker_gateway: 172.22.0.1
 docker_ip_range: 172.22.0.128/25
 
-# 5G TANGO NFV SP version
-tng_ver: latest
-
 tng_user: tango
 tng_pass: "$1$SRc2ws2Z$rSdCC/UKiatagNdfsTVuf0"
 
+repository: registry.sonata-nfv.eu:5000
