@@ -1,12 +1,5 @@
 ---
 
-#- yum: name=epel-release state=latest
-
-#- name: install Docker dependency libraries
-#  yum: name={{ item }} state=present update_cache=yes
-#  with_items:
-#  - python-pip
-
 - include_tasks: "{{ lookup('env','PWD') }}/roles/python/tasks/{{ ansible_distribution_release }}.yml"
 
 - name: make sure docker-python RPM is not installed
@@ -34,9 +27,6 @@
   register: result
 #  notify:
 #  - restart docker
-
-#- shell: systemctl daemon-reload
-#  when: result is changed
 
 - name: restart service Docker-engine on CentOS, in all cases, also issue daemon-reload to pick up config changes
   systemd:

@@ -1,11 +1,4 @@
-
-# tasks file for docker
-
-#- include_vars: "{{ item }}"
-#  with_first_found:
-#    - "{{ ansible_distribution_release }}.yml"
-#    - "{{ ansible_os_family }}.yml"
-#    - "default.yml"
+---
 
 - include_vars: "{{ lookup('env','PWD') }}/inventory/group_vars/all"
 
