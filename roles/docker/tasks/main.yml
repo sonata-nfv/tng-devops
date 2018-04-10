@@ -25,8 +25,6 @@
 
 - include_tasks: "{{ lookup('env','PWD') }}/roles/docker/tasks/{{ ansible_distribution_release }}.yml"
 
-- include_tasks: "{{ lookup('env','PWD') }}/roles/docker/tasks/networks.yml"
-
 - name: restart docker on Systemd (Ubuntu 16 and CentOS 7)
   systemd: name=docker state=reloaded daemon_reload=yes
 

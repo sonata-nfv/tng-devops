@@ -1,5 +1,7 @@
 ---
-# Deploying databases
+
+### Deploying databases
+
 # deploy postgreSQL database engine
 - import_tasks: pgsql.yml
 
@@ -18,7 +20,8 @@
 # deploy Influxdb
 - import_tasks: influxdb.yml
 
-## Deploying Gatekeeper components
+### Deploying Gatekeeper components
+
 # deploy Keycloak
 - import_tasks: keycloak.yml
 
@@ -70,7 +73,8 @@
 # deploy Repositories
 - import_tasks: repos.yml
 
-## Deploying Mano Components
+### Deploying Mano Components
+
 # deploy PluginManager of MANO framework
 - import_tasks: pluginmgr.yml
 
@@ -89,7 +93,8 @@
 # deploy Placement Plugin of MANO framework
 - import_tasks: placementplugin.yml
 
-## Deploying Monitoring Components
+### Deploying Monitoring Components
+
 # deploy Monitoring Pushgateway
 - import_tasks: pushgw.yml
 

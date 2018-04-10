@@ -72,14 +72,13 @@
 
 - name: "Configuring Docker Options"
   copy: src=docker2upstart dest=/etc/default/docker owner=root group=root mode=0644
-#  notify:
-#    - restart docker
 
-- name: restart Docker
-  apt: name=docker state=reloaded daemon_reload=yes
+- name: start Docker engine
+  systemd: name=docker state=started daemon_reload=yes
 
-- pause:
-    seconds: 3
+- include_tasks: "{{ lookup('env','PWD') }}/roles/docker/tasks/networks.yml"
+
+- pause: seconds=2
 
 
 #- name: configure RSYSLOG

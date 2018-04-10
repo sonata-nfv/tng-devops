@@ -28,7 +28,7 @@
 
 - name: Docker creating network
   shell: 'docker network create --driver=bridge --subnet={{ docker_addr_space }} --gateway={{ docker_gateway }} --ip-range={{ docker_ip_range }} "tng_docker_net"'
+  become: true
   notify:
     - restart docker
-  become: true
 

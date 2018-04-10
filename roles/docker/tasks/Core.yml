@@ -6,9 +6,7 @@
   yum: name=docker-python state=absent
 
 - name: make sure required PyPi packages are installed
-  pip:
-    name: docker-py
-    state: present
+  pip: name=docker-py state=present
 
 - name: add Docker repo to YUM
   copy: src=docker.repo dest=/etc/yum.repos.d/docker.repo owner=root group=root mode=0644
@@ -22,18 +20,14 @@
 - name: create a directory if it doesn't exist
   file: path=/etc/systemd/system/docker.service.d/ state=directory mode=0755
 
-- name: "Configuring Docker Options"
+- name: configuring Docker options
   copy: src=docker.conf dest=/etc/systemd/system/docker.service.d/docker.conf owner=root group=root mode=0644
   register: result
-#  notify:
-#  - restart docker
 
-- name: restart service Docker-engine on CentOS, in all cases, also issue daemon-reload to pick up config changes
-  systemd:
-    state: restarted
-    daemon_reload: yes
-    name: docker
+- name: start Docker engine
+  systemd: name=docker state=started daemon_reload=yes
 
-- pause:
-    seconds: 3
+- include_tasks: "{{ lookup('env','PWD') }}/roles/docker/tasks/networks.yml"
+
+- pause: seconds=2
 
