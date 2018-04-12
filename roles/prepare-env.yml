@@ -1,6 +1,0 @@
----
-- hosts: "{{ target }}"
-  gather_facts: no
-  become: true
-  roles:
-   - prepare-env
