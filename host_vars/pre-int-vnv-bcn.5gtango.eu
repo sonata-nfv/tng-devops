@@ -1,0 +1,12 @@
+---
+## Containers configuration
+# Docker Network
+docker_network_name: tango
+
+## Version
+version: latest
+
+## Docker repository
+repository: registry.sonata-nfv.eu:5000
+
+## VnV Specific Variables
