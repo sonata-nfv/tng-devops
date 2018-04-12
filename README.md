@@ -65,7 +65,6 @@ These scripts were built with ansible > 2.4
 
 * ansible > 2.4
 * docker > 17.12.0-ce
-* docker-py = 1.9.0
 
 ## Setting up Dev
 
@@ -76,36 +75,61 @@ git clone https://github.com/sonata-nfv/tng-devops.git
 cd tng-devops/
 ```
 
+## Pre-configuration
+This repo was made to work with already built machines. So you have to insert the managed hosts into the Inventory file.
+If you are using authentication with private key, just add it to the 'ansible.cfg' file.
+
+### Inventory
+
+Add the host (or group of hosts) you want to manage to the Inventory file like:
+```
+; $ vi ./inventory/hosts
+[dem_avr_sp]
+sp ansible_host=172.31.6.46
+[dem_ath_sp]
+sp ansible_host=10.100.16.46
+```
+
+To avoid passing the static Inventory file to the command line, just add the following entry to 'ansible.cfg'
+```
+; $ vi ./ansible.cfg
+inventory=inventory/
+```
+
+### Authentication mode
+You can use Private key or Username/Password to authenticate against your target machines. Just add the following entries to 'ansible.cfg' according to your preferences.
+
+```
+; $ vi ./ansible.cfg
+private_key_file = ~/.ssh/MYKEY.pem
+```
+Also provide the path to your Key file here:
+```
+; $ vi ./inventory/host_vars/all
+ansible_ssh_private_key_file: "{{ lookup('env','HOME') }}/.ssh/MYKEY.pem"
+
+```
+
+```
+; $ vi ./inventory/host_vars/all
+ansible_user=tango
+ansible_pass=*****
+```
+
+### Vault passwords
+To avoid sending your secrets to your source code versioning system, just insert the password file out of the repo's directory and pass this path to the 'vault_password_file' parameter of 'ansible.cfg'. 
+```
+; $ vi ./ansible.cfg
+vault_password_file = ~/.ssh/.tng_vault_pass
+```
+
 ## Usage
 
-To use the playbooks, the command is composed by `ansible-playbook` + the role (sp/vnv/sdk) + `-i environments` where are the environment list + `-e target=environment` the environment to be deployed.
+To use the playbooks, the command is composed by Ansible playbook name (sp/vnv/sdk) and its `target`, ie, the environment to be deployed.
 
-Here is the list of commands to deploy each environment.
-
-* int-sp-ath
-  * `ansible-playbook roles/sp.yml -i environments -e "target=int-sp"`
-* int-vnv-bcn
-  * `ansible-playbook roles/vnv.yml -i environments -e "target=int-vnv"`
-* pre-int-sdk-ath
-  * `ansible-playbook roles/sdk.yml -i environments -e "target=pre-int-sdk"`
-* pre-int-sp-ath
-  * `ansible-playbook roles/sp.yml -i environments -e "target=pre-int-sp"`
-* pre-int-vnv-bcn
-  * `ansible-playbook roles/vnv.yml -i environments -e "target=pre-int-vnv"`
-* qual-sp-bcn
-  * `ansible-playbook roles/sp.yml -i environments -e "target=qual-sp"`
-* qual-vnv-bcn
-  * `ansible-playbook roles/vnv.yml -i environments -e "target=qual-vnv"`
-* sta-sdk-ath, sta-sdk-ave and sta-sdk-pad
-  * `ansible-playbook roles/sdk.yml -i environments -e "target=sta-sdk"`
-* sta-sp-ath, sta-sp-ave and sta-sp-pad
-  * `ansible-playbook roles/sp.yml -i environments -e "target=sta-sp"`
-* sta-vnv-ath, sta-vnv-ave and sta-vnv-pad
-  * `ansible-playbook roles/vnv.yml -i environments -e "target=sta-vnv"`
-
-Or it can be deployed directly deployed using the hostname of the environment like:
-
-* `ansible-playbook roles/sp.yml -i environments -e "target=sta-sp-ath"`
+```
+$ ansible-playbook sp.yml -e "target=dem_ath_sp env=dem pop=ath plat=sp" [-vvvv]
+```
 
 ## Contributing
 

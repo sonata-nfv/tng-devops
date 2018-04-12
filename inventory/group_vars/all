@@ -8,3 +8,8 @@ tng_pass: !vault |
           3634
 domain_name: sonata-nfv.eu
 fqdn: "{{ plat }}.{{ pop }}.{{ domain_name }}"
+
+### CHANGE IT ACCORDING TO YOUR SCENARIO
+#env=dem
+#pop=ath
+#plat=sp

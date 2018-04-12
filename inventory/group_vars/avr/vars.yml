@@ -6,7 +6,7 @@ os_security_groups: "{{ plat }}-secgrp"
 fip: admin_floating_net
 availability_zone: nova
 region_name: RegionOne
-key_name: son-install
+key_name: tng-infra
 int_net_id: "5788d300-92c1-4efa-8f4f-5b0830638c9f" # DEMO
 ext_net_id: "83d48c16-8461-4939-9cb3-e7e240ec9538" # FIP
 

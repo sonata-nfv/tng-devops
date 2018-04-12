@@ -8,7 +8,7 @@
     - "inventory/host_vars/all"
     - "inventory/group_vars/all"
     - "inventory/group_vars/{{ env }}/vars.yml"
-    #- "inventory/group_vars/{{ env }}/vault.yml"
+    - "inventory/group_vars/{{ env }}/vault.yml"
     - "inventory/group_vars/{{ pop }}/vars.yml"
     - "inventory/group_vars/{{ pop }}/vault.yml"
     - "inventory/group_vars/{{ plat }}/vars.yml"
