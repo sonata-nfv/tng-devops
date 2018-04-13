@@ -1,2 +1,0 @@
-DOCKER_OPTS="-H unix:///var/run/docker.sock -H tcp://0.0.0.0:2375 --bip=172.16.51.1/24 --mtu=1400 --insecure-registry registry.sonata-nfv.eu:5000"
-#ExecStart=/usr/bin/dockerd -H fd:// -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock --insecure-registry registry.sonata-nfv.eu:5000
