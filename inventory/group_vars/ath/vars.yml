@@ -1,0 +1,16 @@
+---
+vm_user: "ubuntu"
+nbofvms: 1
+image: "xenial64"
+#flavor: "sp-flavor"
+flavor: "m1.small"
+os_security_groups: "sp-secgrp"
+fip: "ext_net_id"
+availability_zone: "nova"
+region_name: "RegionOne"
+key_name: "tng-infra"
+
+# DEMO-NET
+int_net_id: "95cf5fd4-b86f-43bb-a291-d3569cf07522" # INTERNAL (192.168.10.0/24)
+ext_net_id: "c004d6e7-1caf-4271-a677-79ae924674d6" # PROVIDER (10.100.16.0/24)
+
