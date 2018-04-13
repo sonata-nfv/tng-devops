@@ -1,0 +1,2 @@
+---
+- include_tasks: "{{ lookup('env','PWD') }}/roles/update-os-pckgs/tasks/{{ ansible_distribution_release }}.yml"

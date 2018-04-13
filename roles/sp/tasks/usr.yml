@@ -1,0 +1,25 @@
+---
+# Running the Sonata SP GTK-USER-MGMT Docker Image
+
+- debug: msg="##### SP GTK-USER-MGMT DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H:%M%S') }}"
+
+- name: GATEKEEPER USER MANAGEMENT (GTKUSR) (Docker container)
+  docker_container:
+    name: son-gtkusr
+    image: "{{ repository }}/son-gtkusr:{{ tng_ver }}"
+    state: started
+    recreate: yes
+    pull: true
+    env:
+      KEYCLOAK_ADDRESS: son-keycloak
+      KEYCLOAK_PORT: 5601
+      KEYCLOAK_PATH: auth
+      SONATA_REALM: "{{ tng_user }}"
+      CLIENT_NAME: adapter 
+    network_mode: bridge
+    networks:
+      - name: "{{ docker_netw_name }}"
+        aliases:
+          - son-gtkusr
+    published_ports: "5600:5600"
+    restart_policy: "always"
