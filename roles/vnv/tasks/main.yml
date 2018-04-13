@@ -1,0 +1,10 @@
+---
+# Deploying VnV Databases
+
+# Deploying VnV Components
+# deploy tng-vnv-lcm
+- import_tasks: lcm.yml
+
+# deploy tng-vnv-tee
+- import_tasks: tee.yml
+
