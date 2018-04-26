@@ -3,8 +3,8 @@
 - debug: msg="##### 5GTANGO SEC-GTW DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
 - name: run the 5GTANGO Security Gateway
   docker_container:
-    name: "tng-sec-gtw"
-    image: "{{ repository }}/tng-sec-gtw:{{ version }}"
+    name: "son-sec-gw"
+    image: "{{ repository }}/son-sec-gw:{{ version }}"
     state: started
     recreate: yes
     pull: true
@@ -13,7 +13,7 @@
     networks:
       - name: "{{ docker_network_name }}"
         aliases:
-          - tng-sec-gtw
+          - son-sec-gw
     published_ports:
       - "80:80"
       - "443:443"
