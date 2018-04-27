@@ -8,3 +8,9 @@
 # deploy tng-vnv-tee
 - import_tasks: tee.yml
 
+# deploy tng-cat
+- import_tasks: cat.yml
+
+# deploy tng-rep
+- import_tasks: rep.yml
+
