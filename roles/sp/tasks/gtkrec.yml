@@ -6,7 +6,7 @@
     name: son-gtkrec
     image: "{{ repository }}/son-gtkrec:{{ version }}"
     env:
-      REPOSITORIES_URL: http://tng-rep:4012/records
+      REPOSITORIES_URL: http://son-catalogue-repos:4011/records
       RACK_ENV: integration
     state: started
     recreate: yes
