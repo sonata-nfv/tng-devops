@@ -18,3 +18,5 @@
 # deploy tng-rep
 - import_tasks: rep.yml
 
+# deploy tng-gtk-common
+- import_tasks: gtk-common.yml
