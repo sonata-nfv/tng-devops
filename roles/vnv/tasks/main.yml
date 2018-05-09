@@ -16,3 +16,6 @@
 
 # deploy tng-gtk-common
 - import_tasks: gtk-common.yml
+
+# deploy tng-gtk-gtw
+- import_tasks: api-gtw.yml
