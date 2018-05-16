@@ -7,7 +7,7 @@
     image: "{{ repository }}/specificmanagerregistry:{{ version }}"
     env:
       broker_host: amqp://guest:guest@son-broker:5672/%2F
-      broker_name: son-broker,broker
+      broker_name: son-broker
     network_mode: bridge
     networks:
       - name: "{{ docker_network_name }}"
