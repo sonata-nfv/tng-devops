@@ -83,6 +83,12 @@
 # deploy Placement Plugin of MANO framework
 - import_tasks: placementplugin.yml
 
+# deploy Infrastructure abstraction VIM
+- import_tasks: vim-adaptor.yml
+
+# deploy Infrastructure abstraction WIM
+- import_tasks: wim-adaptor.yml
+
 ## Deploying Monitoring Components
 # deploy Monitoring Pushgateway
 - import_tasks: pushgw.yml
