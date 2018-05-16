@@ -12,4 +12,4 @@ repository: registry.sonata-nfv.eu:5000
 ## VnV Specific Variables
 
 app_gk_base_url: http://qual-sp-bcn.5gtango.eu:32001/api/v2
-routes_file: sp_routes.yml
+routes_file: vnv_routes.yml
