@@ -19,3 +19,6 @@
 
 # deploy tng-gtk-gtw
 - import_tasks: api-gtw.yml
+
+# deploy tng-sdk-pkg.yml
+- import_tasks: tng-sdk-pkg.yml
