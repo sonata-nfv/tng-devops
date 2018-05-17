@@ -8,6 +8,7 @@
     env:
       broker_host: amqp://guest:guest@son-broker:5672/%2F
       broker_name: son-broker
+      network_id: "{{ docker_network_name }}"
     network_mode: bridge
     networks:
       - name: "{{ docker_network_name }}"
