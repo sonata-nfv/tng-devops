@@ -1,3 +1,7 @@
+[plugtest1]
+#Plugtest Windriver
+172.22.25.36 ansible_user=tango
+
 [pre-int-sp]
 pre-int-sp-ath.5gtango.eu ansible_user=tango
 
