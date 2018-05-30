@@ -4,7 +4,7 @@
 docker_network_name: tango
 
 ## Version
-version: int
+version: v3.1
 
 # MONITOR pgSQL database
 upassword: sonata
@@ -30,4 +30,4 @@ mon_db_name: monitoring
 mon_db_user: monitoringuser
 mon_db_pass: sonata
 
-repository: registry.sonata-nfv
+repository: sonatanfv
