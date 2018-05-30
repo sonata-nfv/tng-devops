@@ -23,16 +23,10 @@
 - import_tasks: keycloak.yml
 
 # deploy GUI
-#- import_tasks: gui.yml
-
-# deploy GUI
-- import_tasks: portal.yml
+- import_tasks: gui.yml
 
 # deploy BSS
 - import_tasks: bss.yml
-
-# deploy SDK packager
-- import_tasks: tng-sdk-pkg.yml
 
 # deploy Gatekepper Validator module
 - import_tasks: val.yml
@@ -67,26 +61,8 @@
 # deploy Gatekepper API module
 - import_tasks: gtkapi.yml
 
-# deploy Gatekepper API module
-- import_tasks: api-gtw.yml
-
-# deploy Gatekepper Common module
-- import_tasks: gtk-common.yml
-
-# deploy Repositories
-- import_tasks: rep.yml
-
 # deploy Catalogues
-- import_tasks: cat.yml
-
-# deploy Catalogues
-- import_tasks: slice-mngr.yml
-
-# deploy Policy Manager
-- import_tasks: tng-policy-mngr.yml
-
-# deploy SLA Management Framework
-- import_tasks: sla-mgmt.yml
+- import_tasks: son-catalogue-repos.yml
 
 ## Deploying Mano Components
 # deploy PluginManager of MANO framework
@@ -107,6 +83,12 @@
 # deploy Placement Plugin of MANO framework
 - import_tasks: placementplugin.yml
 
+# deploy Infrastructure abstraction VIM
+- import_tasks: vim-adaptor.yml
+
+# deploy Infrastructure abstraction WIM
+- import_tasks: wim-adaptor.yml
+
 ## Deploying Monitoring Components
 # deploy Monitoring Pushgateway
 - import_tasks: pushgw.yml
@@ -121,4 +103,4 @@
 - import_tasks: probe.yml
 
 # deploy Security Gateway
-- import_tasks: sec-gtw.yml
+- import_tasks: son-sec-gw.yml
