@@ -1,6 +1,6 @@
-[plugtest1]
+#[plugtest1]
 #Plugtest Windriver
-172.22.25.36 ansible_user=tango
+#172.22.25.36 ansible_user=tango
 
 [pre-int-sp]
 pre-int-sp-ath.5gtango.eu ansible_user=tango
@@ -44,6 +44,9 @@ sta-sdk-ave.5gtango.eu ansible_user=tango
 
 [plugtest1]
 172.21.5.53 ansible_user=tango
+
+[plugtest2]
+172.21.24.236 ansible_user=tango
 
 [all:vars]
 task_output_limit = 100
