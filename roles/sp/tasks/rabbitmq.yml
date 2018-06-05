@@ -18,6 +18,7 @@
           - son-broker
     published_ports:
       - "5672:5672"
+      - "15672:15672"
 
 - name: Wait until the string "Rabbitmq" is UP
   wait_for: host=0.0.0.0 port=5672 timeout=30 delay=10 state=started
