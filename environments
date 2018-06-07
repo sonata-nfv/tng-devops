@@ -51,6 +51,9 @@ sta-sdk-ave.5gtango.eu ansible_user=tango
 [plugtest3]
 172.22.25.36 ansible_user=tango
 
+[plugtest4]
+172.22.25.79 ansible_user=tango
+
 [all:vars]
 task_output_limit = 100
 
