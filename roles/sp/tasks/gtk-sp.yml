@@ -1,0 +1,19 @@
+---
+# Running the 5GTANGO Gatekeeper Common (Docker container)
+- debug: msg="##### 5GTANGO GTK-SP DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- name: run the 5GTANGO GTK-SP
+  docker_container:
+    name: tng-gtk-sp
+    image: "{{ repository }}/tng-gtk-sp:{{ version }}"
+    state: started
+    recreate: yes
+    pull: true
+    restart_policy: "always"
+    network_mode: bridge
+    networks:
+      - name: "{{ docker_network_name }}"
+        aliases:
+          - tng-gtk-sp
+    published_ports:
+      - "32004:5000"
+
