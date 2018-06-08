@@ -73,6 +73,9 @@
 # deploy Gatekepper Common module
 - import_tasks: gtk-common.yml
 
+# deploy Gatekepper SP module
+- import_tasks: gtk-sp.yml
+
 # deploy Repositories
 - import_tasks: rep.yml
 
