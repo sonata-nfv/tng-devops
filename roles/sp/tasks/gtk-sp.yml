@@ -1,0 +1,24 @@
+---
+# Running the 5GTANGO Gatekeeper Common (Docker container)
+- debug: msg="##### 5GTANGO GTK-SP DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- name: run the 5GTANGO GTK-SP
+  docker_container:
+    name: tng-gtk-sp
+    image: "{{ repository }}/tng-gtk-sp:{{ version }}"
+    state: started
+    recreate: yes
+    pull: true
+    env:
+      CATALOGUES_URL: http://tng-cat:4011/catalogues/api/v2
+      RACK_ENV: integration
+      MQSERVER: amqp://guest:guest@son-broker:5672
+      DATABASE_URL: "postgres://{{ gtk_db_user }}:{{ gtk_db_pass }}@son-postgres:5432/{{ gtk_db_name }}"
+    restart_policy: "always"
+    network_mode: bridge
+    networks:
+      - name: "{{ docker_network_name }}"
+        aliases:
+          - tng-gtk-sp
+    published_ports:
+      - "5000:5000"
+

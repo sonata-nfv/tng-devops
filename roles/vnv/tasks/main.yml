@@ -2,6 +2,10 @@
 # Deploying VnV Databases
 
 # Deploying VnV Components
+
+# deploy mongo
+- import_tasks: mongo.yml
+
 # deploy tng-vnv-lcm
 - import_tasks: lcm.yml
 
