@@ -16,9 +16,11 @@
       repo_port: "5432"
       repo_user: "{{ ia_repo_user }}"
       repo_pass: "{{ ia_repo_pass }}"
-      network_mode: bridge
+    network_mode: bridge
     networks:
       - name: "{{ docker_network_name }}"
         aliases:
           - wim-adaptor
+        links:
+          - son-broker
 
