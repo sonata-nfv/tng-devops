@@ -38,10 +38,10 @@
 - import_tasks: val.yml
 
 # deploy Gatekepper Package module
-- import_tasks: pkg.yml
+#- import_tasks: pkg.yml
 
 # deploy Gatekepper Server module
-- import_tasks: srv.yml
+#- import_tasks: srv.yml
 
 # deploy Gatekepper Function module
 - import_tasks: fnct.yml
