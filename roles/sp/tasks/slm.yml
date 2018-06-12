@@ -6,10 +6,9 @@
     name: servicelifecyclemanagement
     image: "{{ repository }}/servicelifecyclemanagement:{{ version }}"
     env:
-      url_gk_api: "http://son-gtkapi:5000/api/v2/"
-      url_nsr_repository: "http://tng-rep:4012/records/nsr/"
-      url_vnfr_repository: "http://tng-rep:4012/records/vnfr/"
-      url_monitoring_server: http://son-monitor-manager:8000/api/v1/
+      cat_path: "http://tng-cat:4011/api/catalogues/v2"
+      repo_path: "http://tng-rep:4012/records"
+      monitoring_path: http://son-monitor-manager:8000/api/v1
       broker_host: amqp://guest:guest@son-broker:5672/%2F
     network_mode: bridge
     networks:
