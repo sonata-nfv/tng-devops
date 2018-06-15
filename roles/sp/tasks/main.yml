@@ -35,37 +35,37 @@
 - import_tasks: tng-sdk-pkg.yml
 
 # deploy Gatekepper Validator module
-- import_tasks: val.yml
+#- import_tasks: val.yml
 
 # deploy Gatekepper Package module
-- import_tasks: pkg.yml
+#- import_tasks: pkg.yml
 
 # deploy Gatekepper Server module
-- import_tasks: srv.yml
+#- import_tasks: srv.yml
 
 # deploy Gatekepper Function module
-- import_tasks: fnct.yml
+#- import_tasks: fnct.yml
 
 # deploy Gatekepper Records module
-- import_tasks: gtkrec.yml
+#- import_tasks: gtkrec.yml
 
 # deploy Gatekepper VIM module
-- import_tasks: vim.yml
+#- import_tasks: vim.yml
 
 # deploy Gatekepper Lisense module
-- import_tasks: lic.yml
+#- import_tasks: lic.yml
 
 # deploy Gatekepper KPIs module
-- import_tasks: kpi.yml
+#- import_tasks: kpi.yml
 
 # deploy Gatekepper User Management module
-- import_tasks: usr.yml
+#- import_tasks: usr.yml
 
 # deploy Gatekepper Rate Limit module
-- import_tasks: rlt.yml
+#- import_tasks: rlt.yml
 
 # deploy Gatekepper API module
-- import_tasks: gtkapi.yml
+#- import_tasks: gtkapi.yml
 
 # deploy Gatekepper API module
 - import_tasks: api-gtw.yml
@@ -109,13 +109,6 @@
 
 # deploy Placement Plugin of MANO framework
 - import_tasks: placementplugin.yml
-
-## Deploy IA
-# VIM adaptor
-- import_tasks: vim-adaptor.yml
-
-# WIM adaptor
-- import_tasks: wim-adaptor.yml
 
 ## Deploying Monitoring Components
 # deploy Monitoring Pushgateway
