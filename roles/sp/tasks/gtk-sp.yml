@@ -1,8 +1,8 @@
 ---
 # Running the 5GTANGO Gatekeeper Common (Docker container)
 - debug: msg="##### 5GTANGO GTK-SP DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
-#- name: create data model and populate db
-#  shell: /usr/bin/docker run --net={{ docker_network_name }} -i -e DATABASE_HOST=son-postgres -e MQSERVER=amqp://guest:guest@son-broker:5672 -e RACK_ENV=integration -e DATABASE_PORT=5432 -e POSTGRES_PASSWORD={{ gtk_db_pass }} -e POSTGRES_USER={{ gtk_db_user }} -e POSTGRES_DB={{ gtk_db_name }} --rm=true {{ repository }}tng-gtk-sp:{{ version }} bundle exec rake db:migrate
+- name: create data model and populate db
+  shell: /usr/bin/docker run --net={{ docker_network_name }} -i -e DATABASE_HOST=son-postgres -e MQSERVER=amqp://guest:guest@son-broker:5672 -e RACK_ENV=integration -e DATABASE_PORT=5432 -e POSTGRES_PASSWORD={{ gtk_db_pass }} -e POSTGRES_USER={{ gtk_db_user }} -e POSTGRES_DB={{ gtk_db_name }} --rm=true {{ repository }}tng-gtk-sp:{{ version }} bundle exec rake db:migrate
 
 - name: run the 5GTANGO GTK-SP
   docker_container:
