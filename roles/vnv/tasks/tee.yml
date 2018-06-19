@@ -1,6 +1,6 @@
 ---
 
-- debug: msg="##### VnV Test Execution Engine Deployment {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
+- debug: msg="##### VnV Test Execution Engine Deployment {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
 
 # Running the 5GTANGO VnV Test Execution Engine Deployment (Docker container)
 

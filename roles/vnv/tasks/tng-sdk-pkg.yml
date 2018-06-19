@@ -1,6 +1,6 @@
 ---
 # Running the 5GTANGO SDK packager service (Docker container) 
-- debug: msg="##### SP TNG-SDK-PACKAGE DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
+- debug: msg="##### SP TNG-SDK-PACKAGE DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
 - name: TNG-SDK-PACKAGE (tng-sdk-package) (Docker container)
   docker_container:
     name: tng-sdk-package

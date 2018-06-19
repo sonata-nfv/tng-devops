@@ -1,5 +1,5 @@
 ---
-- hosts: "{{ target | default ('localhost') }}"
+- hosts: "{{ target }}"
   gather_facts: no
   become: true
   roles:

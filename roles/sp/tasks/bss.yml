@@ -1,6 +1,14 @@
 ---
 # Running the Sonata GK BSS Docker Image
 - debug: msg="##### SP BSS DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
+
+- name: log into private Registry
+  docker_login:
+    registry: "registry.sonata-nfv.eu"
+    username: "sonata-nfv"
+    password: "s0n@t@"
+    reauthorize: yes
+
 - name: deploying GATEKEEPER BSS (as a Docker container)
   docker_container:
     name: son-bss
@@ -18,3 +26,8 @@
       - "25001:1337"
       - "25002:1338"
     restart_policy: "always"
+
+- name: log out of private Registry
+  docker_login:
+    state: absent
+
