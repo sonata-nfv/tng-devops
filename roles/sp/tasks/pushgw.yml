@@ -1,0 +1,18 @@
+---
+# Running the Sonata MONIT Push Gateway (Docker container)
+- debug: msg="##### SP MONIT Push Gateway {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
+- name: MONIT Push Gateway - running Docker containers
+  docker_container:
+    name: son-monitor-pushgateway
+    image: "{{ repository }}/son-monitor-pushgateway:{{ version }}"
+    restart_policy: "always"
+    state: started
+    recreate: yes
+    pull: true
+    network_mode: bridge
+    networks:
+      - name: "{{ docker_network_name }}"
+        aliases:
+          - son-monitor-pushgateway
+          - pushgateway
+    published_ports: "9091:9091"

@@ -1,0 +1,21 @@
+---
+# Running the MONIT Probe (Docker container)
+- debug: msg="##### MONIT Probe DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
+- name: MONIT Probe - running Docker containers
+  docker_container:
+    name: son-monitor-probe
+    image: "{{ repository }}/son-monitor-probe:{{ version }}"
+    state: started
+    recreate: yes
+    pull: true
+    restart_policy: "always"
+    privileged: yes
+    env:
+      NODE_NAME: "{{ target }}"
+      PROM_SRV: "http://son-monitor-pushgateway:9091/metrics"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "/:/rootfs:ro"
+      - "/proc:/myhost/proc"
+    networks:
+      - name: "{{ docker_network_name }}"

@@ -1,0 +1,7 @@
+---
+# Deploying SDK Databases
+
+# Deploying SDK Components
+# deploy tng-sdk-*
+#- import_tasks: sdk*.yml
+

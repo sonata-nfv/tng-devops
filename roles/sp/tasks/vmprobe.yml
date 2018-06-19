@@ -1,0 +1,18 @@
+# Running the Sonata MONIT VM Probe (Docker container)
+- debug: msg="##### SP MONIT VM Probe DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
+- name: MONIT VM Probe
+  docker_container:
+    name: son-mon-vmprobe
+    image: "{{ repository }}/son-monitor-vmprobe:{{ version }}"
+    state: started
+    recreate: yes
+    pull: true
+    network_mode: host
+    privileged: yes
+    env:
+      NODE_NAME: "{{ ansible_hostname }}" # TEST VNF
+      PROM_SRV: "http://son-monitor-pushgateway:9091/metrics"
+    volumes:
+      - "/:/rootfs:ro"
+      - "/proc:/myhost/proc"
+
