@@ -125,3 +125,20 @@
 
 # deploy Security Gateway
 - import_tasks: sec-gtw.yml
+
+# Configuring MOCK PoP
+- import_tasks: add-mock-vim-wim.yml
+  when: target == 'pre-int-sp-ath.5gtango.eu'
+
+# Configuring Athens PoP-1
+#- import_tasks: add-athens-pop1-vim-wim.yml
+#  when: (target == 'int-sp-ath.5gtango.eu') or
+#        (target == 'qual-sp-bcn.5gtango.eu')
+
+# Configuring Athens PoP-2
+#- import_tasks: add-athens-pop2-vim-wim.yml
+#  when: target == 'sta-sp-ath.5gtango.eu'
+
+# Configuring Aveiro PoP
+#- import_tasks: add-aveiro-pop-vim-wim.yml
+#  when: target == 'sta-sp-ave'
