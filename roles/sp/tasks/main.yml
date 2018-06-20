@@ -124,9 +124,15 @@
 ## Deploy IA
 # VIM adaptor
 - import_tasks: vim-adaptor.yml
+  when: (component == 'infrastructure-abstraction') or
+        (component == 'vim-adaptor') or
+        (component == 'all')
 
 # WIM adaptor
 - import_tasks: wim-adaptor.yml
+  when: (component == 'infrastructure-abstraction') or
+        (component == 'wim-adaptor') or
+        (component == 'all')
 
 ## Deploying Monitoring Components
 # deploy Monitoring Pushgateway
