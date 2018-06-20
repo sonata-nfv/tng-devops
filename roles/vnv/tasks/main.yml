@@ -45,3 +45,8 @@
   when: (component == 'gatekeeper') or
         (component == 'packager') or
         (component == 'all')
+
+# deploy Portal
+- import_tasks: portal.yml
+  when: (component == 'portal') or
+        (component == 'all')
