@@ -2,129 +2,154 @@
 # Deploying databases
 # deploy postgreSQL database engine
 - import_tasks: pgsql.yml
+  when: (component == 'database') or 
+        (component == 'all')
 
 # deploy MongoDB (NoSQL) database engine
 - import_tasks: mongo.yml
+  when: (component == 'database') or 
+        (component == 'all')
 
 # deploy Redis database engine
 - import_tasks: redis.yml
+  when: (component == 'database') or 
+        (component == 'all')
 
 # deploy postgreSQL database engine for monitoring
 - import_tasks: pgsql-monitoring.yml
+  when: (component == 'database') or 
+        (component == 'all')
 
 # deploy RabbitMQ message bus
 - import_tasks: rabbitmq.yml
+  when: (component == 'database') or 
+        (component == 'all')
 
 # deploy Influxdb
 - import_tasks: influxdb.yml
+  when: (component == 'database') or 
+        (component == 'all')
 
 ## Deploying Gatekeeper components
 # deploy Keycloak
 - import_tasks: keycloak.yml
+  when: (component == 'database') or 
+        (component == 'all')
 
 # deploy GUI
 #- import_tasks: gui.yml
 
 # deploy GUI
 - import_tasks: portal.yml
+  when: (component == 'portal') or
+        (component == 'all')
 
 # deploy BSS
 - import_tasks: bss.yml
+  when: (component == 'portal') or
+        (component == 'all')
 
 # deploy SDK packager
 - import_tasks: tng-sdk-pkg.yml
-
-# deploy Gatekepper Validator module
-#- import_tasks: val.yml
-
-# deploy Gatekepper Package module
-#- import_tasks: pkg.yml
-
-# deploy Gatekepper Server module
-#- import_tasks: srv.yml
-
-# deploy Gatekepper Function module
-#- import_tasks: fnct.yml
-
-# deploy Gatekepper Records module
-#- import_tasks: gtkrec.yml
-
-# deploy Gatekepper VIM module
-#- import_tasks: vim.yml
-
-# deploy Gatekepper Lisense module
-#- import_tasks: lic.yml
-
-# deploy Gatekepper KPIs module
-#- import_tasks: kpi.yml
-
-# deploy Gatekepper User Management module
-#- import_tasks: usr.yml
-
-# deploy Gatekepper Rate Limit module
-#- import_tasks: rlt.yml
-
-# deploy Gatekepper API module
-#- import_tasks: gtkapi.yml
+  when: (component == 'gatekeeper') or
+        (component == 'all')
 
 # deploy Gatekepper API module
 - import_tasks: api-gtw.yml
+  when: (component == 'gatekeeper') or
+        (component == 'all')
 
 # deploy Gatekepper Common module
 - import_tasks: gtk-common.yml
+  when: (component == 'gatekeeper') or
+        (component == 'all')
 
 # deploy Gatekepper SP module
 - import_tasks: gtk-sp.yml
+  when: (component == 'gatekeeper') or
+        (component == 'all')
 
 # deploy Repositories
 - import_tasks: rep.yml
+  when: (component == 'repositories') or
+        (component == 'all')
 
 # deploy Catalogues
 - import_tasks: cat.yml
+  when: (component == 'catalogue') or
+        (component == 'all')
 
 # deploy Catalogues
 - import_tasks: slice-mngr.yml
+  when: (component == 'slice-manager') or
+        (component == 'all')
 
 # deploy Policy Manager
 - import_tasks: tng-policy-mngr.yml
+  when: (component == 'policy-manager') or
+        (component == 'all')
 
 # deploy SLA Management Framework
 - import_tasks: sla-mgmt.yml
+  when: (component == 'sla-management') or
+        (component == 'all')
 
 ## Deploying Mano Components
 # deploy PluginManager of MANO framework
 - import_tasks: pluginmgr.yml
+  when: (component == 'mano-framework') or
+        (component == 'all')
 
 # deploy Service Lifecycle Manager of MANO framework
 - import_tasks: slm.yml
+  when: (component == 'mano-framework') or
+        (component == 'all')
 
 # deploy Function Lifecycle Manager of MANO framework
 - import_tasks: flm.yml
+  when: (component == 'mano-framework') or
+        (component == 'all')
 
 # deploy Specific Manager Registry of MANO framework
 - import_tasks: smr.yml
+  when: (component == 'mano-framework') or
+        (component == 'all')
 
 # deploy Placement of MANO framework
 - import_tasks: placement.yml
+  when: (component == 'mano-framework') or
+        (component == 'all')
 
 # deploy Placement Plugin of MANO framework
 - import_tasks: placementplugin.yml
+  when: (component == 'mano-framework') or
+        (component == 'all')
 
 ## Deploying Monitoring Components
 # deploy Monitoring Pushgateway
 - import_tasks: pushgw.yml
+  when: (component == 'monitoring') or
+        (component == 'all')
 
 # deploy Monitoring Prometheus
 - import_tasks: prometheus.yml
+  when: (component == 'monitoring') or
+        (component == 'all')
 
 # deploy Monitoring Manager
 - import_tasks: monitmgr.yml
+  when: (component == 'monitoring') or
+        (component == 'all')
 
 # deploy Monitoring Probe
 - import_tasks: probe.yml
+  when: (component == 'monitoring') or
+        (component == 'all')
 
 # deploy Security Gateway
 - import_tasks: sec-gtw.yml
+  when: (component == 'gatekeeper') or
+        (component == 'all')
 
 # Configuring MOCK PoP
 - import_tasks: add-mock-vim-wim.yml
