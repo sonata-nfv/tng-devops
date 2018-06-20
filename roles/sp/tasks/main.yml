@@ -1,4 +1,17 @@
 ---
+
+- name: log into private Registry
+  docker_login:
+    registry_url: registry.sonata-nfv.eu
+    username: sonata-nfv
+    password: s0n4t4
+    reauthorize: yes
+    config_path: "{{ lookup('env','HOME') }}/.docker/config.json"
+    state: present
+  register: login_results
+- debug: 
+      var: login_results
+
 # Deploying databases
 # deploy postgreSQL database engine
 - import_tasks: pgsql.yml
