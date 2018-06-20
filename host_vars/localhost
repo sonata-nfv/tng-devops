@@ -33,4 +33,6 @@ mon_db_name: monitoring
 mon_db_user: monitoringuser
 mon_db_pass: sonata
 
+component: all
+
 repository: registry.sonata-nfv.eu:5000
