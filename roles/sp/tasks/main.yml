@@ -20,33 +20,19 @@
   when: (component == 'database') or 
         (component == 'all')
 
-# deploy RabbitMQ message bus
-- import_tasks: rabbitmq.yml
-  when: (component == 'database') or 
-        (component == 'all')
-
 # deploy Influxdb
 - import_tasks: influxdb.yml
   when: (component == 'database') or 
         (component == 'all')
 
-## Deploying Gatekeeper components
-# deploy Keycloak
-- import_tasks: keycloak.yml
-  when: (component == 'database') or 
+# deploy RabbitMQ message bus
+- import_tasks: rabbitmq.yml
+  when: (component == 'broker') or 
         (component == 'all')
 
-# deploy GUI
-#- import_tasks: gui.yml
-
-# deploy GUI
+# deploy Portal
 - import_tasks: portal.yml
   when: (component == 'portal') or
-        (component == 'all')
-
-# deploy BSS
-- import_tasks: bss.yml
-  when: (component == 'bss') or
         (component == 'all')
 
 # deploy SDK packager
@@ -58,7 +44,7 @@
 # deploy Gatekepper API module
 - import_tasks: api-gtw.yml
   when: (component == 'gatekeeper') or
-        (component == 'gtk-api-gateway') or
+        (component == 'gtk-api-gtw') or
         (component == 'all')
 
 # deploy Gatekepper Common module
@@ -102,6 +88,7 @@
 # deploy PluginManager of MANO framework
 - import_tasks: pluginmgr.yml
   when: (component == 'mano-framework') or
+        (component == 'plugin-manager') or
         (component == 'all')
 
 # deploy Service Lifecycle Manager of MANO framework
