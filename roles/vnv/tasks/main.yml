@@ -31,14 +31,17 @@
 # deploy tng-gtk-common
 - import_tasks: gtk-common.yml
   when: (component == 'gatekeeper') or
+        (component == 'gtk-common') or
         (component == 'all')
 
 # deploy tng-gtk-gtw
 - import_tasks: api-gtw.yml
   when: (component == 'gatekeeper') or
+        (component == 'gtk-api-gtw') or
         (component == 'all')
 
 # deploy tng-sdk-pkg.yml
 - import_tasks: tng-sdk-pkg.yml
   when: (component == 'gatekeeper') or
+        (component == 'packager') or
         (component == 'all')
