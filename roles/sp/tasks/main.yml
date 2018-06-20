@@ -76,7 +76,7 @@
 
 # deploy Catalogues
 - import_tasks: cat.yml
-  when: (component == 'catalogue') or
+  when: (component == 'catalogues') or
         (component == 'all')
 
 # deploy Catalogues

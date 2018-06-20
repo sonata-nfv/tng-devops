@@ -5,24 +5,40 @@
 
 # deploy mongo
 - import_tasks: mongo.yml
+  when: (component == 'database') or
+        (component == 'all')
 
 # deploy tng-vnv-lcm
 - import_tasks: lcm.yml
+  when: (component == 'lcm') or
+        (component == 'all')
 
 # deploy tng-vnv-tee
 - import_tasks: tee.yml
+  when: (component == 'tee') or
+        (component == 'all')
 
 # deploy tng-cat
 - import_tasks: cat.yml
+  when: (component == 'catalogues') or
+        (component == 'all')
 
 # deploy tng-rep
 - import_tasks: rep.yml
+  when: (component == 'repositories') or
+        (component == 'all')
 
 # deploy tng-gtk-common
 - import_tasks: gtk-common.yml
+  when: (component == 'gatekeeper') or
+        (component == 'all')
 
 # deploy tng-gtk-gtw
 - import_tasks: api-gtw.yml
+  when: (component == 'gatekeeper') or
+        (component == 'all')
 
 # deploy tng-sdk-pkg.yml
 - import_tasks: tng-sdk-pkg.yml
+  when: (component == 'gatekeeper') or
+        (component == 'all')
