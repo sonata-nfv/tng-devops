@@ -1,0 +1,15 @@
+---
+# Running the Sonata INFLUXDB (Docker container)
+- debug: msg="##### MONGO-EXPRESS DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- name: mongo-express tool
+  docker_container:
+    name: mongo-express
+    image: "mongo-express"
+    state: started
+    recreate: yes
+    pull: true
+    restart_policy: "always"
+    network_mode: bridge
+    networks:
+    - name: "{{ docker_network_name }}"
+    published_ports: 8081:8081
