@@ -7,7 +7,8 @@
     image: "{{ repository }}/functionlifecyclemanagement:{{ version }}"
     env:
       cat_path: "http://tng-cat:4011/api/catalogues/v2"
-      repo_path: "http://tng-rep:4012/records"
+      repo_path: "http://tng-rep:4012"
+      vnfr_collection: vnfrs
       monitoring_path: http://son-monitor-manager:8000/api/v1
       broker_host: amqp://guest:guest@son-broker:5672/%2F
     restart_policy: "always"
