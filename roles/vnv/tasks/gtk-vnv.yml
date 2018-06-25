@@ -1,0 +1,18 @@
+---
+# Running the 5GTANGO Gatekeeper VnV (Docker container)
+- debug: msg="##### 5GTANGO GTK-VNV DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- name: run the 5GTANGO GTK-VNV
+  docker_container:
+    name: tng-gtk-vnv
+    image: "{{ repository }}/tng-gtk-vnv:{{ version }}"
+    state: started
+    recreate: yes
+    pull: true
+    restart_policy: "always"
+    network_mode: bridge
+    networks:
+      - name: "{{ docker_network_name }}"
+        aliases:
+          - tng-gtk-vnv
+    published_ports:
+      - "5000:5000"
