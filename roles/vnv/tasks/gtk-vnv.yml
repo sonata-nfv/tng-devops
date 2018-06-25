@@ -8,6 +8,8 @@
     state: started
     recreate: yes
     pull: true
+    env:
+      - REPOSITORY_URL: http://tng-cat:4012
     restart_policy: "always"
     network_mode: bridge
     networks:
