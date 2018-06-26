@@ -35,10 +35,10 @@
         (component == 'all')
 
 # deploy tng-gtk-vnv
-- import_tasks: gtk-vnv.yml
-  when: (component == 'gatekeeper') or
-        (component == 'gtk-vnv') or
-        (component == 'all')
+#- import_tasks: gtk-vnv.yml
+#  when: (component == 'gatekeeper') or
+#        (component == 'gtk-vnv') or
+#        (component == 'all')
 
 # deploy tng-api-gtw
 - import_tasks: api-gtw.yml
