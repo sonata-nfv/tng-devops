@@ -6,8 +6,8 @@
     name: "tng-api-gtw"
     image: "{{ repository }}/tng-api-gtw:{{ version }}"
     env:
-      ROUTES_FILE: {{ routes_file }}
-      EXTERNAL_CALLBACK_URL: {{ external_callback_url }}
+      ROUTES_FILE: "{{ routes_file }}"
+      EXTERNAL_CALLBACK_URL: "{{ external_callback_url }}"
     state: started
     recreate: yes
     pull: true
