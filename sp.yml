@@ -2,5 +2,6 @@
 - hosts: "{{ target }}"
   become: true
   gather_facts: no
+  connection: ssh
   roles:
    - sp

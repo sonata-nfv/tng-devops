@@ -1,6 +1,6 @@
 ---
 # Running the Sonata INFLUXDB (Docker container)
-- debug: msg="##### MONGO-EXPRESS DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- debug: msg="##### MONGO-EXPRESS DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
 - name: mongo-express tool
   docker_container:
     name: mongo-express

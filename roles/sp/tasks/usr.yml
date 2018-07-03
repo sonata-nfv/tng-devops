@@ -1,6 +1,6 @@
 ---
 # Running the Sonata SP GTK-USER-MGMT Docker Image
-- debug: msg="##### SP GTK-USER-MGMT DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- debug: msg="##### SP GTK-USER-MGMT DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
 - name: GATEKEEPER USER MANAGEMENT (GTKUSR) (Docker container)
   docker_container:
     name: son-gtkusr

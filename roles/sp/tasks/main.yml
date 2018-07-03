@@ -1,4 +1,12 @@
 ---
+
+- name: log into private Registry
+  docker_login:
+    registry: "registry.sonata-nfv.eu:5000"
+    username: "sonata-nfv"
+    password: "s0n@t@"
+    reauthorize: yes
+
 # Deploying databases
 # deploy postgreSQL database engine
 - import_tasks: pgsql.yml
@@ -188,3 +196,8 @@
 # Configuring Aveiro PoP
 #- import_tasks: add-aveiro-pop-vim-wim.yml
 #  when: target == 'sta-sp-ave'
+
+- name: log out of private Registry
+  docker_login:
+    state: absent
+

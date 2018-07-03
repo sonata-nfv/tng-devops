@@ -1,6 +1,6 @@
 ---
 # Running the 5GTango POLICY MANAGER (Docker container)
-- debug: msg="##### SP POLICY MANAGER DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- debug: msg="##### SP POLICY MANAGER DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
 - name: POLICY MANAGER - running Docker containers
   docker_container:
     name: tng-policy-mngr

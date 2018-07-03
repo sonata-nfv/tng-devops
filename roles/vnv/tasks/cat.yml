@@ -1,6 +1,6 @@
 ---
 # Running the Sonata Catalogue (Docker container)
-- debug: msg="##### SP Catalogue DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- debug: msg="##### SP Catalogue DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
 - name: deploy Catalogues as a Docker container (from the Registry to the SP VM appliance)
   docker_container:
     name: tng-cat

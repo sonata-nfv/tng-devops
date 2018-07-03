@@ -1,6 +1,6 @@
 ---
 # Running the Sonata PGSQL (Docker container)
-- debug: msg="##### SP PGSQL DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- debug: msg="##### SP PGSQL DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
 - name: deploy a PostgreSQL database server as a Container
   docker_container:
     name: son-postgres
@@ -13,7 +13,7 @@
     state: started
     recreate: yes
     pull: true
-    restart_policy: "always"
+    restart_policy: always
     network_mode: bridge
     networks:
       - name: "{{ docker_network_name }}"
