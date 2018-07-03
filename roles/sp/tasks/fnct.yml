@@ -1,6 +1,6 @@
 ---
 # Running the Sonata GK FUNCTIONS (Docker container)
-- debug: msg="##### SP GTK-FUNCTIONs DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- debug: msg="##### SP GTK-FUNCTIONs DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
 - name: GATEKEEPER FUNCTIONS - running Docker containers
   docker_container:
     name: son-gtkfnct

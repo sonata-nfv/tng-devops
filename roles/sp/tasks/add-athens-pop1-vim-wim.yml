@@ -1,6 +1,6 @@
 ---
 # Adding mock VIM to SP
-- debug: msg="##### 5GTANGO Adding MOCK VIM and WIM {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- debug: msg="##### 5GTANGO Adding MOCK VIM and WIM {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
 
 #ADDING THE WIM
 - name: "Adding the VIM-Compute"

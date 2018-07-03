@@ -1,11 +1,11 @@
 ---
 
-- debug: msg="##### Installing python {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- debug: msg="##### Installing python {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
 
 # Installing python dependencies
 
 - name: Install dependencies
-  apt: name={{ item }} state=installed
+  apt: name={{ item }} state=present
   with_items:
     - apt-transport-https
     - ca-certificates
