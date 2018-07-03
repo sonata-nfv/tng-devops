@@ -1,7 +1,0 @@
----
-- hosts: "{{ target | default ('localhost') }}"
-  connection: local
-  become: true
-  gather_facts: no
-  roles:
-   - sp
