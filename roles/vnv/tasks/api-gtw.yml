@@ -1,0 +1,21 @@
+---
+# Running the 5GTANGO API Gateway (Docker container)
+- debug: msg="##### 5GTANGO API-GTW DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- name: run the 5GTANGO Security Gateway
+  docker_container:
+    name: "tng-api-gtw"
+    image: "{{ repository }}/tng-api-gtw:{{ version }}"
+    env:
+      ROUTES_FILE: vnv_routes.yml
+      EXTERNAL_CALLBACK_URL: http://tng-vnv-lcm:6100/api/v1/packages/on-change
+    state: started
+    recreate: yes
+    pull: true
+    restart_policy: "always"
+    network_mode: bridge
+    networks:
+      - name: "{{ docker_network_name }}"
+        aliases:
+          - tng-api-gtw
+    published_ports:
+      - "32002:5000"
