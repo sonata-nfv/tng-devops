@@ -7,7 +7,7 @@ docker_network_name: tango
 version: latest
 
 # MONITOR pgSQL database
-upassword: sonata
+upassword: '1.2nySKGWHJ.'
 urootpw: 1234
 dbname: monitoring
 dbuser: monitoringuser
