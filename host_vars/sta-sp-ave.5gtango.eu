@@ -1,0 +1,36 @@
+---
+## Containers configuration
+# Docker Network
+docker_network_name: tango
+
+## Version
+## For now, qualification version = staging
+version: latest
+
+## Repository
+repository: registry.sonata-nfv.eu:5000
+
+# MONITOR pgSQL database
+upassword: '$6$51.2nySKGWHJ.$OZl1nvSlQ3Uw2gBFLmECTyR6v3lutP2GEXtpOOXrVBGByXFP1CAgu58N8iNmPxGEe3X6aDEHV8F5fyBDSbvLj0'
+urootpw: '$6$YCBsQd8KKe$zab4EyozwsC.9mJmOD6ruuCSt5zctxauKnrnb8PdLX4lxhryo5IkuJ70so6mgHbAmg3xUK5iZtK.iVSKyKAfv0'
+dbname: monitoring
+dbuser: monitoringuser
+
+# GATEKEEPER pgSQL database
+gtk_db_name: gatekeeper
+gtk_db_user: sonatatest
+gtk_db_pass: '$6$51.2nySKGWHJ.$OZl1nvSlQ3Uw2gBFLmECTyR6v3lutP2GEXtpOOXrVBGByXFP1CAgu58N8iNmPxGEe3X6aDEHV8F5fyBDSbvLj0'
+
+# GATEKEEPER USER MGMT
+gtk_keycloak_user: admin
+gtk_keycloak_pass: '$6$4hZmeAp.Wv3PnVP$5BVJLSSVbL/XCgjHoysJo5DDR59J9SOk99POvP9.5URqa7pOET17m82PhZLsWJdRdXjZUKd1UNpHLmCF0Ui791'
+
+# Infrastructure Abstraction
+ia_repo_user: sonatatest
+ia_repo_pass: '$6$51.2nySKGWHJ.$OZl1nvSlQ3Uw2gBFLmECTyR6v3lutP2GEXtpOOXrVBGByXFP1CAgu58N8iNmPxGEe3X6aDEHV8F5fyBDSbvLj0'
+
+# Monitoring
+mon_db_name: monitoring
+mon_db_user: monitoringuser
+mon_db_pass: '$6$51.2nySKGWHJ.$OZl1nvSlQ3Uw2gBFLmECTyR6v3lutP2GEXtpOOXrVBGByXFP1CAgu58N8iNmPxGEe3X6aDEHV8F5fyBDSbvLj0'
+
