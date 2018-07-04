@@ -22,7 +22,7 @@ gtk_keycloak_user: admin
 gtk_keycloak_pass: admin
 
 # GATEKEEPER APPLICATION
-app_gk_base_url: http://localhost/api/v2
+app_gk_base_url: http://localhost:32002/api/v3
 
 # Infrastructure Abstraction
 ia_repo_user: sonatatest

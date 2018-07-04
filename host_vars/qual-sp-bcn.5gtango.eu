@@ -4,32 +4,13 @@
 docker_network_name: tango
 
 ## Version
-version: qual
+version: latest
 
 ## Repository
 repository: registry.sonata-nfv.eu:5000
 
-# MONITOR pgSQL database
-upassword: '$6$EuyPOYBqyebuE$7O1R9I0MdOG7QEcG5WWd7lHBgJ1UqEVMZAAC21UXBUUwb4DqenaPwLeIRvCBqQaTwER7TEjt3FxoEtnwEfMRY.'
-urootpw: '$6$AT5D6qF0$VBk.t/Tyw5L/1BrLe5cOFvqHgF7Cj.VxOeQUF7Bohr6F6JMhz0O/I4uLDSS2WTb6vzzI8dPmGRab9q.5.V/9b.'
-dbname: monitoring
-dbuser: monitoringuser
-
-# GATEKEEPER pgSQL database
-gtk_db_name: gatekeeper
-gtk_db_user: sonatatest
-gtk_db_pass: '$6$EuyPOYBqyebuE$7O1R9I0MdOG7QEcG5WWd7lHBgJ1UqEVMZAAC21UXBUUwb4DqenaPwLeIRvCBqQaTwER7TEjt3FxoEtnwEfMRY.'
-
-# GATEKEEPER USER MGMT
-gtk_keycloak_user: admin
-gtk_keycloak_pass: '$6$y3ly./Zbq$4PxHtv1cCgxR4.7GsK8Lk2Es36W6JDo/FXELElAa/PTeMWq/zUAFrW33pSyJo5MZO7chggew9eMdUh5Vat45A/'
-
-# Infrastructure Abstraction
-ia_repo_user: sonatatest
-ia_repo_pass: '$6$EuyPOYBqyebuE$7O1R9I0MdOG7QEcG5WWd7lHBgJ1UqEVMZAAC21UXBUUwb4DqenaPwLeIRvCBqQaTwER7TEjt3FxoEtnwEfMRY.'
-
-# Monitoring
-mon_db_name: monitoring
-mon_db_user: monitoringuser
-mon_db_pass: '$6$EuyPOYBqyebuE$7O1R9I0MdOG7QEcG5WWd7lHBgJ1UqEVMZAAC21UXBUUwb4DqenaPwLeIRvCBqQaTwER7TEjt3FxoEtnwEfMRY.'
+## VnV Specific Variables
+app_gk_base_url: http://qual-sp-bcn.5gtango.eu:32002/api/v3
+routes_file: vnv_routes.yml
+external_callback_url: http://tng-vnv-lcm:6100/api/v1/packages/on-change
 
