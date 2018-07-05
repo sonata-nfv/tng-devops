@@ -153,6 +153,12 @@
         (component == 'monitoring-manager') or
         (component == 'all')
 
+# deploy Monitoring Manager
+- import_tasks: snmpmng.yml
+  when: (component == 'monitoring') or
+        (component == 'monitoring-snmp') or
+        (component == 'all')
+
 # deploy Monitoring Probe
 - import_tasks: probe.yml
   when: (component == 'monitoring') or
