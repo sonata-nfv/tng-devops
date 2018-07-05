@@ -5,7 +5,7 @@ docker_network_name: tango
 
 ## Version
 ## For now, qualification version = staging
-version: latest
+version: qual
 
 ## Repository
 repository: registry.sonata-nfv.eu:5000
