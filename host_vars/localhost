@@ -33,6 +33,12 @@ mon_db_name: monitoring
 mon_db_user: monitoringuser
 mon_db_pass: '$6$51.2nySKGWHJ.$OZl1nvSlQ3Uw2gBFLmECTyR6v3lutP2GEXtpOOXrVBGByXFP1CAgu58N8iNmPxGEe3X6aDEHV8F5fyBDSbvLj0'
 
+## VnV Specific Variables
+
+app_gk_base_url: http://qual-sp-ave.5gtango.eu:32002/api/v3
+routes_file: vnv_routes.yml
+external_callback_url: http://tng-vnv-lcm:6100/api/v1/packages/on-change
+
 
 component: all
 
