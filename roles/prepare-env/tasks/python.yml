@@ -16,25 +16,36 @@
   raw: test -e /usr/bin/python || (apt update && apt install -y python-simplejson)
   register: test
   changed_when: test.stdout
+
 - name: check to see if pip is already installed
   command: "pip --version"
   ignore_errors: true
   register: pip_is_installed
   changed_when: false
-- block:
-   - name: download get-pip.py
-     get_url:
-       url: https://bootstrap.pypa.io/get-pip.py
-       dest: /tmp
-       validate_certs: no
-   - name: install pip
-     command: "python /tmp/get-pip.py"
-   - name: delete get-pip.py
-     file: state=absent path=/tmp/get-pip.py
-- name: Install docker-py python module
+
+#- block:
+#   - name: download get-pip.py
+#     get_url:
+#       url: https://bootstrap.pypa.io/get-pip.py
+#       dest: /tmp
+#       validate_certs: no
+#   - name: install pip
+#     command: "python /tmp/get-pip.py"
+#   - name: delete get-pip.py
+#     file: state=absent path=/tmp/get-pip.py
+
+- name: Install PIP
+  apt: name=python-pip state=present
+
+- name: upgrade PIP
+  shell: "pip install --upgrade"
+#  shell: "pip install --upgrade --force-reinstall pip==9.0.3"
+
+- name: Install 'docker' python module
   pip:
-    name: docker-py
-    version: "1.9.0"
+    name: docker
+    #name: docker-py
+    #version: "1.9.0"
 
 - name: Install cryptography python module
   pip:
