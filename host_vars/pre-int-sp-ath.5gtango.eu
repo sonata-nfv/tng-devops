@@ -10,7 +10,6 @@ version: latest
 repository: registry.sonata-nfv.eu:5000
 
 # MONITOR pgSQL database
-
 upassword: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           39636466306132653264376131363734643863653439343862623132353566653338653337636631

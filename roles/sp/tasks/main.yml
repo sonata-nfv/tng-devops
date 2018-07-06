@@ -153,6 +153,12 @@
         (component == 'monitoring-manager') or
         (component == 'all')
 
+# deploy Monitoring Manager
+- import_tasks: snmpmng.yml
+  when: (component == 'monitoring') or
+        (component == 'monitoring-snmp') or
+        (component == 'all')
+
 # deploy Monitoring Probe
 - import_tasks: probe.yml
   when: (component == 'monitoring') or
@@ -169,6 +175,13 @@
 - import_tasks: mongo-express.yml
   when: (target == 'pre-int-sp-ath.5gtango.eu') or
         (target == 'int-sp-ath.5gtango.eu')
+
+# Configuring Athens PoP-1
+- import_tasks: rabbitmq-enable-plugins.yaml
+  when: (target == 'pre-int-sp-ath.5gtango.eu') or
+        (target == 'int-sp-ath.5gtango.eu') or
+        (target == 'qual-sp-bcn.5gtango.eu') and
+        (component == 'all')
 
 # Configuring MOCK PoP
 - import_tasks: add-mock-vim-wim.yml
