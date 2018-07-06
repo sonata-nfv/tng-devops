@@ -28,7 +28,7 @@ dbname: monitoring
 dbuser: monitoringuser
 
 # Ruby env
-rack_env : pre-int
+rack_env : int
 
 # GATEKEEPER pgSQL database
 gtk_db_name: gatekeeper
