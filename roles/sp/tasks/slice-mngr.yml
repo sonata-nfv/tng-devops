@@ -1,6 +1,6 @@
 ---
 # Running the 5GTANGO Slice Manager (Docker container)
-- debug: msg="##### Service Platform TNG-SLICE-MNGR DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- debug: msg="##### Service Platform TNG-SLICE-MNGR DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
 - name: 5GTANGO Slice Manager (tng-slice-mngr) (Docker container)
   docker_container:
     name: tng-slice-mngr

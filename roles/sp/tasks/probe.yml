@@ -1,6 +1,6 @@
 ---
 # Running the MONIT Probe (Docker container)
-- debug: msg="##### MONIT Probe DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- debug: msg="##### MONIT Probe DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
 - name: MONIT Probe - running Docker containers
   docker_container:
     name: son-monitor-probe

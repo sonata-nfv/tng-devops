@@ -1,6 +1,6 @@
 ---
 # Running the Sonata SP REDISDB (Docker container)
-- debug: msg="##### SP REDISDB DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- debug: msg="##### SP REDISDB DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
 - name: deploy RedisDB as a Container (used by Validator and Gkapi)
   docker_container:
     name: "son-redis"

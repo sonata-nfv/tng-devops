@@ -1,6 +1,6 @@
 ---
 # Running the 5GTANGO Gatekeeper Common (Docker container)
-- debug: msg="##### 5GTANGO GTK-COMMON DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- debug: msg="##### 5GTANGO GTK-COMMON DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
 - name: run the 5GTANGO GTK-COMMON
   docker_container:
     name: tng-gtk-common
