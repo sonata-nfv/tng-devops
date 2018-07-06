@@ -1,6 +1,6 @@
 ---
 # Running the Sonata GTK-VIM (Docker container)
-- debug: msg="##### SP GTK-VIM DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- debug: msg="##### SP GTK-VIM DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
 # Ensure son-gtkvim is not present
 - name: DELETE GATEKEEPER VIM (GTKVIM) (Docker container)
   docker_container:

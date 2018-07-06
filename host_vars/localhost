@@ -57,6 +57,9 @@ gtk_keycloak_pass: !vault |
           3366333031363931390a666438343330306538343164653139363463343333626437353065386564
           3733
 
+# GATEKEEPER APPLICATION
+app_gk_base_url: http://localhost/api/v2
+
 # Infrastructure Abstraction
 ia_repo_user: sonatatest
 ia_repo_pass: !vault |
