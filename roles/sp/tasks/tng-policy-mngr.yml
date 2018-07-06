@@ -1,6 +1,6 @@
 ---
 # Running the 5GTango POLICY MANAGER (Docker container)
-- debug: msg="##### SP POLICY MANAGER DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- debug: msg="##### SP POLICY MANAGER DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
 - name: POLICY MANAGER - running Docker containers
   docker_container:
     name: tng-policy-mngr
@@ -9,6 +9,10 @@
     recreate: yes
     pull: true
     restart_policy: "always"
+    env:
+      MONGO_DB: "son-mongo"
+      HOST_BROKER: "son-broker"
+      CATALOGUE: "tng-cat:4011"
     network_mode: bridge
     networks:
       - name: "{{ docker_network_name }}"

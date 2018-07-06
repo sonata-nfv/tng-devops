@@ -1,6 +1,6 @@
 ---
 # Running the 5GTANGO SLA Manager Framework
-- debug: msg="##### 5GTANGO SLA Manager Framework DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- debug: msg="##### 5GTANGO SLA Manager Framework DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
 - name: 5GTANGO SLA Manager Framework - running Docker containers
   docker_container:
     name: tng-sla-mgmt

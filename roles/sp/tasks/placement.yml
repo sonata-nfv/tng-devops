@@ -1,6 +1,6 @@
 ---
 # Running the Sonata MANO Placement Executive Plugin (Docker container)
-- debug: msg="##### SP MANO Placement Executive Plugin DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- debug: msg="##### SP MANO Placement Executive Plugin DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
 - name: MANO Placement Executive Plugin (Docker container)
   docker_container:
     name: placementexecutive

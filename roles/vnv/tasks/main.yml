@@ -40,6 +40,12 @@
         (component == 'gtk-vnv') or
         (component == 'all')
 
+# deploy Security Gateway
+- import_tasks: sec-gtw.yml
+  when: (component == 'gatekeeper') or
+        (component == 'security-gateway') or
+        (component == 'all')
+
 # deploy tng-api-gtw
 - import_tasks: api-gtw.yml
   when: (component == 'gatekeeper') or

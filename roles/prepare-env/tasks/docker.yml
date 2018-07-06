@@ -1,6 +1,6 @@
 ---
 
-- debug: msg="##### Installing python {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- debug: msg="##### Installing python {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
 
 - name: Import Docker CE repository gpg key
   apt_key:
