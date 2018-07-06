@@ -33,6 +33,7 @@ urootpw: !vault |
           32346534373166303262383031666230636332633761363263353733326566636639626238363666
           3733613961666430380a663234333765623362393738663731323539616437646237313662313339
           3161
+
 dbname: monitoring
 dbuser: monitoringuser
 
@@ -70,6 +71,9 @@ ia_repo_pass: !vault |
           3738663562316432360a666634316566313533366364643965646539636433353736306361396338
           3961
 
+# GATEKEEPER APPLICATION
+app_gk_base_url: http://localhost/api/v2
+
 # Monitoring
 mon_db_name: monitoring
 mon_db_user: monitoringuser
@@ -80,3 +84,11 @@ mon_db_pass: !vault |
           37313336363864363662363866343937656334316563623763646665666237383261333561333163
           3566396637616561660a383363373366646565333631386165653162326366623237636538653761
           3362
+
+## VnV Specific Variables
+
+app_gk_base_url: http://qual-sp-ave.5gtango.eu:32002/api/v3
+routes_file: vnv_routes.yml
+external_callback_url: http://tng-vnv-lcm:6100/api/v1/packages/on-change
+
+component: all
