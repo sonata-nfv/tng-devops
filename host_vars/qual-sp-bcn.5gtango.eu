@@ -28,6 +28,9 @@ urootpw: !vault |
 dbname: monitoring
 dbuser: monitoringuser
 
+# Ruby env
+rack_env : qualification
+
 # GATEKEEPER pgSQL database
 gtk_db_name: gatekeeper
 gtk_db_user: sonatatest

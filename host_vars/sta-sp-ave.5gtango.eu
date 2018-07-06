@@ -29,6 +29,9 @@ urootpw: !vault |
 dbname: monitoring
 dbuser: monitoringuser
 
+# Ruby env
+rack_env : staging
+
 # GATEKEEPER pgSQL database
 gtk_db_name: gatekeeper
 gtk_db_user: sonatatest

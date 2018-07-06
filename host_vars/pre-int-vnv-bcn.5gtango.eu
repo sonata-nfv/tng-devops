@@ -6,6 +6,9 @@ docker_network_name: tango
 ## Version
 version: latest
 
+# Ruby env
+rack_env : pre-int
+
 ## Docker repository
 repository: registry.sonata-nfv.eu:5000
 
