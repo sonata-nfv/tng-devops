@@ -13,7 +13,7 @@
     pull: true
     env:
       CATALOGUES_URL: http://tng-cat:4011/catalogues/api/v2
-      RACK_ENV: integration
+      RACK_ENV: "{{ rack_env }}"
       MQSERVER: amqp://guest:guest@son-broker:5672
       MQSERVER:_URL: amqp://guest:guest@son-broker:5672
       DATABASE_URL: "postgres://{{ gtk_db_user }}:{{ gtk_db_pass }}@son-postgres:5432/{{ gtk_db_name }}"

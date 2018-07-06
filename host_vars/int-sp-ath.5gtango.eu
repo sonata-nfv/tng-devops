@@ -12,6 +12,9 @@ urootpw: 1234
 dbname: monitoring
 dbuser: monitoringuser
 
+# Ruby env
+rack_env : integration
+
 # GATEKEEPER pgSQL database
 gtk_db_name: gatekeeper
 gtk_db_user: sonatatest
