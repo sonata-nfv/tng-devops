@@ -10,6 +10,7 @@
     image: "{{ repository }}/tng-vnv-lcm:{{ version }}"
     env:
       APP_GK_BASE_URL: "{{ app_gk_base_url }}"
+      APP_CAT_BASE_URL: "{{ catalogue_url }}"
     state: started
     recreate: yes
     pull: true
