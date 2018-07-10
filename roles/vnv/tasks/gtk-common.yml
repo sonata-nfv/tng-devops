@@ -8,7 +8,7 @@
     env:
       UNPACKAGER_URL: "{{ unpackager_url }}"
       CATALOGUE_URL: "{{ catalogue_url }}"
-      INTERNAL_CALLBACK_URL: "{{ internal_callback }}"
+      INTERNAL_CALLBACK_URL: "{{ internal_callback_url }}"
     state: started
     recreate: yes
     pull: true
