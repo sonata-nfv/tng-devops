@@ -19,7 +19,7 @@ component: all
 
 ## Private Docker repository
 repository: registry.sonata-nfv.eu:5000
-
+git s
 # MONITOR pgSQL database
 
 upassword: !vault |
