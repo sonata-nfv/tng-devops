@@ -9,7 +9,8 @@
     recreate: yes
     pull: true
     env:
-      REPOSITORY_URL: http://tng-rep:4012
+      REPOSITORY_URL: "{{ repository_url }}"
+      CATALOGUE_URL: "{{ catalogue_url }}"
     restart_policy: "always"
     network_mode: bridge
     networks:
