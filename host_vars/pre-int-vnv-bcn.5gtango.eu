@@ -6,11 +6,18 @@ docker_network_name: tango
 ## Version
 version: latest
 
+# Ruby env
+rack_env : pre-int
+
 ## Docker repository
 repository: registry.sonata-nfv.eu:5000
 
 ## VnV Specific Variables
 
-app_gk_base_url: http://qual-sp-bcn.5gtango.eu:32001/api/v2
+app_gk_base_url: http://qual-sp-bcn.5gtango.eu:32002/api/v3
 routes_file: vnv_routes.yml
-external_callback_url: http://tng-vnv-lcm:6100/api/v1/packages/on-change
+unpackager_url: http://qual-sp-bcn.5gtango.eu:5099/api/v1/packages
+catalogue_url: http://qual-sp-bcn.5gtango.eu:4011/catalogues/api/v2
+repository_url: http://tng-rep:4012
+external_callback_url: http://pre-int-vnv-bcn.5gtango.eu:6100/tng-vnv-lcm/api/v1/packages/on-change
+internal_callback_url: http://pre-int-vnv-bcn.5gtango.eu:6100/tng-vnv-lcm/api/v1/packages/on-change

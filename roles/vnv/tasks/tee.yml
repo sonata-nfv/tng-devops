@@ -1,6 +1,6 @@
 ---
 
-- debug: msg="##### VnV Test Execution Engine Deployment {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- debug: msg="##### VnV Test Execution Engine Deployment {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
 
 # Running the 5GTANGO VnV Test Execution Engine Deployment (Docker container)
 
@@ -10,6 +10,7 @@
     image: "{{ repository }}/tng-vnv-tee:{{ version }}"
     env:
       APP_GK_BASE_URL: "{{ app_gk_base_url }}"
+      APP_CAT_BASE_URL: "{{ catalogue_url }}"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "/usr/bin/docker:/usr/bin/docker"

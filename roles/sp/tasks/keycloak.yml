@@ -1,6 +1,6 @@
 ---
 # Running the Sonata GTK-KEYCLOAK (Docker container)
-- debug: msg="##### SP GTK-KEYCLOAK DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- debug: msg="##### SP GTK-KEYCLOAK DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
 - name: run the SP Keycloak service
   docker_container:
     name: "son-keycloak"

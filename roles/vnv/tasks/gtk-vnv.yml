@@ -1,6 +1,6 @@
 ---
 # Running the 5GTANGO Gatekeeper VnV (Docker container)
-- debug: msg="##### 5GTANGO GTK-VNV DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- debug: msg="##### 5GTANGO GTK-VNV DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
 - name: run the 5GTANGO GTK-VNV
   docker_container:
     name: tng-gtk-vnv
@@ -8,6 +8,9 @@
     state: started
     recreate: yes
     pull: true
+    env:
+      REPOSITORY_URL: "{{ repository_url }}"
+      CATALOGUE_URL: "{{ catalogue_url }}"
     restart_policy: "always"
     network_mode: bridge
     networks:
