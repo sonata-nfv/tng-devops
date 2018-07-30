@@ -180,6 +180,7 @@
 - import_tasks: rabbitmq-enable-plugins.yaml
   when: (target == 'pre-int-sp-ath.5gtango.eu') or
         (target == 'int-sp-ath.5gtango.eu') or
+        (target == 'sta-sp-ath-v4.0.5gtango.eu') or
         (target == 'qual-sp-bcn.5gtango.eu') and
         (component == 'all')
 
