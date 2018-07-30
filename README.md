@@ -18,42 +18,101 @@ This is the tree structure of the repository:
 ├── environments
 ├── host_vars
 │   ├── int-sp-ath.5gtango.eu
-│   ├── int-vnv-bcn.5gtango.eu
-│   ├── pre-int-sdk-ath.5gtango.eu
+│   ├── int-vnv-ave-5gtango.eu
+│   ├── localhost
 │   ├── pre-int-sp-ath.5gtango.eu
+│   ├── pre-int-vnv-ave.5gtango.eu
 │   ├── pre-int-vnv-bcn.5gtango.eu
+│   ├── qual-sp-ave.5gtango.eu
 │   ├── qual-sp-bcn.5gtango.eu
-│   ├── qual-vnv-bcn.5gtango.eu
-│   ├── sta-sdk-ath.5gtango.eu
-│   ├── sta-sdk-ave.5gtango.eu
-│   ├── sta-sdk-pad.5gtango.eu
 │   ├── sta-sp-ath.5gtango.eu
-│   ├── sta-sp-ave.5gtango.eu
-│   ├── sta-sp-pad.5gtango.eu
-│   ├── sta-vnv-ath.5gtango.eu
-│   ├── sta-vnv-ave.5gtango.eu
-│   ├── sta-vnv-pad.5gtango.eu
-│   └── localhost
-├── roles
-│   ├── sp
-│   │   └── tasks
-│   │       ├── components.yml
-│   │       └── main.yml
-│   ├── sdk
-│   │   └── tasks
-│   │       ├── components.yml
-│   │       └── main.yml
-│   ├── vnv
-│   │   └── tasks
-│   │       ├── components.yml
-│   │       └── main.yml
-│   ├── sp.yml
-│   ├── sdk.yml
-│   └── vnv.yml
+│   └── sta-sp-ave.5gtango.eu
+├── Jenkinsfile
 ├── LICENSE
 ├── README.md
+├── roles
+│   ├── prepare-env
+│   │   ├── files
+│   │   │   └── docker.service
+│   │   └── tasks
+│   │       ├── docker.yml
+│   │       ├── main.yml
+│   │       └── python.yml
+│   ├── prepare-env.yml
+│   ├── sdk
+│   │   └── tasks
+│   │       └── main.yml
+│   ├── sdk.yml
+│   ├── sp
+│   │   └── tasks
+│   │       ├── add-athens-pop1-vim-wim.yml
+│   │       ├── add-mock-vim-wim.yml
+│   │       ├── api-gtw.yml
+│   │       ├── bss.yml
+│   │       ├── cat.yml
+│   │       ├── flm.yml
+│   │       ├── fnct.yml
+│   │       ├── gtkapi.yml
+│   │       ├── gtk-common.yml
+│   │       ├── gtkrec.yml
+│   │       ├── gtk-sp.yml
+│   │       ├── gui.yml
+│   │       ├── influxdb.yml
+│   │       ├── keycloak.yml
+│   │       ├── kpi.yml
+│   │       ├── lic.yml
+│   │       ├── main.yml
+│   │       ├── mongo-express.yml
+│   │       ├── mongo.yml
+│   │       ├── monitmgr.yml
+│   │       ├── pgsql-monitoring.yml
+│   │       ├── pgsql.yml
+│   │       ├── pkg.yml
+│   │       ├── placementplugin.yml
+│   │       ├── placement.yml
+│   │       ├── pluginmgr.yml
+│   │       ├── portal.yml
+│   │       ├── probe.yml
+│   │       ├── prometheus.yml
+│   │       ├── pushgw.yml
+│   │       ├── rabbitmq-enable-plugins.yaml
+│   │       ├── rabbitmq.yml
+│   │       ├── redis.yml
+│   │       ├── rep.yml
+│   │       ├── rlt.yml
+│   │       ├── sec-gtw.yml
+│   │       ├── sla-mgmt.yml
+│   │       ├── slice-mngr.yml
+│   │       ├── slm.yml
+│   │       ├── smr.yml
+│   │       ├── snmpmng.yml
+│   │       ├── srv.yml
+│   │       ├── tng-policy-mngr.yml
+│   │       ├── tng-sdk-pkg.yml
+│   │       ├── usr.yml
+│   │       ├── val.yml
+│   │       ├── vim-adaptor.yml
+│   │       ├── vim.yml
+│   │       ├── vmprobe.yml
+│   │       └── wim-adaptor.yml
+│   ├── sp.yml
+│   ├── vnv
+│   │   └── tasks
+│   │       ├── api-gtw.yml
+│   │       ├── cat.yml
+│   │       ├── gtk-common.yml
+│   │       ├── gtk-vnv.yml
+│   │       ├── lcm.yml
+│   │       ├── main.yml
+│   │       ├── mongo.yml
+│   │       ├── portal.yml
+│   │       ├── rep.yml
+│   │       ├── sec-gtw.yml
+│   │       ├── tee.yml
+│   │       └── tng-sdk-pkg.yml
+│   └── vnv.yml
 └── utils
-    ├── destroy.yml
+    ├── docker-network.yml
     └── install-pip.yml
 ```
 

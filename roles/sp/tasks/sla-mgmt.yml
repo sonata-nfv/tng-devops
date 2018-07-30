@@ -10,6 +10,7 @@
     pull: true
     env:
       CATALOGUES_URL: http://tng-cat:4011/catalogues/api/v2/
+      MONITORING_URL: http://son-monitor-manager:8000/api/v1/
       RACK_ENV: integration
       MQSERVER: amqp://guest:guest@son-broker:5672
       DATABASE_HOST: son-postgres
@@ -18,6 +19,7 @@
       POSTGRES_USER: "{{ gtk_db_user }}"
       POSTGRES_DB: "{{ gtk_db_name }}"
       BROKER_EXCHANGE: son-kernel
+      BROKER_HOST: broker
     network_mode: bridge
     networks:
       - name: "{{ docker_network_name }}"
