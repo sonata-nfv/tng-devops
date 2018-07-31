@@ -39,7 +39,7 @@ sta-sdk-pad.5gtango.eu ansible_user=tango component=all
 sta-sdk-ave.5gtango.eu ansible_user=tango component=all
 
 [sta-sp-v4.0]
-sta-sp-ath.v4.0.5gtango.eu ansible_user=tango component=all
+sta-sp-ath-v4-0.5gtango.eu ansible_user=tango component=all
 
 [all:vars]
 task_output_limit = 100
