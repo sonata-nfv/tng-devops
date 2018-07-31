@@ -4,7 +4,7 @@
 docker_network_name: tango
 
 ## Version
-version: latest
+version: v4.0
 
 # Ruby env
 rack_env : staging
