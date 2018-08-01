@@ -19,7 +19,7 @@
       POSTGRES_USER: "{{ gtk_db_user }}"
       POSTGRES_DB: "{{ gtk_db_name }}"
       BROKER_EXCHANGE: son-kernel
-      BROKER_HOST: broker
+      BROKER_HOST: son-broker
     network_mode: bridge
     networks:
       - name: "{{ docker_network_name }}"
