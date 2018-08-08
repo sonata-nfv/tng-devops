@@ -1,0 +1,36 @@
+---
+# Adding mock VIM to SP
+- debug: msg="##### 5GTANGO Adding MOCK VIM and WIM {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
+
+#ADDING THE WIM
+- name: "Adding the VIM-Compute"
+  shell: | 
+    /usr/bin/docker exec -t son-postgres psql -h localhost -U sonatatest -d vimregistry -c \
+    "INSERT INTO VIM (UUID, TYPE, VENDOR, ENDPOINT, USERNAME, CONFIGURATION, CITY, COUNTRY, PASS, AUTHKEY, NAME, DOMAIN) \
+    VALUES ('1111-22222222-33333333-4444', 'compute', 'Heat', '172.31.8.15', 'tango', \
+    '{\"tenant_ext_net\":\"ee400f7e-2707-45c9-98fe-e2813b1fe7f0\", \"tenant_private_net_id\":\"172.16.0.0\", \"tenant_private_net_length\":16, \
+    \"tenant\":\"5gtango\", \"tenant_ext_router\":\"a19bc564-6741-4b67-90b7-1288c283c1bc\"}', 'Aveiro-Beach', 'Portugal', 't4ng0', null, 'Aveiro-8-Net', 'default');"
+
+- name: "Adding the VIM-Network"
+  shell: |
+    /usr/bin/docker exec -t son-postgres psql -h localhost -U sonatatest -d vimregistry -c \
+    "INSERT INTO VIM (UUID, TYPE, VENDOR, ENDPOINT, USERNAME, CONFIGURATION, CITY, COUNTRY, PASS, AUTHKEY, NAME, DOMAIN) \
+    VALUES ('aaaa-bbbbbbbb-cccccccc-dddd', 'network', 'ovs', '172.31.8.15', 'tango', '{"compute_uuid":"1111-22222222-33333333-4444"}', \
+    'Aveiro-Beach', 'Portugal', 't4ng0', null,'Aveiro-8-Net','default');"
+
+- name: "Linking VIM Compute-Network"
+  shell: |
+    /usr/bin/docker exec -t son-postgres psql -h localhost -U sonatatest -d vimregistry -c \
+    "INSERT INTO LINK_VIM (COMPUTE_UUID, NETWORKING_UUID) VALUES ('1111-22222222-33333333-4444', 'aaaa-bbbbbbbb-cccccccc-dddd');"
+
+#ADDING THE WIM
+- name: "ADDING WIM"
+  shell: | 
+    /usr/bin/docker exec -t son-postgres psql -h localhost -U postgres -d wimregistry -c \
+    "INSERT INTO WIM (UUID, TYPE, VENDOR, ENDPOINT, USERNAME, PASS, AUTHKEY, NAME) \
+    VALUES ('1234-12345678-12345678-1234', 'WIM', 'MOCK', '10.30.0.13', 'admin', 'admin', null, 'AthensWan');"
+
+- name: "Linking VIM - WIM"
+  shell: |
+    /usr/bin/docker exec -t son-postgres psql -h localhost -U postgres -d wimregistry -c \
+    "INSERT INTO ATTACHED_VIM (VIM_UUID, VIM_ADDRESS, WIM_UUID) VALUES ('1111-22222222-33333333-4444','172.31.8.15', '1234-12345678-12345678-1234');"

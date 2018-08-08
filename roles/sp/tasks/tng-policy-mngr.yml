@@ -13,6 +13,7 @@
       MONGO_DB: "son-mongo"
       HOST_BROKER: "son-broker"
       CATALOGUE: "tng-cat:4011"
+      MONITORING_MANAGER: "son-monitor-manager:8000"
     network_mode: bridge
     networks:
       - name: "{{ docker_network_name }}"
