@@ -14,6 +14,7 @@ repository: registry.sonata-nfv.eu:5000
 
 ## VnV Specific Variables
 
+app_vnv_logging_level: DEBUG
 app_gk_base_url: http://qual-sp-ave.5gtango.eu:32002/api/v3
 routes_file: vnv_routes.yml
 unpackager_url: http://qual-sp-ave.5gtango.eu:5099/api/v1/packages
