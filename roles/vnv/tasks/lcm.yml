@@ -11,6 +11,8 @@
     env:
       APP_GK_BASE_URL: "{{ app_gk_base_url }}"
       APP_CAT_BASE_URL: "{{ catalogue_url }}"
+      LOGGING_LEVEL_ORG_APACHE_HTTP_WIRE: "{{ app_vnv_logging_level }}"
+      LOGGING_LEVEL_SUN_NET_WWW_PROTOCOL_HTTP: "{{ app_vnv_logging_level }}"
     state: started
     recreate: yes
     pull: true
