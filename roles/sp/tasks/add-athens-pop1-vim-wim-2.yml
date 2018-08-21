@@ -17,9 +17,12 @@
 
 #ADDING THE WIM
 - name: "ADDING WIM"
-  shell: | 
-    /usr/bin/docker exec -t son-postgres psql -h localhost -U postgres -d wimregistry -c "INSERT INTO WIM (UUID, TYPE, VENDOR, ENDPOINT, USERNAME, PASS, AUTHKEY, NAME) VALUES ('1234-12345678-12345678-1234', 'WIM', 'VTN', '10.30.0.13', 'admin', 'admin', null, 'AthensWan');"
+  shell: |
+    /usr/bin/docker exec -t son-postgres psql -h localhost -U postgres -d wimregistry -c "INSERT INTO WIM (UUID, TYPE, VENDOR, ENDPOINT, USERNAME, PASS, AUTHKEY, NAME) VALUES ('1234-12345678-12345678-1234', 'WIM', 'Mock', '10.30.0.13', 'admin', 'admin', null, 'AthensWan');"
 
 - name: "Linking VIM - WIM"
   shell: |
     /usr/bin/docker exec -t son-postgres psql -h localhost -U postgres -d wimregistry -c "INSERT INTO ATTACHED_VIM (VIM_UUID, VIM_ADDRESS, WIM_UUID) VALUES ('1111-22222222-33333333-4444','10.100.32.200', '1234-12345678-12345678-1234');"
+
+
+
