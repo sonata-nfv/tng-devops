@@ -9,7 +9,7 @@
     "INSERT INTO VIM (UUID, TYPE, VENDOR, ENDPOINT, USERNAME, CONFIGURATION, CITY, COUNTRY, PASS, AUTHKEY, NAME, DOMAIN) \
     VALUES ('1111-22222222-33333333-4444', 'compute', 'Heat', '172.31.8.16', 'tango', \
     '{\"tenant_ext_net\":\"3283ec5d-984e-46e7-8eac-312a79b878f1\", \"tenant_private_net_id\":\"172.16.0.0\", \"tenant_private_net_length\":16, \
-    \"tenant\":\"5gtango\", \"tenant_ext_router\":\"eecdb2e2-bae8-443e-b96a-bc8871cf4ddc\"}', 'Aveiro-Beach', 'Portugal', 't4ng0', null, 'Aveiro-8-Net', 'default');"
+    \"tenant\":\"tango\", \"tenant_ext_router\":\"eecdb2e2-bae8-443e-b96a-bc8871cf4ddc\"}', 'Aveiro-Beach', 'Portugal', 't4ng0', null, 'Aveiro-8-Net', 'default');"
 
 - name: "Adding the VIM-Network"
   shell: |
