@@ -207,6 +207,11 @@
   when: (target == 'sta-sp-ath-v4-0.5gtango.eu') and
         (component == 'all')        
 
+# Configuring Aveiro PoP-2
+- import_tasks: add-aveiro-pop2-vim-wim.yml
+  when: (target == 'sta-sp-ave-v4-0.5gtango.eu') and
+        (component == 'all')        
+
 # Configuring Athens PoP-2
 #- import_tasks: add-athens-pop2-vim-wim.yml
 #  when: target == 'sta-sp-ath.5gtango.eu'
