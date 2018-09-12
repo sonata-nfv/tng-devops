@@ -3,9 +3,10 @@
 - debug: msg="##### SP PGSQL DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
 - name: deploy a PostgreSQL database server as a Container
   docker_container:
-    name: son-postgres
-    #image: {{ repository }}/son-postgres
+    name: son-postgres   
     image: ntboes/postgres-uuid
+    volumes:
+      - "/etc/sonata/data/postgres:/var/lib/postgresql/data"
     env:
       POSTGRES_DB: "{{ gtk_db_name }}"
       POSTGRES_USER: "{{ gtk_db_user }}"
