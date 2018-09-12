@@ -5,6 +5,8 @@
   docker_container:
     name: "son-mongo"
     image: "mongo"
+    volumes:
+      - "/etc/sonata/data/mongodb:/data/db"
     state: started
     recreate: yes
     pull: true
