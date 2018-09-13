@@ -28,7 +28,7 @@
   shell: | 
     /usr/bin/docker exec -t son-postgres psql -h localhost -U postgres -d wimregistry -c \
     "INSERT INTO WIM (UUID, TYPE, VENDOR, ENDPOINT, USERNAME, PASS, AUTHKEY, NAME) \
-    VALUES ('1234-12345678-12345678-1234', 'WIM', 'MOCK', '10.30.0.13', 'admin', 'admin', null, 'BarcelonaWan');"
+    VALUES ('1234-12345678-12345678-1234', 'WIM', 'MOCK', '10.1.7.18', 'admin', 'admin', null, 'BarcelonaWan');"
 
 - name: "Linking VIM - WIM"
   shell: |
