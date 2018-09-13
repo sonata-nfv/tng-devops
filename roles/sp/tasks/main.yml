@@ -2,7 +2,7 @@
 # HARD RESET
 # cleaning databases
 - import_tasks: clean_db.yml
-  when (clean == 'true')
+  when: (clean == 'true')
 
 # Deploying databases
 # deploy postgreSQL database engine
