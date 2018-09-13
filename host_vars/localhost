@@ -100,3 +100,4 @@ routes_file: vnv_routes.yml
 external_callback_url: http://tng-vnv-lcm:6100/api/v1/packages/on-change
 
 component: all
+clean: false
