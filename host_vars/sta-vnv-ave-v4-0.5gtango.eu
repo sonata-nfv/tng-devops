@@ -23,3 +23,4 @@ repository_url: http://tng-rep:4012
 external_callback_url: http://sta-vnv-ave-v4-0.5gtango.eu:6100/tng-vnv-lcm/api/v1/packages/on-change
 internal_callback_url: http://sta-vnv-ave-v4-0.5gtango.eu:6100/tng-vnv-lcm/api/v1/packages/on-change
 clean: false
+platform: vnv
