@@ -1,4 +1,9 @@
 ---
+# HARD RESET
+# cleaning databases
+- import_tasks: clean_db.yml
+  when (clean == 'true')
+
 # Deploying databases
 # deploy postgreSQL database engine
 - import_tasks: pgsql.yml
@@ -189,26 +194,31 @@
 
 # Configuring MOCK PoP
 - import_tasks: add-mock-vim-wim.yml
+  ignore_errors: True
   when: (target == 'pre-int-sp-ath.5gtango.eu') and
         (component == 'all')
 
 # Configuring Athens PoP-1
 - import_tasks: add-athens-pop1-vim-wim-1.yml
+  ignore_errors: True
   when: (target == 'int-sp-ath.5gtango.eu') and
         (component == 'all')
 
 # Configuring Barcelona PoP-1        
 - import_tasks: add-barcelona-pop1-vim-wim.yml
+  ignore_errors: True
   when: (target == 'qual-sp-bcn.5gtango.eu') and
         (component == 'all')        
 
 # Configuring Athens PoP-1        
 - import_tasks: add-athens-pop1-vim-wim-3.yml
+  ignore_errors: True
   when: (target == 'sta-sp-ath-v4-0.5gtango.eu') and
         (component == 'all')        
 
 # Configuring Aveiro PoP-2
 - import_tasks: add-aveiro-pop2-vim-wim.yml
+  ignore_errors: True
   when: (target == 'sta-sp-ave-v4-0.5gtango.eu') and
         (component == 'all')        
 
@@ -218,4 +228,5 @@
 
 # Configuring Aveiro PoP
 - import_tasks: add-aveiro-pop2-vim-wim.yml
+  ignore_errors: True
   when: target == 'sta-sp-ave'

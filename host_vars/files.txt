@@ -1,0 +1,13 @@
+int-vnv-ave-5gtango.eu
+localhost
+pre-int-sp-ath.5gtango.eu
+pre-int-vnv-ave.5gtango.eu
+pre-int-vnv-bcn.5gtango.eu
+qual-sp-ave.5gtango.eu
+qual-sp-bcn.5gtango.eu
+sta-sp-ath.5gtango.eu
+sta-sp-ath-v4-0.5gtango.eu
+sta-sp-ave.5gtango.eu
+sta-sp-ave-v4-0.5gtango.eu
+sta-vnv-ath-v4-0.5gtango.eu
+sta-vnv-ave-v4-0.5gtango.eu
