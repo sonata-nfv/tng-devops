@@ -1,0 +1,9 @@
+---
+# Running the Sonata DB CLEANER
+- debug: msg="##### SONATA DATABASES CLEANER {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
+- name: DATABASE CLEANER
+  ignore_errors: True
+  shell: rm -rf /etc/sonata/data/*
+  
+
+
