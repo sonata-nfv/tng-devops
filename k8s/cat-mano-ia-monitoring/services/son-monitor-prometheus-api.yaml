@@ -1,0 +1,22 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: son-monitor-prometheus
+  labels:
+    app: son-monitor-prometheus
+    platform: sonata
+spec:
+  ports:
+  - port: 9090
+    targetPort: 9090
+    name: http-api
+  - port: 9089
+    targetPort: 9089
+    name: http-1
+  - port: 8002
+    targetPort: 8001
+    name: http-2
+  selector:
+    app: son-monitor-prometheus
+  type: ClusterIP

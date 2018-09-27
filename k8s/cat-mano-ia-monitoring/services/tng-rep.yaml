@@ -1,0 +1,16 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tng-rep
+  labels:
+    app: tng-rep
+    platform: sonata
+spec:
+  ports:
+  - port: 4012
+    name: http
+    targetPort:
+  selector:
+    app: tng-rep
+  type: ClusterIP

@@ -1,0 +1,26 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: son-monitor-postgres
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: son-monitor-postgres
+        platform: sonata
+    spec:
+      containers:
+      - name: son-monitor-postgres
+        image: ntboes/postgres-uuid
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5432
+        env:
+        - name: POSTGRES_DB
+          value: monitoring
+        - name: POSTGRES_USER
+          value: monitoringuser
+        - name: POSTGRES_PASSWORD
+          value: sonata

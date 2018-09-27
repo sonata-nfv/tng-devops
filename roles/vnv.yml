@@ -1,6 +1,0 @@
----
-- hosts: "{{ target }}"
-  become: true
-  gather_facts: no
-  roles:
-   - vnv

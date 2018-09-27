@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tng-portal
+  labels:
+    app: tng-portal
+    platform: sonata
+spec:
+  ports:
+  - port: 4200
+    name: http
+  selector:
+    app: tng-portal
+  type: NodePort
