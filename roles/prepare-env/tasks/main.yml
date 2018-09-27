@@ -1,8 +1,0 @@
----
-# Installing environment tools
-# Install python
-- import_tasks: python.yml
-
-# Install Docker
-- import_tasks: docker.yml
-

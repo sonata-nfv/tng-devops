@@ -1,0 +1,26 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: son-postgres
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: son-postgres
+        platform: sonata
+    spec:
+      containers:
+      - name: son-postgres
+        image: ntboes/postgres-uuid
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5432
+        env:
+        - name: POSTGRES_DB
+          value: gatekeeper
+        - name: POSTGRES_USER
+          value: sonatatest
+        - name: POSTGRES_PASSWORD
+          value: sonata

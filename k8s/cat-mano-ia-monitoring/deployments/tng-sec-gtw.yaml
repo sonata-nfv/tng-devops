@@ -1,0 +1,22 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: tng-sec-gtw
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tng-sec-gtw
+        platform: sonata
+    spec:
+      containers:
+      - name: tng-sec-gtw
+        image: sonatanfv/tng-sec-gtw:v4.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        env:
+        - name: DOMAIN
+          value: ".default.svc.cluster.local"

@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tng-sec-gtw
+  labels:
+    app: tng-sec-gtw
+    platform: sonata
+spec:
+  ports:
+  - port: 80
+    name: http
+  - port: 443
+    name: https
+  selector:
+    app: tng-sec-gtw
+  type: NodePort

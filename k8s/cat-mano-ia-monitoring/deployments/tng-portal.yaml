@@ -1,0 +1,22 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: tng-portal
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tng-portal
+        platform: sonata
+    spec:
+      containers:
+      - name: tng-portal
+        image: sonatanfv/tng-portal:v4.0
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: PLATFORM
+          value: "sp"
+        ports:
+        - containerPort: 4200

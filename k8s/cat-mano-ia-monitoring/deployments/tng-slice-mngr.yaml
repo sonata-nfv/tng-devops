@@ -1,0 +1,19 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: tng-slice-mngr
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tng-slice-mngr
+        platform: sonata
+    spec:
+      containers:
+      - name: tng-slice-mngr
+        image: sonatanfv/tng-slice-mngr:v4.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5998
