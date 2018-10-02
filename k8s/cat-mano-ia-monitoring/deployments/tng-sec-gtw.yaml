@@ -20,3 +20,20 @@ spec:
         env:
         - name: DOMAIN
           value: ".default.svc.cluster.local"
+      - name: dnsmasq
+        image: "janeczku/go-dnsmasq:release-1.0.5"
+        args:
+          - --listen
+          - "127.0.0.11:53"
+          - --default-resolver
+          - --hostsfile=/etc/hosts
+          - --verbose
+      - name: dnsmasq2
+        image: "janeczku/go-dnsmasq:release-1.0.5"
+        args:
+          - --listen
+          - "127.0.0.1:53"
+          - --default-resolver
+          - --hostsfile=/etc/hosts
+          - --verbose          
+  #        - --append-search-domains
