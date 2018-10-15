@@ -28,4 +28,4 @@
         aliases:
           - tng-gtk-usr
     published_ports:
-      - "5000:5000"
+      - "4567:4567"
