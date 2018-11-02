@@ -4,7 +4,7 @@
 docker_network_name: tango
 
 ## Version
-version: latest
+version: v4.0
 
 ## VnV Specific Variables
 
@@ -20,7 +20,7 @@ internal_callback_url: http://tng-vnv-lcm:6100/api/v1/packages/on-change
 component: all
 
 ## Private Docker repository
-repository: registry.sonata-nfv.eu:5000
+repository: sonatanfv
 
 # MONITOR pgSQL database
 
@@ -43,7 +43,7 @@ dbname: monitoring
 dbuser: monitoringuser
 
 # Ruby env
-rack_env : development
+rack_env : staging
 
 # GATEKEEPER pgSQL database
 gtk_db_name: gatekeeper
