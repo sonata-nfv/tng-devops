@@ -138,6 +138,12 @@
         (component == 'vim-adaptor') or
         (component == 'all')
 
+# IA Kubernetes Wrapper
+- import_tasks: k8s-wrapper.yml
+  when: (component == 'infrastructure-abstraction') or
+        (component == 'tng-sp-ia-k8s') or
+        (component == 'all')
+
 # WIM adaptor
 - import_tasks: wim-adaptor.yml
   when: (component == 'infrastructure-abstraction') or

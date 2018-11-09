@@ -1,0 +1,18 @@
+---
+# Running the Sonata Infrastructure abstraction Kubernetes Wrapper (Docker container)
+- debug: msg="##### IA Kubernetes Wrapper {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
+- name: Infrastructure abstraction Kubernetes Wrapper (Docker container)
+  docker_container:
+    name: tng-sp-ia-k8s
+    image: "{{ repository }}/tng-sp-ia-k8s:{{ version }}"
+    env:
+      broker_host: amqp://guest:guest@son-broker:5672/%2F
+    restart_policy: "always"
+    network_mode: bridge
+    networks:
+      - name: "{{ docker_network_name }}"
+        aliases:
+          - tng-sp-ia-k8s
+    state: started
+    recreate: yes
+    pull: true
