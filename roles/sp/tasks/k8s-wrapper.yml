@@ -5,6 +5,8 @@
   docker_container:
     name: tng-sp-ia-k8s
     image: "{{ repository }}/tng-sp-ia-k8s:{{ version }}"
+    volumes:
+      - "/etc/sonata/data/kubernetes/config:/tng-sp-ia-k8s/config"
     env:
       broker_host: amqp://guest:guest@son-broker:5672/%2F
     restart_policy: "always"
