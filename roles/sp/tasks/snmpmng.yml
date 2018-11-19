@@ -11,7 +11,7 @@
     pull: true
     env:
       POSTGS_PORT: 5433
-      POSTGS_HOST: "postgsql"
+      POSTGS_HOST: "son-monitor-postgres"
       DB_USER_NAME: "monitoringuser"
       DB_USER_PASS: "sonata"
       PROM_SRV: "[\"son-monitor-pushgateway:9091\"]"

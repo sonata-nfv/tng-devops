@@ -163,6 +163,12 @@
         (component == 'prometheus') or
         (component == 'all')
 
+# deploy Monitoring Alertmanager
+- import_tasks: alertmanager.yml
+  when: (component == 'monitoring') or
+        (component == 'alertmanager') or
+        (component == 'all')
+
 # deploy Monitoring Manager
 - import_tasks: monitmgr.yml
   when: (component == 'monitoring') or
