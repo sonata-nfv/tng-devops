@@ -15,7 +15,7 @@
     networks:
       - name: "{{ docker_network_name }}"
         aliases:
-          - son-monitor-alermanager
+          - son-monitor-alertmanager
           - alertmanager
     published_ports:
       - "9093:9093"
