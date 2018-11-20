@@ -175,7 +175,7 @@
         (component == 'monitoring-manager') or
         (component == 'all')
 
-# deploy Monitoring Manager
+# deploy Monitoring SNMP Manager
 - import_tasks: snmpmng.yml
   when: (component == 'monitoring') or
         (component == 'monitoring-snmp') or
