@@ -5,6 +5,15 @@
   docker_container:
     name: tng-sdk-analyze-weight
     image: "{{ repository }}/tng-sdk-analyze-weight:{{ version }}"
+    env:
+      DATABASE_HOST: mongo
+      DATABASE_NAME: tng-sdk-analyze-weight
+      DATABASE_PORT: 27017
+      CATALOGUES_URL: http://tng-cat:4011/catalogues/api/v2/
+      MONITORING_URL: http://son-monitor-manager:8000/api/v1/
+      DICT_COLL: dictionaries
+      UNK_COLL: unknown_vnfs
+      LOG_LEVEL: INFO
     state: started
     recreate: yes
     pull: true
