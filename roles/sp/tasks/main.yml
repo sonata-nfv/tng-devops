@@ -132,22 +132,41 @@
         (component == 'all')
 
 ## Deploy IA
-# VIM adaptor
-- import_tasks: vim-adaptor.yml
+- import_tasks: ia-nbi.yml
   when: (component == 'infrastructure-abstraction') or
-        (component == 'vim-adaptor') or
+        (component == 'ia-nbi') or
+        (component == 'all')
+
+- import_tasks: vim-wrapper-heat.yml
+  when: (component == 'infrastructure-abstraction') or
+        (component == 'vim-wrappers') or
+        (component == 'all')
+
+- import_tasks: vim-wrapper-mock.yml
+  when: (component == 'infrastructure-abstraction') or
+        (component == 'vim-wrappers') or
+        (component == 'all')
+
+- import_tasks: vim-wrapper-ovs.yml
+  when: (component == 'infrastructure-abstraction') or
+        (component == 'vim-wrappers') or
         (component == 'all')
 
 # IA Kubernetes Wrapper
 - import_tasks: k8s-wrapper.yml
   when: (component == 'infrastructure-abstraction') or
+        (component == 'vim-wrappers') or
         (component == 'tng-sp-ia-k8s') or
         (component == 'all')
 
-# WIM adaptor
-- import_tasks: wim-adaptor.yml
+- import_tasks: wim-wrapper-vtn.yml
   when: (component == 'infrastructure-abstraction') or
-        (component == 'wim-adaptor') or
+        (component == 'wim-wrappers') or
+        (component == 'all')
+
+- import_tasks: wim-wrapper-mock.yml
+  when: (component == 'infrastructure-abstraction') or
+        (component == 'wim-wrappers') or
         (component == 'all')
 
 ## Deploying Monitoring Components
