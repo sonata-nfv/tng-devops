@@ -9,6 +9,7 @@
       - "/etc/sonata/data/kubernetes/config:/tng-sp-ia-k8s/config"
     env:
       broker_host: amqp://guest:guest@son-broker:5672/%2F
+      KUBECONFIG: /tng-sp-ia-k8s/config/config
     restart_policy: "always"
     network_mode: bridge
     networks:
