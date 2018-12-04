@@ -68,3 +68,9 @@
 - import_tasks: portal.yml
   when: (component == 'portal') or
         (component == 'all')
+
+# deploy Platform Manager
+- import_tasks: tng-vnv-platform-mngr.yml
+  when: (component == 'gatekeeper') or
+        (component == 'tng-vnv-platform-mngr') or
+        (component == 'all')          
