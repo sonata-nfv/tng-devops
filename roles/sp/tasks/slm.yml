@@ -13,6 +13,7 @@
       monitoring_path: http://son-monitor-manager:8000/api/v1
       broker_host: amqp://guest:guest@son-broker:5672/%2F
     network_mode: bridge
+    log_driver: json-file
     networks:
       - name: "{{ docker_network_name }}"
         aliases:
