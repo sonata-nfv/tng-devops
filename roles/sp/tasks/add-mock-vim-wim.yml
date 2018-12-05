@@ -11,6 +11,10 @@
   shell: |
     /usr/bin/docker exec -t son-postgres psql -h localhost -U sonatatest -d vimregistry -c "INSERT INTO VIM (UUID, TYPE, VENDOR, ENDPOINT, USERNAME, CONFIGURATION, CITY, COUNTRY, PASS, AUTHKEY, NAME, DOMAIN) VALUES ('aaaa-bbbbbbbb-cccccccc-dddd', 'network', 'networkMock', '10.100.32.200', 'sonata.dem', '{"compute_uuid":"1111-22222222-33333333-4444"}', 'Athens-North', 'Greece', 's0nata.d3m', null,'Athens-200-Net','default');"
 
+- name: "Adding the VIM-Network"
+  shell: |
+    /usr/bin/docker exec -t son-postgres psql -h localhost -U sonatatest -d vimregistry -c "INSERT INTO VIM (UUID, TYPE, VENDOR, ENDPOINT, USERNAME, CONFIGURATION, CITY, COUNTRY, PASS, AUTHKEY, NAME, DOMAIN) VALUES ('8888-22222222-33333333-8888', 'compute', 'k8s', '', '', '{}', 'Athens-k8s', 'Greece', 'null', null, 'Athens-k8s', 'null');"
+
 - name: "Linking VIM Compute-Network"
   shell: |
     /usr/bin/docker exec -t son-postgres psql -h localhost -U sonatatest -d vimregistry -c "INSERT INTO LINK_VIM (COMPUTE_UUID, NETWORKING_UUID) VALUES ('1111-22222222-33333333-4444', 'aaaa-bbbbbbbb-cccccccc-dddd');"
