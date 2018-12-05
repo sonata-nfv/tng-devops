@@ -1,13 +1,13 @@
 ---
 
-- debug: msg="##### VnV Platform Manager"
+- debug: msg="##### VnV Platform Adapter"
 
 # Running the 5GTANGO VnV Platform Manager Deployment (Docker container)
 
-- name: VnV Platform Manager - running Docker containers
+- name: VnV Platform Adapter - running Docker containers
   docker_container:
-    name: tng-vnv-platform-mngr
-    image: "{{ repository }}/tng-vnv-platform-mngr:{{ version }}"
+    name: tng-vnv-platform-adapter
+    image: "{{ repository }}/tng-vnv-platform-adapter:{{ version }}"
     state: started
     recreate: yes
     pull: true
@@ -15,6 +15,6 @@
     networks:
       - name: "{{ docker_network_name }}"
         aliases:
-          - tng-vnv-platform-mngr
+          - tng-vnv-platform-adapter
     published_ports: "5000:5000"
     restart_policy: "always"
