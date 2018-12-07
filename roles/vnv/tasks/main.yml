@@ -71,6 +71,6 @@
 
 # deploy Platform Adapter
 - import_tasks: tng-vnv-platform-adapter.yml
-  when: (component == 'gatekeeper') or
+  when: (component == 'adapter') or
         (component == 'tng-vnv-platform-adapter') or
         (component == 'all')          
