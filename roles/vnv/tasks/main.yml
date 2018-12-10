@@ -8,6 +8,11 @@
   when: (component == 'database') or
         (component == 'all')
 
+# deploy Redis database engine
+- import_tasks: redis.yml
+  when: (component == 'database') or 
+        (component == 'all')
+
 # deploy tng-vnv-lcm
 - import_tasks: lcm.yml
   when: (component == 'lcm') or
