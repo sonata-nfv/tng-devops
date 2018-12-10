@@ -16,5 +16,5 @@
       - name: "{{ docker_network_name }}"
         aliases:
           - tng-vnv-platform-adapter
-    published_ports: "5000:5000"
+    published_ports: "5001:5001"
     restart_policy: "always"
