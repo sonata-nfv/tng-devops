@@ -10,6 +10,10 @@
     env:
       broker_host: amqp://guest:guest@son-broker:5672/%2F
       KUBECONFIG: /tng-sp-ia-k8s/config/config
+      DATABASE_HOST: "son-postgres"
+      DATABASE_PORT: "5432"
+      POSTGRES_USER: "{{ ia_repo_user }}"
+      POSTGRES_PASSWORD: "{{ ia_repo_pass }}"
     restart_policy: "always"
     network_mode: bridge
     networks:
