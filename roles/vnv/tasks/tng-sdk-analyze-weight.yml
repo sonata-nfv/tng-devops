@@ -9,7 +9,7 @@
       DATABASE_HOST: mongo
       DATABASE_NAME: tng-sdk-analyze-weight
       DATABASE_PORT: 27017
-      CATALOGUES_URL: http://tng-cat:4011/catalogues/api/v2/
+      CATALOGUES_URL: http://qual-sp-bcn.5gtango.eu:4011/catalogues/api/v2/
       MONITORING_URL: http://son-monitor-manager:8000/api/v1/
       DICT_COLL: dictionaries
       UNK_COLL: unknown_vnfs
