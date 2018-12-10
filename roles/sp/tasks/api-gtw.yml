@@ -10,8 +10,6 @@
     pull: true
     restart_policy: "always"
     network_mode: bridge
-    log_driver: gelf
-    log_options: gelf-address=udp://10.30.0.219:12900
     networks:
       - name: "{{ docker_network_name }}"
         aliases:
