@@ -3,6 +3,11 @@
 
 # Deploying VnV Components
 
+# deploy postgreSQL database engine
+- import_tasks: pgsql.yml
+  when: (component == 'database') or 
+        (component == 'all')
+
 # deploy mongo
 - import_tasks: mongo.yml
   when: (component == 'database') or
