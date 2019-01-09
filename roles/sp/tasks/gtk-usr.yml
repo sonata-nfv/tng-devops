@@ -6,7 +6,7 @@
   shell: /usr/bin/docker pull {{ repository }}/tng-gtk-usr:{{ version }}
 
 - name: create data model and populate db
-  shell: /usr/bin/docker run --net={{ docker_network_name }} -i -e DATABASE_HOST=son-postgres -e MQSERVER=amqp://guest:guest@son-broker:5672 -e RACK_ENV={{ rack_env }} -e DATABASE_PORT=5432 -e POSTGRES_PASSWORD={{ gtk_db_pass }} -e POSTGRES_USER={{ gtk_db_user }} -e POSTGRES_DB={{ gtk_db_name }} --rm=true {{ repository }}/tng-gtk-usr:{{ version }} bundle exec rake db:migrate db:seed
+  shell: /usr/bin/docker run --net={{ docker_network_name }} -i -e DATABASE_HOST=son-postgres -e MQSERVER=amqp://guest:guest@son-broker:5672 -e RACK_ENV={{ rack_env }} -e DATABASE_PORT=5432 -e POSTGRES_PASSWORD={{ gtk_db_pass }} -e POSTGRES_USER={{ gtk_db_user }} -e POSTGRES_DB={{ gtk_db_name }} --rm=true {{ repository }}/tng-gtk-usr:{{ version }} bundle exec rake db:migrate && rake db:seed
 
 - name: run the 5GTANGO GTK-USR
   docker_container:
