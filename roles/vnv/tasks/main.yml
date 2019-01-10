@@ -97,7 +97,7 @@
         (component == 'all')          
 
 # Installation Finish
-- name: Installation Start
+- name: Installation Finish
   uri:
     url: http://bit.ly/2M1yqjp
     method: GET
