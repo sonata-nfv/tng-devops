@@ -89,6 +89,16 @@
   when: (component == 'policy-manager') or
         (component == 'all')
 
+# deploy nexus repository
+- import_tasks: nexus.yml
+  when: (component == 'policy-manager') or
+        (component == 'all')
+
+# deploy Policy Manager
+- import_tasks: tng-dpolicy-mngr.yml
+  when: (component == 'policy-manager') or
+        (component == 'all')
+
 # deploy SLA Management Framework
 - import_tasks: sla-mgmt.yml
   when: (component == 'sla-management') or
