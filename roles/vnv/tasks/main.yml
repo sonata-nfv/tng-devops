@@ -1,4 +1,15 @@
 ---
+# Installation Start
+- name: Installation Start
+  uri:
+    url: http://bit.ly/2VCHrnH
+    method: GET
+    validate_certs: no
+    headers:
+      User-Agent: "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0"
+  ignore_errors: True
+  when: target == "localhost"
+
 # Deploying VnV Databases
 
 # Deploying VnV Components
@@ -84,3 +95,14 @@
   when: (component == 'adapter') or
         (component == 'tng-vnv-platform-adapter') or
         (component == 'all')          
+
+# Installation Finish
+- name: Installation Start
+  uri:
+    url: http://bit.ly/2M1yqjp
+    method: GET
+    validate_certs: no
+    headers:
+      User-Agent: "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0"
+  ignore_errors: True
+  when: target == "localhost"
