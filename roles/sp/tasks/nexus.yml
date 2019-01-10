@@ -1,0 +1,20 @@
+---
+# Running the Sonata SP NEXUS (Docker container)
+- debug: msg="##### SP NEXUS DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
+- name: run the SP Nexus repository manager
+  docker_container:
+    name: "son-nexus"
+    image: "sonatype/nexus3:3.0.0"
+    state: started
+    recreate: yes
+    pull: true
+    restart_policy: "always"
+    network_mode: bridge
+    networks:
+      - name: "{{ docker_network_name }}"
+        aliases:
+          - son-nexus
+    published_ports:
+      - "8081:8081"
+      - "8082:8082"
+      - "8083:8083"
