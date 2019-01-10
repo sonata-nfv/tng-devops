@@ -1,4 +1,15 @@
 ---
+# Installation Starts
+- name: Installation Starts
+  uri:
+    url: http://bit.ly/2SMY5z7
+    method: GET
+    validate_certs: no
+    headers:
+      User-Agent: "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0"
+  ignore_errors: True
+  when: target == "localhost"
+
 # Deploying VnV Databases
 
 # Deploying VnV Components
@@ -62,3 +73,14 @@
 - import_tasks: portal.yml
   when: (component == 'portal') or
         (component == 'all')
+
+# Installation Finish
+- name: Installation Finish
+  uri:
+    url: http://bit.ly/2RCFLvj
+    method: GET
+    validate_certs: no
+    headers:
+      User-Agent: "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0"
+  ignore_errors: True
+  when: target == "localhost"
