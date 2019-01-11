@@ -190,6 +190,13 @@
         (component == 'wim-wrappers') or
         (component == 'all')
 
+# IA WIM TAPI Wrapper
+- import_tasks: wim-wrapper-tapi.yml
+  when: (component == 'infrastructure-abstraction') or
+        (component == 'wim-wrappers') or
+        (component == 'tng-sp-ia-wtapi') or
+        (component == 'all')
+
 ## Deploying Monitoring Components
 # deploy Monitoring Pushgateway
 - import_tasks: pushgw.yml
