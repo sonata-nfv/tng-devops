@@ -32,7 +32,7 @@ dbname: monitoring
 dbuser: monitoringuser
 
 # Ruby env
-rack_env : development
+rack_env : staging
 
 # GATEKEEPER pgSQL database
 gtk_db_name: gatekeeper
