@@ -4,7 +4,7 @@
 docker_network_name: tango
 
 ## Version
-version: int
+version: qual
 
 ## Private Docker repository
 repository: registry.sonata-nfv.eu:5000
@@ -29,7 +29,7 @@ dbname: monitoring
 dbuser: monitoringuser
 
 # Ruby env
-rack_env : integration
+rack_env : qualification
 
 # GATEKEEPER pgSQL database
 gtk_db_name: gatekeeper
