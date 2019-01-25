@@ -9,7 +9,7 @@
 
 - name: "Adding the VIM-Network"
   shell: |
-    /usr/bin/docker exec -t son-postgres psql -h localhost -U sonatatest -d vimregistry -c "INSERT INTO VIM (UUID, TYPE, VENDOR, ENDPOINT, USERNAME, CONFIGURATION, CITY, COUNTRY, PASS, AUTHKEY, NAME, DOMAIN) VALUES ('aaaa-bbbbbbbb-cccccccc-dddd', 'network', 'networkMock', '10.100.32.200', 'sonata.dem', '{"compute_uuid":"1111-22222222-33333333-4444"}', 'Athens-North', 'Greece', 's0nata.d3m', null,'Athens-200-Net','default');"
+    /usr/bin/docker exec -t son-postgres psql -h localhost -U sonatatest -d vimregistry -c "INSERT INTO VIM (UUID, TYPE, VENDOR, ENDPOINT, USERNAME, CONFIGURATION, CITY, COUNTRY, PASS, AUTHKEY, NAME, DOMAIN) VALUES ('aaaa-bbbbbbbb-cccccccc-dddd', 'network', 'networkMock', '10.100.32.200', 'sonata.dem', '{\"compute_uuid\":\"1111-22222222-33333333-4444\"}', 'Athens-North', 'Greece', 's0nata.d3m', null,'Athens-200-Net','default');"
 
 - name: "Adding the VIM-k8s-Compute"
   shell: |
