@@ -257,8 +257,7 @@
         (component == 'all')
 
 # Configuring MOCK PoP
-# - import_tasks: add-mock-vim-wim.yml
-- import_tasks: add-athens-pop1-vim-wim.yml
+- import_tasks: add-mock-vim-wim.yml
   ignore_errors: True
   when: (target == 'pre-int-sp-ath.5gtango.eu') and
         (component == 'all')
