@@ -20,6 +20,7 @@
       POSTGRES_DB: "{{ gtk_db_name }}"
       BROKER_EXCHANGE: son-kernel
       BROKER_HOST: son-broker
+      GATEKEEPER_URL: http://tng-gtk-sp:5000/
     network_mode: bridge
     networks:
       - name: "{{ docker_network_name }}"
