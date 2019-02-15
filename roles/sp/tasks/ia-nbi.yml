@@ -16,6 +16,7 @@
       repo_port: "5432"
       repo_user: "{{ ia_repo_user }}"
       repo_pass: "{{ ia_repo_pass }}"
+      ia_api_port: "8083"
     network_mode: bridge
     networks:
       - name: "{{ docker_network_name }}"
@@ -24,3 +25,5 @@
           - wim-adaptor
         links:
           - son-broker
+    published_ports:
+      - "8083:8083"
