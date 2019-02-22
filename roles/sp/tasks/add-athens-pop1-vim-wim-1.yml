@@ -5,7 +5,7 @@
 #ADDING THE WIM
 - name: "Adding the VIM-Compute"
   shell: | 
-    /usr/bin/docker exec -t son-postgres psql -h localhost -U sonatatest -d vimregistry -c "INSERT INTO VIM (UUID, TYPE, VENDOR, ENDPOINT, USERNAME, CONFIGURATION, CITY, COUNTRY, PASS, AUTHKEY, NAME, DOMAIN) VALUES ('1111-22222222-33333333-4444', 'compute', 'Heat', '10.100.32.200', 'sonata.dem', '{\"tenant_ext_net\":\"53d43a3e-8c86-48e6-b1cb-f1f2c48833de\", \"tenant_private_net_id\":\"172.16.0.0\", \"tenant_private_net_length\":18, \"tenant\":\"admin\", \"tenant_ext_router\":\"e8cdd5c7-191f-4215-83f3-53ee1113db86\"}', 'Athens-North', 'Greece', 's0nata.d3m', null, 'Athens-200', 'default');"
+    /usr/bin/docker exec -t son-postgres psql -h localhost -U sonatatest -d vimregistry -c "INSERT INTO VIM (UUID, TYPE, VENDOR, ENDPOINT, USERNAME, CONFIGURATION, CITY, COUNTRY, PASS, AUTHKEY, NAME, DOMAIN) VALUES ('1111-22222222-33333333-4444', 'compute', 'Heat', '10.100.32.200', 'sonata.dem', '{\"tenant_ext_net\":\"53d43a3e-8c86-48e6-b1cb-f1f2c48833de\", \"tenant_private_net_id\":\"172.16.0.0\", \"tenant_private_net_length\":\"18\", \"tenant\":\"admin\", \"tenant_ext_router\":\"e8cdd5c7-191f-4215-83f3-53ee1113db86\"}', 'Athens-North', 'Greece', 's0nata.d3m', null, 'Athens-200', 'default');"
 
 - name: "Adding the VIM-Network"
   shell: |
