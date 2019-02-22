@@ -8,7 +8,7 @@
     /usr/bin/docker exec -t son-postgres psql -h localhost -U sonatatest -d vimregistry -c \
     "INSERT INTO VIM (UUID, TYPE, VENDOR, ENDPOINT, USERNAME, CONFIGURATION, CITY, COUNTRY, PASS, AUTHKEY, NAME, DOMAIN) \
     VALUES ('1111-22222222-33333333-4444', 'compute', 'Heat', '10.120.0.18', 'tango.qual', \
-    '{\"tenant_ext_net\":\"94ab6136-612f-4d40-82b8-9223d14cc442\", \"tenant_private_net_id\":\"172.16.0.0\", \"tenant_private_net_length\":16, \
+    '{\"tenant_ext_net\":\"94ab6136-612f-4d40-82b8-9223d14cc442\", \"tenant_private_net_id\":\"172.16.0.0\", \"tenant_private_net_length\":\"16\", \
     \"tenant\":\"tango\", \"tenant_ext_router\":\"e521eeb5-880b-4d3b-b68a-c8a9927b5e55\"}', 'Barcelona', 'Spain', 't4ng0', null, 'BCN-Net', 'default');"
 
 - name: "Adding the VIM-Network"
