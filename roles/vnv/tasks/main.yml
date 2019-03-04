@@ -94,7 +94,24 @@
 - import_tasks: tng-vnv-platform-adapter.yml
   when: (component == 'adapter') or
         (component == 'tng-vnv-platform-adapter') or
-        (component == 'all')          
+        (component == 'all') 
+
+- import_tasks: pushgw.yml
+  when: (component == 'monitoring') or
+        (component == 'pushgateway') or
+        (component == 'all')
+
+# deploy Monitoring Prometheus
+- import_tasks: prometheus.yml
+  when: (component == 'monitoring') or
+        (component == 'prometheus') or
+        (component == 'all')
+
+# deploy Monitoring Manager
+- import_tasks: monitmgr.yml
+  when: (component == 'monitoring') or
+        (component == 'monitoring-manager') or
+        (component == 'all')         
 
 # Installation Finish
 - name: Installation Finish
