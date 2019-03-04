@@ -22,4 +22,7 @@ catalogue_url: http://qual-sp-ave.5gtango.eu:4011/catalogues/api/v2
 external_callback_url: http://tng-vnv-planner:6100/api/v1/packages/on-change
 internal_callback_url: http://tng-vnv-planner:6100/api/v1/packages/on-change
 clean: false
+
+
+
 platform: vnv
