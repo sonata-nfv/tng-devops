@@ -40,8 +40,8 @@
         (component == 'all')
 
 # deploy tng-vnv-planner
-- import_tasks: tng-vnv-planner.yml
-  when: (component == 'tng-vnv-planner') or
+- import_tasks: planner.yml
+  when: (component == 'planner') or
         (component == 'all')
 
 # deploy tng-cat
