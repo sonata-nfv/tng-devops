@@ -21,7 +21,8 @@
 
 # deploy postgreSQL database engine for monitoring
 - import_tasks: pgsql-monitoring.yml
-  when: (component == 'database') or 
+  when: (component == 'database') or
+        (component == 'monitoring') or 
         (component == 'all')
 
 # deploy mongo
