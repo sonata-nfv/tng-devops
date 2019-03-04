@@ -39,6 +39,11 @@
   when: (component == 'tee') or
         (component == 'all')
 
+# deploy tng-vnv-planner
+- import_tasks: tng-vnv-planner.yml
+  when: (component == 'tng-vnv-planner') or
+        (component == 'all')
+
 # deploy tng-cat
 - import_tasks: cat.yml
   when: (component == 'catalogues') or
