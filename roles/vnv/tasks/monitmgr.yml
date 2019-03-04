@@ -1,9 +1,9 @@
 ---
-# Running the Sonata MONIT MANAGER (Docker container)
+# Running the VnV MONIT MANAGER (Docker container)
 - debug: msg="##### VnV MONIT MANAGER DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
 - name: VnV MONIT MANAGER - running Docker containers
   docker_container:
-    name: son-monitor-manager
+    name: son-vnv-monitor-manager
     image: "{{ repository }}/son-vnv-monitor-manager:{{ version }}"
     state: started
     recreate: yes
@@ -13,7 +13,7 @@
     networks:
       - name: "{{ docker_network_name }}"
         aliases:
-          - son-monitor-manager
+          - son-vnv-monitor-manager
     published_ports:
       - "8000:8000"
       - "8888:8888"
