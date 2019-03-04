@@ -19,6 +19,11 @@
   when: (component == 'database') or 
         (component == 'all')
 
+# deploy postgreSQL database engine for monitoring
+- import_tasks: pgsql-monitoring.yml
+  when: (component == 'database') or 
+        (component == 'all')
+
 # deploy mongo
 - import_tasks: mongo.yml
   when: (component == 'database') or

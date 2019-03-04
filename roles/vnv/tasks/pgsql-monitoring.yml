@@ -1,3 +1,4 @@
+---
 # Running the Sonata PGSQL-MONITORING (Docker container)
 - debug: msg="##### VnV PGSQL-MONITORING DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
 - name: deploy a database server for VnV Monitoring
