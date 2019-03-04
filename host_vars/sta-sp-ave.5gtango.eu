@@ -4,12 +4,13 @@
 docker_network_name: tango
 
 ## Version
-version: staging
+# For now qual
+version: qual
 
 component: all
 
 ## Docker repository
-repository: sonatanfv
+repository: registry.sonata-nfv.eu:5000
 
 # MONITOR pgSQL database
 
