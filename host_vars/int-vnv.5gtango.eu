@@ -4,7 +4,7 @@
 docker_network_name: tango
 
 ## Version
-version: latest
+version: int
 
 # Ruby env
 rack_env : int
