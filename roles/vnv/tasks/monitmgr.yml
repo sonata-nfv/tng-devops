@@ -1,7 +1,7 @@
 ---
 # Running the Sonata MONIT MANAGER (Docker container)
-- debug: msg="##### SP MONIT MANAGER DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
-- name: MONIT MANAGER - running Docker containers
+- debug: msg="##### VnV MONIT MANAGER DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
+- name: VnV MONIT MANAGER - running Docker containers
   docker_container:
     name: son-monitor-manager
     image: "{{ repository }}/son-vnv-monitor-manager:{{ version }}"
