@@ -10,7 +10,7 @@ version: int
 rack_env : int
 
 ## Docker repository
-repository: sonatanfv
+repository: registry.sonata-nfv.eu:5000
 
 
 
