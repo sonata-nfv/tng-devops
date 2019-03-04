@@ -35,9 +35,9 @@
 #        (component == 'all')
 
 # deploy tng-vnv-tee
-- import_tasks: tee.yml
-  when: (component == 'tee') or
-        (component == 'all')
+#- import_tasks: tee.yml
+#  when: (component == 'tee') or
+#        (component == 'all')
 
 # deploy tng-vnv-planner
 - import_tasks: planner.yml
