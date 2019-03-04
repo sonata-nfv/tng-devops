@@ -35,4 +35,16 @@ repository_url: http://tng-rep:4012
 external_callback_url: http://pre-int-vnv-bcn.5gtango.eu:6100/tng-vnv-lcm/api/v1/packages/on-change
 internal_callback_url: http://pre-int-vnv-bcn.5gtango.eu:6100/tng-vnv-lcm/api/v1/packages/on-change
 clean: false
+
+# Monitoring
+mon_db_name: monitoring
+mon_db_user: monitoringuser
+mon_db_pass: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          31343063326138383564633036303164396430663966613434613561343334316563316535373130
+          6466616532643030363962366639623531646630386435320a623236353964636239653861333731
+          37313336363864363662363866343937656334316563623763646665666237383261333561333163
+          3566396637616561660a383363373366646565333631386165653162326366623237636538653761
+          3362
+clean: false
 platform: vnv
