@@ -21,5 +21,5 @@
       - name: "{{ docker_network_name }}"
         aliases:
           - tng-vnv-planner
-    published_ports: "6101:6100"
+    published_ports: "6100:6100"
     restart_policy: "always"

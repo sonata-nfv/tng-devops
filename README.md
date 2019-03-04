@@ -104,7 +104,6 @@ This is the tree structure of the repository:
 │   │       ├── cat.yml
 │   │       ├── gtk-common.yml
 │   │       ├── gtk-vnv.yml
-│   │       ├── lcm.yml
 │   │       ├── main.yml
 │   │       ├── planner.yml
 │   │       ├── mongo.yml
