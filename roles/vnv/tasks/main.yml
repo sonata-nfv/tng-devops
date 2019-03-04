@@ -29,11 +29,6 @@
   when: (component == 'database') or 
         (component == 'all')
 
-# deploy tng-vnv-lcm
-- import_tasks: lcm.yml
-  when: (component == 'lcm') or
-        (component == 'all')
-
 # deploy tng-vnv-tee
 - import_tasks: tee.yml
   when: (component == 'tee') or
