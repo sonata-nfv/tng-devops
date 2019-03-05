@@ -46,8 +46,21 @@
 #        (component == 'all')
 
 # deploy tng-vnv-planner
-- import_tasks: planner.yml
+- import_tasks: tng-vnv-planner.yml
   when: (component == 'planner') or
+        (component == 'tng-vnv-planner') or
+        (component == 'all')
+
+# deploy tng-vnv-curator
+#- import_tasks: tng-vnv-curator.yml
+#  when: (component == 'curator') or
+#        (component == 'tng-vnv-curator') or
+#        (component == 'all')
+
+# deploy tng-vnv-executor
+- import_tasks: tng-vnv-executor.yml
+  when: (component == 'executor') or
+        (component == 'tng-vnv-executor') or
         (component == 'all')
 
 # deploy tng-cat
