@@ -51,7 +51,7 @@
         (component == 'tng-vnv-planner') or
         (component == 'all')
 
- deploy tng-vnv-curator
+# deploy tng-vnv-curator
 - import_tasks: tng-vnv-curator.yml
   when: (component == 'curator') or
         (component == 'tng-vnv-curator') or
