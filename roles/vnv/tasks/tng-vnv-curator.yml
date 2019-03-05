@@ -2,7 +2,7 @@
 
 - debug: msg="##### VnV Curator Deployment {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
 
-# Running the 5GTANGO VnV Planner (Docker container)
+# Running the 5GTANGO VnV Curator (Docker container)
 
 - name: VnV Curator - running Docker containers
   docker_container:
