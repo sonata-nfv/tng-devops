@@ -1,0 +1,25 @@
+---
+
+- debug: msg="##### VnV Executor Deployment {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
+
+# Running the 5GTANGO VnV Executor (Docker container)
+
+- name: VnV Executor - running Docker containers
+  docker_container:
+    name: tng-vnv-executor
+    image: "{{ repository }}/tng-vnv-executor:{{ version }}"
+    env:
+      APP_GK_BASE_URL: "{{ app_gk_base_url }}"
+      APP_CAT_BASE_URL: "{{ catalogue_url }}"
+      LOGGING_LEVEL_ORG_APACHE_HTTP_WIRE: "{{ app_vnv_logging_level }}"
+      LOGGING_LEVEL_SUN_NET_WWW_PROTOCOL_HTTP: "{{ app_vnv_logging_level }}"
+    state: started
+    recreate: yes
+    pull: true
+    network_mode: bridge
+    networks:
+      - name: "{{ docker_network_name }}"
+        aliases:
+          - tng-vnv-executor
+    published_ports: "6300:6300"
+    restart_policy: "always"
