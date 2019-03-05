@@ -63,6 +63,11 @@
         (component == 'tng-vnv-executor') or
         (component == 'all')
 
+# deploy tng-vnv-curator
+- import_tasks: tng-vnv-curator.yml
+    (component == 'tng-vnv-curator') or
+    (component == 'all')
+
 # deploy tng-cat
 - import_tasks: cat.yml
   when: (component == 'catalogues') or
