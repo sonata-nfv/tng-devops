@@ -88,7 +88,7 @@ app_vnv_logging_level: DEBUG
 app_gk_base_url: http://sta-sp-ave.5gtango.eu:32002/api/v3
 routes_file: vnv_routes.yml
 unpackager_url: http://sta-sp-ave.5gtango.eu:5099/api/v1/packages
-catalogue_url: http://sta-sp-ave.5gtango.eu:4011/catalogues/api/v2
+catalogue_url: http://tng-cat:4011/catalogues/api/v2
 repository_url: http://tng-rep:4012
 external_callback_url: http://tng-vnv-planner:6100/api/v1/packages/on-change
 internal_callback_url: http://tng-vnv-planner:6100/api/v1/packages/on-change
