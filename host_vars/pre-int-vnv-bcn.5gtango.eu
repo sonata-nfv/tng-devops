@@ -32,8 +32,9 @@ routes_file: vnv_routes.yml
 unpackager_url: http://qual-sp-bcn.5gtango.eu:5099/api/v1/packages
 catalogue_url: http://qual-sp-bcn.5gtango.eu:4011/catalogues/api/v2
 repository_url: http://tng-rep:4012
-external_callback_url: http://pre-int-vnv-bcn.5gtango.eu:6100/tng-vnv-planner/api/v1/packages/on-change
-internal_callback_url: http://pre-int-vnv-bcn.5gtango.eu:6100/tng-vnv-planner/api/v1/packages/on-change
+external_callback_url: http://tng-vnv-planner:6100/tng-vnv-planner/api/v1/packages/on-change
+internal_callback_url: http://tng-vnv-planner:6100/tng-vnv-planner/api/v1/packages/on-change
+
 clean: false
 
 # Monitoring
