@@ -18,3 +18,5 @@
           - tng-vnv-curator
     published_ports: "6200:6200"
     restart_policy: "always"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
