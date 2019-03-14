@@ -13,6 +13,8 @@
       APP_CAT_BASE_URL: "{{ catalogue_url }}"
       LOGGING_LEVEL_ORG_APACHE_HTTP_WIRE: "{{ app_vnv_logging_level }}"
       LOGGING_LEVEL_SUN_NET_WWW_PROTOCOL_HTTP: "{{ app_vnv_logging_level }}"
+      CURATOR_SERVER_NAME: "tng-vnv-curator"
+      CURATOR_SERVER_PORT: "6200"
     state: started
     recreate: yes
     pull: true
@@ -22,4 +24,8 @@
         aliases:
           - tng-vnv-executor
     published_ports: "6300:6300"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "/usr/bin/docker:/usr/bin/docker"
+      - "/executor:/executor"
     restart_policy: "always"
