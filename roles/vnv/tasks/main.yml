@@ -97,6 +97,13 @@
         (component == 'gtk-api-gtw') or
         (component == 'all')
 
+        
+# deploy tng-vnv-dsm.yml
+- import_tasks: tng-vnv-dsm.yml
+  when: (component == 'recommender') or
+        (component == 'tng-vnv-dsm') or
+        (component == 'all')
+        
 # deploy tng-sdk-pkg.yml
 - import_tasks: tng-sdk-pkg.yml
   when: (component == 'gatekeeper') or
