@@ -14,6 +14,6 @@
       - name: "{{ docker_network_name }}"
         aliases:
           - tng-vnv-dsm
-    exposed_ports: 4011
-    published_ports: "4011:4011"
+    exposed_ports: 4010
+    published_ports: "4010:4010"
 
