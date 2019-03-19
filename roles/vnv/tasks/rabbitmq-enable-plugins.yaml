@@ -1,0 +1,11 @@
+---
+# Running the Sonata SP GTK-SERVICES Docker Image
+- debug: msg="##### ENABLING RABBITMQ PLUGINS {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+
+# Rabbitmq Plugins
+- name: Activating rabbitmq_management_visualiser Plugin
+  shell: /usr/bin/docker exec -i son-broker rabbitmq-plugins enable rabbitmq_management_visualiser
+
+- name: Activating rabbitmq_tracing Plugin
+  shell: /usr/bin/docker exec -i son-broker rabbitmq-plugins enable rabbitmq_tracing
+  
