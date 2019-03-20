@@ -27,7 +27,7 @@ gtk_db_pass: !vault |
 
 ## VnV Specific Variables
 app_vnv_logging_level: DEBUG
-app_gk_base_url: http://tng-gtk-api:5000/api/v3
+app_gk_base_url: http://tng-api-gtw:5000/api/v3
 routes_file: vnv_routes.yml
 unpackager_url: http://tng-cat:5099/api/v1/packages
 catalogue_url: http://tng-cat:4011/catalogues/api/v2
