@@ -106,13 +106,16 @@ This is the tree structure of the repository:
 │   │       ├── gtk-vnv.yml
 │   │       ├── tng-vnv-dsm.yml
 │   │       ├── main.yml
-│   │       ├── planner.yml
 │   │       ├── mongo.yml
 │   │       ├── portal.yml
 │   │       ├── rep.yml
 │   │       ├── sec-gtw.yml
 │   │       ├── tee.yml
-│   │       └── tng-sdk-pkg.yml
+│   │       ├── tng-sdk-pkg.yml
+│   │       ├── tng-vnv-curator.yml
+│   │       ├── tng-vnv-executor.yml
+│   │       ├── tng-vnv-planner.yml
+│   │       └── tng-vnv-platform-adapter.yml
 │   └── vnv.yml
 └── utils
     ├── docker-network.yml
