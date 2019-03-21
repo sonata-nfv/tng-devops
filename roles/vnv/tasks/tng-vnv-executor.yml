@@ -25,7 +25,7 @@
       - name: "{{ docker_network_name }}"
         aliases:
           - tng-vnv-executor
-    published_ports: "6300:6300"
+    published_ports: "6300:8080"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "/usr/bin/docker:/usr/bin/docker"
