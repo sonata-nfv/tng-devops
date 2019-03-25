@@ -40,18 +40,6 @@
   when: (component == 'database') or
         (component == 'all')
 
-# deploy RabbitMQ message bus
-- import_tasks: rabbitmq.yml
-  when: (component == 'broker') or
-        (component == 'all')
-
-# Adding rabbitmq plugins
-- import_tasks: rabbitmq-enable-plugins.yaml
-  when: (target == 'pre-int-vnv-bcn.5gtango.eu') or
-        (target == 'int-vnv.5gtango.eu') or
-        (target == 'qual-vnv-bcn.5gtango.eu') and
-        (component == 'all')
-
 # deploy tng-vnv-lcm
 # - import_tasks: lcm.yml
 #  when: (component == 'lcm') or

@@ -13,8 +13,6 @@
       APP_CAT_BASE_URL: "{{ catalogue_url }}"
       LOGGING_LEVEL_ORG_APACHE_HTTP_WIRE: "{{ app_vnv_logging_level }}"
       LOGGING_LEVEL_SUN_NET_WWW_PROTOCOL_HTTP: "{{ app_vnv_logging_level }}"
-      MQSERVER: amqp://guest:guest@son-broker:5672
-      BROKER_HOST: son-broker
     state: started
     recreate: yes
     pull: true
@@ -23,7 +21,5 @@
       - name: "{{ docker_network_name }}"
         aliases:
           - tng-vnv-planner
-        links:
-          - son-broker
     published_ports: "6100:6100"
     restart_policy: "always"
