@@ -5,6 +5,8 @@
   docker_container:
     name: tng-cat
     image: "{{ repository }}/tng-cat:{{ version }}"
+    env:
+      TNG_VNV_DSM_URL: http://tng-vnv-dsm:4010/api
     state: started
     recreate: yes
     pull: true
