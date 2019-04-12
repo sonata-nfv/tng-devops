@@ -9,8 +9,7 @@
     name: tng-vnv-executor
     image: "{{ repository }}/tng-vnv-executor:{{ version }}"
     env:
-      RESULTS_REPO_NAME: "tng-rep"
-      RESULTS_REPO_PORT: "4012"
+      RESULTS_REPO_URL: "{{ repository_url }}"
     state: started
     recreate: yes
     pull: true
