@@ -11,11 +11,10 @@
       POSTGRES_DB: "{{ planner_db_name }}"
       POSTGRES_USER: "{{ planner_db_user }}"
       POSTGRES_PASSWORD: "{{ planner_db_pass }}"
-    state: startedsp.--
+    state: started
     recreate: yes
     pull: true
     restart_policy: "always"
-    command: postgres -p 5434
     network_mode: bridge
     networks:
       - name: "{{ docker_network_name }}"
