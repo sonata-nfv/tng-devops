@@ -12,17 +12,15 @@
 
 # Deploying VnV Databases
 
-# Deploying VnV Components
-
 # deploy postgreSQL database engine
 - import_tasks: pgsql.yml
-  when: (component == 'database') or 
+  when: (component == 'database') or
         (component == 'all')
 
 # deploy postgreSQL database engine for monitoring
 - import_tasks: pgsql-monitoring.yml
   when: (component == 'database') or
-        (component == 'monitoring') or 
+        (component == 'monitoring') or
         (component == 'all')
 
 # deploy mongo
@@ -32,7 +30,7 @@
 
 # deploy Redis database engine
 - import_tasks: redis.yml
-  when: (component == 'database') or 
+  when: (component == 'database') or
         (component == 'all')
 
 # deploy Redis database engine
@@ -40,15 +38,12 @@
   when: (component == 'database') or
         (component == 'all')
 
-# deploy tng-vnv-lcm
-# - import_tasks: lcm.yml
-#  when: (component == 'lcm') or
-#        (component == 'all')
+# deploy postgreSQL database for planner
+- import_tasks: pgsql-planner.yml
+  when: (component == 'database') or
+        (component == 'all')
 
-# deploy tng-vnv-tee
-#- import_tasks: tee.yml
-#  when: (component == 'tee') or
-#        (component == 'all')
+# Deploying VnV Components
 
 # deploy tng-vnv-planner
 - import_tasks: tng-vnv-planner.yml

@@ -14,7 +14,7 @@ repository: registry.sonata-nfv.eu:5000
 
 
 
-# GATEKEEPER pgSQL database
+# GATEKEEPER pgSQL databaseplanner_db_pass
 gtk_db_name: gatekeeper
 gtk_db_user: sonatatest
 gtk_db_pass: !vault |
@@ -24,6 +24,11 @@ gtk_db_pass: !vault |
           35623365303237633331386435633138346432616438626532343564366437356338386565326539
           6230366161326462390a333738363030313735323430626130383833396663353064316433363930
           6531
+
+# PLANNER pgSQL database
+planner_db_name: planner
+planner_db_user: planneruser
+planner_db_pass: plannerpass
 
 ## VnV Specific Variables
 app_vnv_logging_level: DEBUG
