@@ -13,6 +13,10 @@
       APP_CAT_BASE_URL: "{{ catalogue_url }}"
       LOGGING_LEVEL_ORG_APACHE_HTTP_WIRE: "{{ app_vnv_logging_level }}"
       LOGGING_LEVEL_SUN_NET_WWW_PROTOCOL_HTTP: "{{ app_vnv_logging_level }}"
+      POSTGRES_PASSWORD: "{{ planner_db_pass }}"
+      POSTGRES_USER: "{{ planner_db_name }}"
+      DATABASE_HOST: "tng-vnv-planner-postgres"
+
     state: started
     recreate: yes
     pull: true
@@ -21,5 +25,7 @@
       - name: "{{ docker_network_name }}"
         aliases:
           - tng-vnv-planner
+        links:
+          - tng-vnv-planner-postgres
     published_ports: "6100:6100"
     restart_policy: "always"

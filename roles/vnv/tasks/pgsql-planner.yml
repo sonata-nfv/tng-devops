@@ -1,0 +1,24 @@
+---
+# Running the Sonata PGSQL-PLANNER (Docker container)
+- debug: msg="##### VnV PGSQL-PLANNER DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
+- name: deploy a database server for VnV Planner
+  docker_container:
+    name: tng-vnv-planner-postgres
+    image: ntboes/postgres-uuid
+    volumes:
+      - "/etc/sonata/data/postgresplanner:/var/lib/postgresql/data"
+    env:
+      POSTGRES_DB: "{{ planner_db_name }}"
+      POSTGRES_USER: "{{ planner_db_user }}"
+      POSTGRES_PASSWORD: "{{ planner_db_pass }}"
+    state: started
+    recreate: yes
+    pull: true
+    restart_policy: "always"
+    command: postgres -p 5434
+    network_mode: bridge
+    networks:
+      - name: "{{ docker_network_name }}"
+        aliases:
+          - tng-vnv-planner-postgres
+    published_ports: 5434:5432

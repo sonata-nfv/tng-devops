@@ -25,6 +25,11 @@ gtk_db_pass: !vault |
           6230366161326462390a333738363030313735323430626130383833396663353064316433363930
           6531
 
+# PLANNER pgSQL database
+planner_db_name: planner
+planner_db_user: planneruser
+planner_db_pass: plannerpass
+
 ## VnV Specific Variables
 app_vnv_logging_level: DEBUG
 app_gk_base_url: http://tng-api-gtw:5000/api/v3
