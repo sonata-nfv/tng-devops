@@ -14,7 +14,7 @@ repository: registry.sonata-nfv.eu:5000
 
 
 
-# GATEKEEPER pgSQL database
+# GATEKEEPER pgSQL databaseplanner_db_pass
 gtk_db_name: gatekeeper
 gtk_db_user: sonatatest
 gtk_db_pass: !vault |

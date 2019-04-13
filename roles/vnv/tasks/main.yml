@@ -19,7 +19,7 @@
   when: (component == 'database') or 
         (component == 'all')
 
-# deploy postgreSQL database engine for monitoring
+# deploy postgreSQL database for planner
 - import_tasks: pgsql-planner.yml
   when: (component == 'database') or
         (component == 'all')

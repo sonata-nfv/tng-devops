@@ -11,7 +11,7 @@
       POSTGRES_DB: "{{ planner_db_name }}"
       POSTGRES_USER: "{{ planner_db_user }}"
       POSTGRES_PASSWORD: "{{ planner_db_pass }}"
-    state: started
+    state: startedsp.--
     recreate: yes
     pull: true
     restart_policy: "always"
