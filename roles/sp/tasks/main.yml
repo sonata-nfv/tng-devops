@@ -228,6 +228,12 @@
         (component == 'monitoring-snmp') or
         (component == 'all')
 
+# deploy Monitoring grafana
+- import_tasks: grafana.yml
+  when: (component == 'monitoring') or
+        (component == 'monitoring-grafana') or
+        (component == 'all')
+
 # deploy Monitoring Probe
 - import_tasks: probe.yml
   when: (component == 'monitoring') or
