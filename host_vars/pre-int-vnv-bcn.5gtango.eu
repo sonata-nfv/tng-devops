@@ -27,8 +27,6 @@ gtk_db_pass: !vault |
 
 # PLANNER pgSQL database
 planner_db_name: planner
-planner_db_user: planneruser
-planner_db_pass: plannerpass
 
 ## VnV Specific Variables
 app_vnv_logging_level: DEBUG

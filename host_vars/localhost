@@ -81,8 +81,6 @@ mon_db_pass: !vault |
 
 # PLANNER pgSQL database
 planner_db_name: planner
-planner_db_user: planneruser
-planner_db_pass: plannerpass
 
 clean: false
 platform: sp
