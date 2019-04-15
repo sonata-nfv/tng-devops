@@ -91,7 +91,6 @@ platform: sp
 ## Please replace ip-of-sp by the IP address of the service platform
 app_gk_base_url: http://ip-of-sp:32002/api/v3
 app_vnv_logging_level: DEBUG
-app_gk_base_url: http://ip-of-sp:32002/api/v3
 routes_file: vnv_routes.yml
 unpackager_url: http://ip-of-sp:5099/api/v1/packages
 catalogue_url: http://ip-of-sp:4011/catalogues/api/v2
