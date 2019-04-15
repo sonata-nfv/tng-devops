@@ -29,6 +29,6 @@
         aliases:
           - tng-vnv-planner
         links:
-          - tng-vnv-planner-postgres
+          - son-postgres
     published_ports: "6100:6100"
     restart_policy: "always"

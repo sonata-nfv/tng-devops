@@ -38,11 +38,6 @@
   when: (component == 'database') or
         (component == 'all')
 
-# deploy postgreSQL database for planner
-- import_tasks: pgsql-planner.yml
-  when: (component == 'database') or
-        (component == 'all')
-
 # Deploying VnV Components
 
 # deploy tng-vnv-planner
