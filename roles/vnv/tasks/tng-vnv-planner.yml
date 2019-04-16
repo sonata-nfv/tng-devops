@@ -17,8 +17,8 @@
       LOGGING_LEVEL_ORG_APACHE_HTTP_WIRE: "{{ app_vnv_logging_level }}"
       LOGGING_LEVEL_SUN_NET_WWW_PROTOCOL_HTTP: "{{ app_vnv_logging_level }}"
       DATABASE_URL: "postgres://{{ gtk_db_user }}:{{ gtk_db_pass }}@son-postgres:5432/{{ planner_db_name }}"
-      POSTGRES_PASSWORD: "{{ gtk_db_pass }}"
-      POSTGRES_USER: "{{ gtk_db_user }}"
+      DATABASE_PASSWORD: "{{ gtk_db_pass }}"
+      DATABASE_USER: "{{ gtk_db_user }}"
       DATABASE_NAME: "{{ planner_db_name }}"
       DATABASE_HOST: "son-postgres"
       DATABASE_PORT: 5432
