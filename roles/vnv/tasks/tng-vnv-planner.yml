@@ -21,7 +21,7 @@
       DATABASE_USER: "{{ gtk_db_user }}"
       DATABASE_NAME: "{{ planner_db_name }}"
       DATABASE_HOST: "son-postgres"
-      DATABASE_PORT: 5432
+      DATABASE_PORT: "5432"
 
 
     state: started
