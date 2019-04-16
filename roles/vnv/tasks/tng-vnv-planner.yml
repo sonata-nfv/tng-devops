@@ -2,8 +2,8 @@
 
 - debug: msg="##### VnV Planner Deployment {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
 
-- name: create planner's database for {{ gtk_db_user }}
-  shell: /usr/bin/docker run --net={{ docker_network_name }} -i -e DATABASE_HOST=son-postgres -e DATABASE_PORT=5432 -e POSTGRES_PASSWORD={{ gtk_db_pass }} -e POSTGRES_USER={{ gtk_db_user }} -e POSTGRES_DB={{ gtk_db_name }} --rm=true {{ repository }}/tng-gtk-usr:{{ version }} createdb -O {{ gtk_db_user }} {{ planner_db_name }}
+#- name: create planner's database for {{ gtk_db_user }}
+#  shell: /usr/bin/docker run -it son-postgres psql -U {{ gtk_db_user }} -W {{ gtk_db_pass }}  -c 'createdb -O {{ gtk_db_user }} {{ planner_db_name }};'
 
 # Running the 5GTANGO VnV Planner (Docker container)
 
