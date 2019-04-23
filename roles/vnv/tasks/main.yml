@@ -133,6 +133,12 @@
         (component == 'prometheus') or
         (component == 'all')
 
+# deploy Monitoring grafana
+- import_tasks: grafana.yml
+  when: (component == 'monitoring') or
+        (component == 'monitoring-grafana') or
+        (component == 'all')
+
 # deploy Monitoring Manager
 - import_tasks: monitmgr.yml
   when: (component == 'monitoring') or

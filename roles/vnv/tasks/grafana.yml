@@ -1,0 +1,18 @@
+---
+# Running the VnV MONIT GRAFANA (Docker container)
+- debug: msg="##### Vnv MONIT GRAFANA DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- name: VnV MONIT GRAFANA - running Docker containers
+  docker_container:
+    name: son-monitor-grafana
+    image: "{{ repository }}/son-vnv-monitor-grafana:{{ version }}"
+    restart_policy: "always"
+    state: started
+    recreate: yes
+    pull: true
+    network_mode: bridge
+    networks:
+      - name: "{{ docker_network_name }}"
+        aliases:
+          - son-vnv-monitor-grafana
+    published_ports:
+      - "3000:3000"
