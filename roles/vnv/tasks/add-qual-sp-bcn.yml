@@ -1,0 +1,10 @@
+---
+# Adding qual SP BCN
+- debug: msg="##### 5GTANGO Adding qual SP BCN {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
+
+# ADDING THE SONATA SP QUAL BCN
+- name: "Adding the SONATA SP QUAL BCN"
+  shell: | 
+    /usr/bin/curl -X POST http://{{ target }}/api/v3/settings/platforms -H 'content-type: application/json' -d ' { "name":"qual-sp-bcn", "host":"http://qual-sp-bcn.5gtango.eu", "type":"sonata", "username":"admin", "password":"admin", "monitoring_urls":"http://son-vnv-monitor-manager:8000/api/v2/services" }'
+
+

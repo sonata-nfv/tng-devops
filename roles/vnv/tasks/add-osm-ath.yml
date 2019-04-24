@@ -1,0 +1,9 @@
+---
+# Adding OSM ATH
+- debug: msg="##### 5GTANGO Adding OSM ath {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
+
+# ADDING OSM ATH
+- name: "Adding the SP OSM ath"
+  shell: | 
+    /usr/bin/curl -X POST  http://{{ target }}/api/v3/settings/platforms -H 'content-type: application/json' { "name":"osm-athenas", "host":"http://10.30.0.170", "type":"osm", "username":"admin", "password":"admin", "project_name": "admin","vim_account": "OS1", "monitoring_urls":"http://son-vnv-monitor-manager:8000/api/v2/services"}
+
