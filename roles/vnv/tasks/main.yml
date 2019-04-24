@@ -145,6 +145,14 @@
         (component == 'monitoring-manager') or
         (component == 'all')         
 
+# configure qual sp bcn
+- import_tasks: add-qual-sp-bcn.yml
+  when: target == 'pre-int-vnv-bcn.5gtango.eu'
+
+# configure osm athens
+- import_tasks: add-osm-ath.yml
+  when: target == 'pre-int-vnv-bcn.5gtango.eu'
+
 # Installation Finish
 - name: Installation Finish
   uri:
