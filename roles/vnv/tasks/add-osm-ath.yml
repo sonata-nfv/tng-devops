@@ -22,6 +22,6 @@
          vim_account: OS1
          service_token: service_token           
          monitoring_urls: http://son-vnv-monitor-manager:8000/api/v2/services           
-      status_code: 200
+      status_code: 200,401
       body_format: json
 
