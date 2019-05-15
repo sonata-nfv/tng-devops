@@ -65,10 +65,10 @@ ia_repo_pass: !vault |
           3961
 
 # Monitoring
+gk_base_domain: demo-comm-sp.5gtango.eu:32002
 mon_db_name: monitoring
 mon_db_user: monitoringuser
 mon_db_pass: !vault |
-gk_base_domain: demo-comm-sp.5gtango.eu:32002
           $ANSIBLE_VAULT;1.1;AES256
           31343063326138383564633036303164396430663966613434613561343334316563316535373130
           6466616532643030363962366639623531646630386435320a623236353964636239653861333731
