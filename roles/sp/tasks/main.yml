@@ -33,7 +33,8 @@
 
 # deploy postgreSQL database engine for monitoring
 - import_tasks: pgsql-monitoring.yml
-  when: (component == 'database') or 
+  when: (component == 'monitoring') or
+        (component == 'database') or 
         (component == 'all')
 
 # deploy Influxdb

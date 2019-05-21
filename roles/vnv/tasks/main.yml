@@ -147,11 +147,13 @@
 
 # configure qual sp bcn
 - import_tasks: add-qual-sp-bcn.yml
-  when: target == 'pre-int-vnv-bcn.5gtango.eu'
+  when: (target == 'pre-int-vnv-bcn.5gtango.eu') and
+        (component == 'all') 
 
 # configure osm athens
 - import_tasks: add-osm-ath.yml
-  when: target == 'pre-int-vnv-bcn.5gtango.eu'
+  when: (target == 'pre-int-vnv-bcn.5gtango.eu') and
+        (component == 'all')
 
 # Installation Finish
 - name: Installation Finish
