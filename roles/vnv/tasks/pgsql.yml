@@ -4,7 +4,7 @@
 - name: deploy a PostgreSQL database server as a Container
   docker_container:
     name: son-postgres   
-    image: ntboes/postgres-uuid
+    image: sonatanfv/son-postgres
     volumes:
       - "/etc/sonata/data/postgres:/var/lib/postgresql/data"
     env:
@@ -23,4 +23,4 @@
     published_ports: 5432:5432
 
 - name: Wait until the string "Postgres" is UP
-  wait_for: host=0.0.0.0 port=5432 timeout=30 delay=10 state=started	
+  wait_for: host=0.0.0.0 port=5432 timeout=30 delay=10 state=started

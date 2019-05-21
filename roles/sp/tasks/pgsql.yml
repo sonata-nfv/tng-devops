@@ -4,7 +4,7 @@
 - name: deploy a PostgreSQL database server as a Container
   docker_container:
     name: son-postgres   
-    image: ntboes/postgres-uuid
+    image: sonatanfv/son-postgres
     volumes:
       - "/etc/sonata/data/postgres:/var/lib/postgresql/data"
     env:
