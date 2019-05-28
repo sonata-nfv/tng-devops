@@ -21,8 +21,8 @@ unpackager_url: http://qual-sp-ave.5gtango.eu:5099/api/v1/packages
 catalogue_url: http://qual-sp-ave.5gtango.eu:4011/catalogues/api/v2
 repository_url: http://tng-rep:4012
 external_callback_url: http://pre-int-vnv-ave.5gtango.eu:6100/tng-vnv-lcm/api/v1/packages/on-change
-# internal_callback_url: http://pre-int-vnv-ave.5gtango.eu:6100/tng-vnv-lcm/api/v1/packages/on-change
 recommender_url: http://tng-vnv-dsm:4010/api/v1/pair
+internal_callback_url: http://tng-vnv-planner:6100/api/v1/packages/on-change
 
 ## Private Docker repository
 repository: registry.sonata-nfv.eu:5000
@@ -80,6 +80,7 @@ ia_repo_pass: !vault |
 # Monitoring
 mon_db_name: monitoring
 mon_db_user: monitoringuser
+gk_base_domain: pre-int-vnv-ave.5gtango.eu:32002
 mon_db_pass: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           31343063326138383564633036303164396430663966613434613561343334316563316535373130
@@ -87,3 +88,5 @@ mon_db_pass: !vault |
           37313336363864363662363866343937656334316563623763646665666237383261333561333163
           3566396637616561660a383363373366646565333631386165653162326366623237636538653761
           3362
+clean: false
+platform: vnv

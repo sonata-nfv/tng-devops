@@ -1,0 +1,22 @@
+---
+# Running the Sonata Infrastructure Abstractor WIM Wrapper VTN (Docker container)
+- debug: msg="##### SP IA WIM TAPI Wrapper deployment {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- name: deploying SP IA WIM TAPI Wrapper (Docker container)
+  docker_container:
+    name: tng-sp-ia-wtapi
+    image: "{{ repository }}/tng-sp-ia-wtapi:{{ version }}"
+    env:
+      broker_host: amqp://guest:guest@son-broker:5672/%2F
+      DATABASE_HOST: "son-postgres"
+      DATABASE_PORT: "5432"
+      POSTGRES_USER: "{{ ia_repo_user }}"
+      POSTGRES_PASSWORD: "{{ ia_repo_pass }}"
+    restart_policy: "always"
+    network_mode: bridge
+    networks:
+      - name: "{{ docker_network_name }}"
+        aliases:
+          - tng-sp-ia-wtapi
+    state: started
+    recreate: yes
+    pull: true

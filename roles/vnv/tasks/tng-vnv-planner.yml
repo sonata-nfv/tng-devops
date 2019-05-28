@@ -1,0 +1,38 @@
+---
+
+- debug: msg="##### VnV Planner Deployment {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
+
+#- name: create planner's database for {{ gtk_db_user }}
+#  shell: /usr/bin/docker run -it son-postgres psql -U {{ gtk_db_user }} -W {{ gtk_db_pass }}  -c 'createdb -O {{ gtk_db_user }} {{ planner_db_name }};'
+
+# Running the 5GTANGO VnV Planner (Docker container)
+
+- name: VnV Planner - running Docker containers
+  docker_container:
+    name: tng-vnv-planner
+    image: "{{ repository }}/tng-vnv-planner:{{ version }}"
+    env:
+      APP_GK_BASE_URL: "{{ app_gk_base_url }}"
+      APP_CAT_BASE_URL: "{{ catalogue_url }}"
+      LOGGING_LEVEL_ORG_APACHE_HTTP_WIRE: "{{ app_vnv_logging_level }}"
+      LOGGING_LEVEL_SUN_NET_WWW_PROTOCOL_HTTP: "{{ app_vnv_logging_level }}"
+      DATABASE_URL: "postgres://{{ gtk_db_user }}:{{ gtk_db_pass }}@son-postgres:5432/{{ planner_db_name }}"
+      DATABASE_PASSWORD: "{{ gtk_db_pass }}"
+      DATABASE_USER: "{{ gtk_db_user }}"
+      DATABASE_NAME: "{{ planner_db_name }}"
+      DATABASE_HOST: "son-postgres"
+      DATABASE_PORT: "5432"
+
+
+    state: started
+    recreate: yes
+    pull: true
+    network_mode: bridge
+    networks:
+      - name: "{{ docker_network_name }}"
+        aliases:
+          - tng-vnv-planner
+        links:
+          - son-postgres
+    published_ports: "6100:6100"
+    restart_policy: "always"

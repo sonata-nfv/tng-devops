@@ -4,10 +4,12 @@
 docker_network_name: tango
 
 ## Version
-## For now, qualification version = staging
+# For now qual
 version: qual
 
-## Private Docker repository
+component: all
+
+## Docker repository
 repository: registry.sonata-nfv.eu:5000
 
 # MONITOR pgSQL database
@@ -26,6 +28,7 @@ urootpw: !vault |
           32346534373166303262383031666230636332633761363263353733326566636639626238363666
           3733613961666430380a663234333765623362393738663731323539616437646237313662313339
           3161
+
 dbname: monitoring
 dbuser: monitoringuser
 
@@ -53,6 +56,9 @@ gtk_keycloak_pass: !vault |
           3366333031363931390a666438343330306538343164653139363463343333626437353065386564
           3733
 
+# GATEKEEPER APPLICATION
+app_gk_base_url: http://localhost/api/v2
+
 # Infrastructure Abstraction
 ia_repo_user: sonatatest
 ia_repo_pass: !vault |
@@ -66,6 +72,7 @@ ia_repo_pass: !vault |
 # Monitoring
 mon_db_name: monitoring
 mon_db_user: monitoringuser
+gk_base_domain: sta-sp-ave.5gtango.eu:32002
 mon_db_pass: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           31343063326138383564633036303164396430663966613434613561343334316563316535373130
@@ -73,3 +80,18 @@ mon_db_pass: !vault |
           37313336363864363662363866343937656334316563623763646665666237383261333561333163
           3566396637616561660a383363373366646565333631386165653162326366623237636538653761
           3362
+
+clean: false
+platform: sp
+
+## VnV Specific Variables
+## Please replace ip-of-sp by the IP address of the service platform
+app_gk_base_url: http://ip-of-sp:32002/api/v3
+app_vnv_logging_level: DEBUG
+app_gk_base_url: http://ip-of-sp:32002/api/v3
+routes_file: vnv_routes.yml
+unpackager_url: http://ip-of-sp:5099/api/v1/packages
+catalogue_url: http://ip-of-sp:4011/catalogues/api/v2
+repository_url: http://tng-rep:4012
+external_callback_url: http://tng-vnv-lcm:6100/api/v1/packages/on-change
+internal_callback_url: http://tng-vnv-lcm:6100/api/v1/packages/on-change

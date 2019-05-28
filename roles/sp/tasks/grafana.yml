@@ -1,0 +1,22 @@
+---
+# Running the Sonata MONIT GRAFANA (Docker container)
+- debug: msg="##### SP MONIT GRAFANA DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- name: MONIT GRAFANA - running Docker containers
+  docker_container:
+    name: son-monitor-grafana
+    image: "{{ repository }}/son-monitor-grafana:{{ version }}"
+    env:
+      GF_SERVER_DOMAIN: "{{ gk_base_domain }}"
+      GF_SERVER_ROOT_URL: "http://{{ gk_base_domain }}/api/v3/monitoring/graphs"
+    restart_policy: "always"
+    state: started
+    recreate: yes
+    pull: true
+    network_mode: bridge
+    networks:
+      - name: "{{ docker_network_name }}"
+        aliases:
+          - son-monitor-grafana
+    published_ports:
+      - "3000:3000"
+    

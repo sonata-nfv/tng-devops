@@ -62,6 +62,7 @@ ia_repo_pass: !vault |
           3961
 
 # Monitoring
+gk_base_domain: pre-int-sp-ath.5gtango.eu:32002
 mon_db_name: monitoring
 mon_db_user: monitoringuser
 mon_db_pass: !vault |
@@ -71,3 +72,5 @@ mon_db_pass: !vault |
           37313336363864363662363866343937656334316563623763646665666237383261333561333163
           3566396637616561660a383363373366646565333631386165653162326366623237636538653761
           3362
+clean: false
+platform: sp

@@ -1,0 +1,23 @@
+---
+# Running the Sonata MONIT ALERTMANAGER (Docker container)
+- debug: msg="##### SP MONIT ALERTMANAGER DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
+- name: MONIT ALERTMANAGER - running Docker containers
+  docker_container:
+    name: son-monitor-alertmanager
+    image: "{{ repository }}/son-monitor-alertmanager:{{ version }}"
+    restart_policy: "always"
+    state: started
+    recreate: yes
+    pull: true
+    env:
+      RABBIT_URL: "son-broker:5672"
+    network_mode: bridge
+    networks:
+      - name: "{{ docker_network_name }}"
+        aliases:
+          - son-monitor-alertmanager
+          - alertmanager
+    published_ports:
+      - "9093:9093"
+      - "5001:5001"
+

@@ -1,0 +1,21 @@
+---
+# Running the 5GTANGO SDK packager service (Docker container) 
+- debug: msg="##### VNV TNG DECISION SUPPORT DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
+- name: TNG-VNV-DSM (tng-vnv-dsm) (Docker container)
+  docker_container:
+    name: tng-vnv-dsm
+    image: "{{ repository }}/tng-vnv-dsm:{{ version }}"
+    state: started
+    recreate: yes
+    pull: true
+    env:
+      CATALOGUES_URL: http://tng-cat:4011/catalogues/api/v2/
+    restart_policy: "always"
+    network_mode: bridge
+    networks:
+      - name: "{{ docker_network_name }}"
+        aliases:
+          - tng-vnv-dsm
+    exposed_ports: 4010
+    published_ports: "4010:4010"
+

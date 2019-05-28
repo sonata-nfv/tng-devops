@@ -9,6 +9,8 @@
     recreate: yes
     pull: true
     network_mode: bridge
+    env:
+      PLATFORM: "{{ platform }}"
     networks:
       - name: "{{ docker_network_name }}"
         aliases:

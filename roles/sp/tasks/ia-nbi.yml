@@ -1,0 +1,29 @@
+---
+# Running the Sonata Infrastructure Abstractor NBI (Docker container)
+- debug: msg="##### SP Infrastructure Abstractor NBI DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- name: deploying Infrastructure Abstractor NBI (Docker container)
+  docker_container:
+    name: ia-nbi
+    image: "{{ repository }}/ia-nbi:{{ version }}"
+    restart_policy: "always"
+    state: started
+    recreate: yes
+    pull: true
+    env:
+      broker_host: "son-broker"
+      broker_uri: "amqp://guest:guest@son-broker:5672/%2F"
+      repo_host: "son-postgres"
+      repo_port: "5432"
+      repo_user: "{{ ia_repo_user }}"
+      repo_pass: "{{ ia_repo_pass }}"
+      ia_api_port: "8083"
+    network_mode: bridge
+    networks:
+      - name: "{{ docker_network_name }}"
+        aliases:
+          - son-sp-infrabstract
+          - wim-adaptor
+        links:
+          - son-broker
+    published_ports:
+      - "8083:8083"

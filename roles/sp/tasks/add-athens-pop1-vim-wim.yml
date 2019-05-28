@@ -2,24 +2,24 @@
 # Adding mock VIM to SP
 - debug: msg="##### 5GTANGO Adding MOCK VIM and WIM {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
 
-#ADDING THE WIM
-- name: "Adding the VIM-Compute"
+# ADDING THE VIM
+- name: "Adding the VIM-Compute (Mock)"
   shell: | 
-    /usr/bin/docker exec -t son-postgres psql -h localhost -U sonatatest -d vimregistry -c "INSERT INTO VIM (UUID, TYPE, VENDOR, ENDPOINT, USERNAME, CONFIGURATION, CITY, COUNTRY, PASS, AUTHKEY, NAME, DOMAIN) VALUES ('1111-22222222-33333333-4444', 'compute', 'Heat', '10.100.32.200', 'sonata.dem', '{\"tenant_ext_net\":\"53d43a3e-8c86-48e6-b1cb-f1f2c48833de\", \"tenant_private_net_id\":\"172.16.0.0\", \"tenant_private_net_length\":16, \"tenant\":\"admin\", \"tenant_ext_router\":\"e8cdd5c7-191f-4215-83f3-53ee1113db86\"}', 'Athens-North', 'Greece', 's0nata.d3m', null, 'Athens-200', 'default');"
+    /usr/bin/docker exec -t son-postgres psql -h localhost -U sonatatest -d vimregistry -c "INSERT INTO VIM (UUID, TYPE, VENDOR, ENDPOINT, USERNAME, CONFIGURATION, CITY, COUNTRY, PASS, AUTHKEY, NAME, DOMAIN) VALUES ('11111111-2222-3333-4444-555555555555', 'compute', 'Mock', '10.100.32.200', 'sonata.dem', '{\"tenant_ext_net\":\"53d43a3e-8c86-48e6-b1cb-f1f2c48833de\", \"tenant_private_net_id\":\"172.16.0.0\", \"tenant_private_net_length\":\"16\", \"tenant\":\"admin\", \"tenant_ext_router\":\"e8cdd5c7-191f-4215-83f3-53ee1113db86\"}', 'Athens-North', 'Greece', 's0nata.d3m', null, 'Athens-200', 'default');"
 
-- name: "Adding the VIM-Network"
+- name: "Adding the VIM-Network (ovs)"
   shell: |
-    /usr/bin/docker exec -t son-postgres psql -h localhost -U sonatatest -d vimregistry -c "INSERT INTO VIM (UUID, TYPE, VENDOR, ENDPOINT, USERNAME, CONFIGURATION, CITY, COUNTRY, PASS, AUTHKEY, NAME, DOMAIN) VALUES ('aaaa-bbbbbbbb-cccccccc-dddd', 'network', 'ovs', '10.100.32.200', 'sonata.dem', '{"compute_uuid":"1111-22222222-33333333-4444"}', 'Athens-North', 'Greece', 's0nata.d3m', null,'Athens-200-Net','default');"
+    /usr/bin/docker exec -t son-postgres psql -h localhost -U sonatatest -d vimregistry -c "INSERT INTO VIM (UUID, TYPE, VENDOR, ENDPOINT, USERNAME, CONFIGURATION, CITY, COUNTRY, PASS, AUTHKEY, NAME, DOMAIN) VALUES ('aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee', 'network', 'ovs', '10.100.32.200', 'sonata.dem', '{\"compute_uuid\":\"11111111-2222-3333-4444-555555555555\"}', 'Athens-North', 'Greece', 's0nata.d3m', null,'Athens-200-Net','default');"
 
 - name: "Linking VIM Compute-Network"
   shell: |
-    /usr/bin/docker exec -t son-postgres psql -h localhost -U sonatatest -d vimregistry -c "INSERT INTO LINK_VIM (COMPUTE_UUID, NETWORKING_UUID) VALUES ('1111-22222222-33333333-4444', 'aaaa-bbbbbbbb-cccccccc-dddd');"
+    /usr/bin/docker exec -t son-postgres psql -h localhost -U sonatatest -d vimregistry -c "INSERT INTO LINK_VIM (COMPUTE_UUID, NETWORKING_UUID) VALUES ('11111111-2222-3333-4444-555555555555', 'aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee');"
 
-#ADDING THE WIM
-- name: "ADDING WIM"
+# ADDING THE WIM
+- name: "Adding WIM (Tapi)"
   shell: | 
-    /usr/bin/docker exec -t son-postgres psql -h localhost -U postgres -d wimregistry -c "INSERT INTO WIM (UUID, TYPE, VENDOR, ENDPOINT, USERNAME, PASS, AUTHKEY, NAME) VALUES ('1234-12345678-12345678-1234', 'WIM', 'VTN', '10.30.0.13', 'admin', 'admin', null, 'AthensWan');"
+    /usr/bin/docker exec -t son-postgres psql -h localhost -U postgres -d wimregistry -c "INSERT INTO WIM (UUID, TYPE, VENDOR, ENDPOINT, USERNAME, PASS, AUTHKEY, NAME) VALUES ('373df903-da67-45d2-9906-d77a9bf5c4dc', 'WIM', 'Tapi', '10.120.0.19', 'admin', 'admin', null, 'TapiWanBcn');"
 
 - name: "Linking VIM - WIM"
   shell: |
-    /usr/bin/docker exec -t son-postgres psql -h localhost -U postgres -d wimregistry -c "INSERT INTO ATTACHED_VIM (VIM_UUID, VIM_ADDRESS, WIM_UUID) VALUES ('1111-22222222-33333333-4444','10.100.32.200', '1234-12345678-12345678-1234');"
+    /usr/bin/docker exec -t son-postgres psql -h localhost -U postgres -d wimregistry -c "INSERT INTO ATTACHED_VIM (VIM_UUID, VIM_ADDRESS, WIM_UUID) VALUES ('11111111-2222-3333-4444-555555555555','10.100.32.200', '373df903-da67-45d2-9906-d77a9bf5c4dc');"

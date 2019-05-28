@@ -1,0 +1,28 @@
+---
+# Running the 5GTANGO SDK analyze weight service (Docker container) 
+- debug: msg="##### SP TNG-SDK-ANALYZE-WEIGHT DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
+- name: TNG-SDK-ANALYZE-WEIGHT (tng-sdk-analyze-weight) (Docker container)
+  docker_container:
+    name: tng-sdk-analyze-weight
+    image: "{{ repository }}/tng-sdk-analyze-weight:{{ version }}"
+    env:
+      DATABASE_HOST: mongo
+      DATABASE_NAME: tng-sdk-analyze-weight
+      DATABASE_PORT: 27017
+      CATALOGUES_URL: http://qual-sp-bcn.5gtango.eu:4011/catalogues/api/v2/
+      MONITORING_URL: http://son-monitor-manager:8000/api/v1/
+      DICT_COLL: dictionaries
+      UNK_COLL: unknown_vnfs
+      LOG_LEVEL: INFO
+    state: started
+    recreate: yes
+    pull: true
+    restart_policy: "always"
+    network_mode: bridge
+    networks:
+      - name: "{{ docker_network_name }}"
+        aliases:
+          - tng-sdk-weight
+    exposed_ports: 8084
+    published_ports: "8084:8084"
+

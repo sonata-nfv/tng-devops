@@ -1,0 +1,22 @@
+---
+
+- debug: msg="##### VnV Curator Deployment {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
+
+# Running the 5GTANGO VnV Curator (Docker container)
+
+- name: VnV Curator - running Docker containers
+  docker_container:
+    name: tng-vnv-curator
+    image: "{{ repository }}/tng-vnv-curator:{{ version }}"
+    state: started
+    recreate: yes
+    pull: true
+    network_mode: bridge
+    networks:
+      - name: "{{ docker_network_name }}"
+        aliases:
+          - tng-vnv-curator
+    published_ports: "6200:6200"
+    restart_policy: "always"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"

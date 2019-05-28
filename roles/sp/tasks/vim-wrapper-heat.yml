@@ -1,0 +1,23 @@
+---
+# Running the Sonata Infrastructure Abstractor VIM Heat Wrapper (Docker container)
+- debug: msg="##### SP Infrastructure Abstractor VIM Heat Wrapper DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- name: deploying Infrastructure Abstractor VIM Heat Wrapper (Docker container)
+  docker_container:
+    name: vim-wrapper-heat
+    image: "{{ repository }}/vim-wrapper-heat:{{ version }}"
+    restart_policy: "always"
+    state: started
+    recreate: yes
+    pull: true
+    env:
+      broker_host: "son-broker"
+      broker_uri: "amqp://guest:guest@son-broker:5672/%2F"
+      repo_host: "son-postgres"
+      repo_port: "5432"
+      repo_user: "{{ ia_repo_user }}"
+      repo_pass: "{{ ia_repo_pass }}"
+    network_mode: bridge
+    networks:
+      - name: "{{ docker_network_name }}"
+        links:
+          - son-broker

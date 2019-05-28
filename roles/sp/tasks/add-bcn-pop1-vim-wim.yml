@@ -1,0 +1,36 @@
+---
+# Adding BCN VIM to SP
+- debug: msg="##### 5GTANGO Adding BCN VIM and WIM {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
+
+#ADDING THE WIM
+- name: "Adding the VIM-Compute"
+  shell: | 
+    /usr/bin/docker exec -t son-postgres psql -h localhost -U sonatatest -d vimregistry -c \
+    "INSERT INTO VIM (UUID, TYPE, VENDOR, ENDPOINT, USERNAME, CONFIGURATION, CITY, COUNTRY, PASS, AUTHKEY, NAME, DOMAIN) \
+    VALUES ('11111111-2222-3333-4444-555555555555', 'compute', 'Heat', '10.120.0.18', 'tango.qual', \
+    '{\"tenant_ext_net\":\"94ab6136-612f-4d40-82b8-9223d14cc442\", \"tenant_private_net_id\":\"172.16.0.0\", \"tenant_private_net_length\":\"16\", \
+    \"tenant\":\"tango\", \"tenant_ext_router\":\"e521eeb5-880b-4d3b-b68a-c8a9927b5e55\"}', 'Barcelona', 'Spain', 't4ng0', null, 'BCN-Net', 'default');"
+
+- name: "Adding the VIM-Network"
+  shell: |
+    /usr/bin/docker exec -t son-postgres psql -h localhost -U sonatatest -d vimregistry -c \
+    "INSERT INTO VIM (UUID, TYPE, VENDOR, ENDPOINT, USERNAME, CONFIGURATION, CITY, COUNTRY, PASS, AUTHKEY, NAME, DOMAIN) \
+    VALUES ('aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee', 'network', 'ovs', '10.120.0.18', 'tango.qual', '{\"compute_uuid\":\"11111111-2222-3333-4444-555555555555\"}', \
+    'Barcelona', 'Spain', 't4ng0', null,'BCN-Net','default');"
+
+- name: "Linking VIM Compute-Network"
+  shell: |
+    /usr/bin/docker exec -t son-postgres psql -h localhost -U sonatatest -d vimregistry -c \
+    "INSERT INTO LINK_VIM (COMPUTE_UUID, NETWORKING_UUID) VALUES ('11111111-2222-3333-4444-555555555555', 'aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee');"
+
+#ADDING THE WIM
+- name: "ADDING WIM"
+  shell: | 
+    /usr/bin/docker exec -t son-postgres psql -h localhost -U postgres -d wimregistry -c \
+    "INSERT INTO WIM (UUID, TYPE, VENDOR, ENDPOINT, USERNAME, PASS, AUTHKEY, NAME) \
+    VALUES ('12345678-1234-1234-1234-123456789012', 'WIM', 'MOCK', '10.120.0.18', 'admin', 'admin', null, 'AthensWan');"
+
+- name: "Linking VIM - WIM"
+  shell: |
+    /usr/bin/docker exec -t son-postgres psql -h localhost -U postgres -d wimregistry -c \
+    "INSERT INTO ATTACHED_VIM (VIM_UUID, VIM_ADDRESS, WIM_UUID) VALUES ('11111111-2222-3333-4444-555555555555','10.120.0.18', '12345678-1234-1234-1234-123456789012');"

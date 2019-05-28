@@ -1,0 +1,25 @@
+---
+# Running the Sonata PGSQL-MONITORING (Docker container)
+- debug: msg="##### VnV PGSQL-MONITORING DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
+- name: deploy a database server for VnV Monitoring
+  docker_container:
+    name: son-monitor-postgres
+    image: ntboes/postgres-uuid
+    volumes:
+      - "/etc/sonata/data/postgresmon:/var/lib/postgresql/data"
+    env:
+      POSTGRES_DB: "{{ mon_db_name }}"
+      POSTGRES_USER: "{{ mon_db_user }}"
+      POSTGRES_PASSWORD: "{{ mon_db_pass }}"
+    state: started
+    recreate: yes
+    pull: true
+    restart_policy: "always"
+    command: postgres -p 5433
+    network_mode: bridge
+    networks:
+      - name: "{{ docker_network_name }}"
+        aliases:
+          - son-monitor-postgres
+          - postgsql
+    published_ports: 5433:5432

@@ -4,23 +4,12 @@
 docker_network_name: tango
 
 ## Version
-version: latest
-
-## VnV Specific Variables
-
-app_vnv_logging_level: DEBUG
-app_gk_base_url: http://qual-sp-ave.5gtango.eu:32002/api/v3
-routes_file: vnv_routes.yml
-unpackager_url: http://qual-sp-ave.5gtango.eu:5099/api/v1/packages
-catalogue_url: http://qual-sp-ave.5gtango.eu:4011/catalogues/api/v2
-repository_url: http://tng-rep:4012
-external_callback_url: http://tng-vnv-lcm:6100/api/v1/packages/on-change
-# internal_callback_url: http://tng-vnv-lcm:6100/api/v1/packages/on-change
+version: dev
 
 component: all
 
-## Private Docker repository
-repository: registry.sonata-nfv.eu:5000
+## Docker repository
+repository: sonatanfv
 
 # MONITOR pgSQL database
 
@@ -43,7 +32,7 @@ dbname: monitoring
 dbuser: monitoringuser
 
 # Ruby env
-rack_env : development
+rack_env : staging
 
 # GATEKEEPER pgSQL database
 gtk_db_name: gatekeeper
@@ -79,12 +68,10 @@ ia_repo_pass: !vault |
           3738663562316432360a666634316566313533366364643965646539636433353736306361396338
           3961
 
-# GATEKEEPER APPLICATION
-app_gk_base_url: http://localhost/api/v2
-
 # Monitoring
 mon_db_name: monitoring
 mon_db_user: monitoringuser
+gk_base_domain: localhost:32002
 mon_db_pass: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           31343063326138383564633036303164396430663966613434613561343334316563316535373130
@@ -93,10 +80,19 @@ mon_db_pass: !vault |
           3566396637616561660a383363373366646565333631386165653162326366623237636538653761
           3362
 
+# PLANNER pgSQL database
+planner_db_name: planner
+
+clean: false
+platform: sp
+
 ## VnV Specific Variables
-
-app_gk_base_url: http://qual-sp-ave.5gtango.eu:32002/api/v3
+## Please replace ip-of-sp by the IP address of the service platform
+app_gk_base_url: http://ip-of-sp:32002/api/v3
+app_vnv_logging_level: DEBUG
 routes_file: vnv_routes.yml
-external_callback_url: http://tng-vnv-lcm:6100/api/v1/packages/on-change
-
-component: all
+unpackager_url: http://ip-of-sp:5099/api/v1/packages
+catalogue_url: http://ip-of-sp:4011/catalogues/api/v2
+repository_url: http://tng-rep:4012
+external_callback_url: http://tng-vnv-planner:6100/api/v1/packages/on-change
+internal_callback_url: http://tng-vnv-planner:6100/api/v1/packages/on-change

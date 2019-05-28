@@ -1,0 +1,23 @@
+---
+# Running the Sonata MONIT PROMETHEUS (Docker container)
+- debug: msg="##### VnV MONIT PROMETHEUS DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
+- name: VnV MONIT PROMETHEUS - running Docker containers
+  docker_container:
+    name: son-monitor-prometheus
+    image: "{{ repository }}/son-monitor-prometheus:{{ version }}"
+    env:
+      VNV_DEPLOYMENT: "true"
+    restart_policy: "always"
+    state: started
+    recreate: yes
+    pull: true
+    network_mode: bridge
+    networks:
+      - name: "{{ docker_network_name }}"
+        aliases:
+          - son-monitor-prometheus
+          - prometheus
+    published_ports:
+      - "9090:9090"
+      - "9089:9089"
+

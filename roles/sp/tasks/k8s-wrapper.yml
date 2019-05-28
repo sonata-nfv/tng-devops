@@ -1,0 +1,25 @@
+---
+# Running the Sonata Infrastructure abstraction Kubernetes Wrapper (Docker container)
+- debug: msg="##### IA Kubernetes Wrapper {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
+- name: Infrastructure abstraction Kubernetes Wrapper (Docker container)
+  docker_container:
+    name: tng-sp-ia-k8s
+    image: "{{ repository }}/tng-sp-ia-k8s:{{ version }}"
+    volumes:
+      - "/etc/sonata/data/kubernetes/config:/tng-sp-ia-k8s/config"
+    env:
+      broker_host: amqp://guest:guest@son-broker:5672/%2F
+      KUBECONFIG: /tng-sp-ia-k8s/config/config
+      DATABASE_HOST: "son-postgres"
+      DATABASE_PORT: "5432"
+      POSTGRES_USER: "{{ ia_repo_user }}"
+      POSTGRES_PASSWORD: "{{ ia_repo_pass }}"
+    restart_policy: "always"
+    network_mode: bridge
+    networks:
+      - name: "{{ docker_network_name }}"
+        aliases:
+          - tng-sp-ia-k8s
+    state: started
+    recreate: yes
+    pull: true

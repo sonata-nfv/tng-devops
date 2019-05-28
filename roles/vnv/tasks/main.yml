@@ -1,21 +1,61 @@
 ---
+# Installation Start
+- name: Installation Start
+  uri:
+    url: http://bit.ly/2VCHrnH
+    method: GET
+    validate_certs: no
+    headers:
+      User-Agent: "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0"
+  ignore_errors: True
+  when: target == "localhost"
+
 # Deploying VnV Databases
 
-# Deploying VnV Components
+# deploy postgreSQL database engine
+- import_tasks: pgsql.yml
+  when: (component == 'database') or
+        (component == 'all')
+
+# deploy postgreSQL database engine for monitoring
+- import_tasks: pgsql-monitoring.yml
+  when: (component == 'database') or
+        (component == 'monitoring') or
+        (component == 'all')
 
 # deploy mongo
 - import_tasks: mongo.yml
   when: (component == 'database') or
         (component == 'all')
 
-# deploy tng-vnv-lcm
-- import_tasks: lcm.yml
-  when: (component == 'lcm') or
+# deploy Redis database engine
+- import_tasks: redis.yml
+  when: (component == 'database') or
         (component == 'all')
 
-# deploy tng-vnv-tee
-- import_tasks: tee.yml
-  when: (component == 'tee') or
+# deploy Redis database engine
+- import_tasks: redis.yml
+  when: (component == 'database') or
+        (component == 'all')
+
+# Deploying VnV Components
+
+# deploy tng-vnv-planner
+- import_tasks: tng-vnv-planner.yml
+  when: (component == 'planner') or
+        (component == 'tng-vnv-planner') or
+        (component == 'all')
+
+# deploy tng-vnv-curator
+- import_tasks: tng-vnv-curator.yml
+  when: (component == 'curator') or
+        (component == 'tng-vnv-curator') or
+        (component == 'all')
+
+# deploy tng-vnv-executor
+- import_tasks: tng-vnv-executor.yml
+  when: (component == 'executor') or
+        (component == 'tng-vnv-executor') or
         (component == 'all')
 
 # deploy tng-cat
@@ -52,13 +92,76 @@
         (component == 'gtk-api-gtw') or
         (component == 'all')
 
+        
+# deploy tng-vnv-dsm.yml
+- import_tasks: tng-vnv-dsm.yml
+  when: (component == 'recommender') or
+        (component == 'tng-vnv-dsm') or
+        (component == 'all')
+        
 # deploy tng-sdk-pkg.yml
 - import_tasks: tng-sdk-pkg.yml
   when: (component == 'gatekeeper') or
         (component == 'packager') or
         (component == 'all')
 
+# deploy tng-sdk-analyze-weight.yml
+- import_tasks: tng-sdk-analyze-weight.yml
+  when: (component == 'analyze-weight') or
+        (component == 'tng-sdk-analyze-weight') or
+        (component == 'all')
+        
 # deploy Portal
 - import_tasks: portal.yml
   when: (component == 'portal') or
         (component == 'all')
+
+# deploy Platform Adapter
+- import_tasks: tng-vnv-platform-adapter.yml
+  when: (component == 'adapter') or
+        (component == 'tng-vnv-platform-adapter') or
+        (component == 'all') 
+
+- import_tasks: pushgw.yml
+  when: (component == 'monitoring') or
+        (component == 'pushgateway') or
+        (component == 'all')
+
+# deploy Monitoring Prometheus
+- import_tasks: prometheus.yml
+  when: (component == 'monitoring') or
+        (component == 'prometheus') or
+        (component == 'all')
+
+# deploy Monitoring grafana
+- import_tasks: grafana.yml
+  when: (component == 'monitoring') or
+        (component == 'monitoring-grafana') or
+        (component == 'all')
+
+# deploy Monitoring Manager
+- import_tasks: monitmgr.yml
+  when: (component == 'monitoring') or
+        (component == 'monitoring-manager') or
+        (component == 'all')         
+
+# configure qual sp bcn
+- import_tasks: add-qual-sp-bcn.yml
+  when: (target == 'pre-int-vnv-bcn.5gtango.eu') and
+        (component == 'all') 
+
+# configure osm athens
+- import_tasks: add-osm-ath.yml
+  when: (target == 'pre-int-vnv-bcn.5gtango.eu') and
+        (component == 'all')
+
+# Installation Finish
+- name: Installation Finish
+  uri:
+    url: http://bit.ly/2M1yqjp
+    method: GET
+    validate_certs: no
+    headers:
+      User-Agent: "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:64.0) Gecko/20100101 Firefox/64.0"
+  ignore_errors: True
+  when: target == "localhost"
