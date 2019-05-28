@@ -11,6 +11,8 @@
     env:
       CATALOGUES_URL: http://tng-cat:4011/catalogues/api/v2/
       MONITORING_URL: http://son-monitor-manager:8000/api/v1/
+      ENV MONITORING_URL_V2: http://son-monitor-manager:8000/api/v2/
+      MONITORING_PUSH_GATEWAY: son-monitor-pushgateway:9091
       RACK_ENV: integration
       MQSERVER: amqp://guest:guest@son-broker:5672
       DATABASE_HOST: son-postgres

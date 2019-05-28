@@ -35,7 +35,8 @@ routes_file: vnv_routes.yml
 unpackager_url: http://tng-sdk-package:5099/api/v1/packages
 catalogue_url: http://tng-cat:4011/catalogues/api/v2
 repository_url: http://tng-rep:4012
-external_callback_url: http://tng-vnv-planner:6100/api/v1/packages/on-change
+external_callback_url: http://pre-int-vnv-bcn.5gtango.eu:6100/tng-vnv-lcm/api/v1/packages/on-change
+recommender_url: http://tng-vnv-dsm:4010/api/v1/pair
 internal_callback_url: http://tng-vnv-planner:6100/api/v1/packages/on-change
 
 clean: false
@@ -43,6 +44,7 @@ clean: false
 # Monitoring
 mon_db_name: monitoring
 mon_db_user: monitoringuser
+gk_base_domain: pre-int-vnv-bcn:32002
 mon_db_pass: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           31343063326138383564633036303164396430663966613434613561343334316563316535373130
