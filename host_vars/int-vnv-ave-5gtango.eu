@@ -19,7 +19,8 @@ app_gk_base_url: http://qual-sp-ave.5gtango.eu:32002/api/v3
 routes_file: vnv_routes.yml
 unpackager_url: http://qual-sp-ave.5gtango.eu:5099/api/v1/packages
 catalogue_url: http://qual-sp-ave.5gtango.eu:4011/catalogues/api/v2
-external_callback_url: http://tng-vnv-planner:6100/api/v1/packages/on-change
+external_callback_url: http://tng-vnv-lcm:6100/api/v1/packages/on-change
+recommender_url: http://tng-vnv-dsm:4010/api/v1/pair
 internal_callback_url: http://tng-vnv-planner:6100/api/v1/packages/on-change
 clean: false
 
