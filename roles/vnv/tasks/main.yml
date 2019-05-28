@@ -80,6 +80,11 @@
         (component == 'gtk-vnv') or
         (component == 'all')
 
+- import_tasks: gtk-usr.yml
+  when: (component == 'gatekeeper') or
+        (component == 'gtk-usr') or
+        (component == 'all')           
+
 # deploy Security Gateway
 - import_tasks: sec-gtw.yml
   when: (component == 'gatekeeper') or
