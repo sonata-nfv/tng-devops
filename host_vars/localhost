@@ -94,6 +94,6 @@ routes_file: vnv_routes.yml
 unpackager_url: http://ip-of-sp:5099/api/v1/packages
 catalogue_url: http://ip-of-sp:4011/catalogues/api/v2
 repository_url: http://tng-rep:4012
-external_callback_url: http://tng-vnv-planner:6100/api/v1/packages/on-change
-internal_callback_url: http://tng-vnv-planner:6100/api/v1/packages/on-change
+new_package_callback_url: http://tng-vnv-planner:6100/api/v1/packages/on-change
+uploaded_callback_url: http://tng-gtk-common:5000/packages/on-change
 recommender_url: http://tng-vnv-dsm:4010/api/v1/pair

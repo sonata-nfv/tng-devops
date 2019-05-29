@@ -35,9 +35,9 @@ routes_file: vnv_routes.yml
 unpackager_url: http://tng-sdk-package:5099/api/v1/packages
 catalogue_url: http://tng-cat:4011/catalogues/api/v2
 repository_url: http://tng-rep:4012
-external_callback_url: http://pre-int-vnv-bcn.5gtango.eu:6100/tng-vnv-lcm/api/v1/packages/on-change
+planner_callback_url: http://tng-vnv-planner:6100/api/v1/packages/on-change
 recommender_url: http://tng-vnv-dsm:4010/api/v1/pair
-internal_callback_url: http://tng-vnv-planner:6100/api/v1/packages/on-change
+uploaded_callback_url: http://tng-gtk-common:5000/packages/on-change
 
 clean: false
 

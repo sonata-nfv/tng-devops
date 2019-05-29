@@ -7,7 +7,7 @@
     image: "{{ repository }}/tng-api-gtw:{{ version }}"
     env:
       ROUTES_FILE: vnv_routes.yml
-      EXTERNAL_CALLBACK_URL: http://tng-vnv-planner:6100/api/v1/packages/on-change
+      NEW_PACKAGE_CALLBACK_URL: http://tng-vnv-planner:6100/api/v1/packages/on-change
     state: started
     recreate: yes
     pull: true

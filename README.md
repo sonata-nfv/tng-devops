@@ -133,7 +133,6 @@ This is the tree structure of the repository:
 │   │       ├── grafana.yml
 │   │       ├── gtk-common.yml
 │   │       ├── gtk-vnv.yml
-│   │       ├── lcm.yml
 │   │       ├── main.yml
 │   │       ├── mongo.yml
 │   │       ├── monitmgr.yml
