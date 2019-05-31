@@ -85,7 +85,6 @@ This is the tree structure of the repository:
 │   │       ├── mongo-express.yml
 │   │       ├── mongo.yml
 │   │       ├── monitmgr.yml
-│   │       ├── nexus.yml
 │   │       ├── pgsql-monitoring.yml
 │   │       ├── pgsql.yml
 │   │       ├── pkg.yml
@@ -108,7 +107,6 @@ This is the tree structure of the repository:
 │   │       ├── smr.yml
 │   │       ├── snmpmng.yml
 │   │       ├── srv.yml
-│   │       ├── tng-dpolicy-mngr.yml
 │   │       ├── tng-policy-mngr.yml
 │   │       ├── tng-sdk-pkg.yml
 │   │       ├── usr.yml
