@@ -86,6 +86,7 @@ mon_db_pass: !vault |
 app_vnv_logging_level: DEBUG
 app_gk_base_url: http://sta-sp-ave.5gtango.eu:32002/api/v3
 app_vnv_logging_level: DEBUG
+recommender_url: http://tng-vnv-dsm:4010/api/v1/pair
 app_gk_base_url: http://sta-sp-ave.5gtango.eu:32002/api/v3
 routes_file: vnv_routes.yml
 # PLANNER pgSQL database
