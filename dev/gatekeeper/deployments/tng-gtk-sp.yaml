@@ -1,0 +1,36 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: tng-gtk-sp
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tng-gtk-sp
+        platform: sonata
+    spec:
+      containers:
+      - name: tng-gtk-sp
+        image: sonatanfv/tng-gtk-sp:dev
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5000
+        env:
+        - name: CATALOGUES_URL
+          value: "http://tng-cat:4011/catalogues/api/v2"
+        - name: RACK_ENV
+          value: integration
+        - name: MQSERVER
+          value: "amqp://guest:guest@son-broker:5672"
+        - name: DATABASE_URL
+          value: "postgres://sonatatest:sonata@son-postgres:5432/gatekeeper"
+        - name: DATABASE_PORT
+          value: "5432"
+        - name: POSTGRES_PASSWORD
+          value: "sonata"
+        - name: POSTGRES_USER
+          value: "sonatatest"
+        - name: DATABASE_HOST
+          value: "son-postgres"

@@ -1,0 +1,28 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: tng-gtk-sp
+spec:
+  template:
+    spec:
+      containers:
+      - name: tng-gtk-sp
+        image: sonatanfv/tng-gtk-sp:v4.0
+        command: ["bundle"]
+        args: ["exec", "rake", "db:migrate"] 
+        env:
+        - name: RACK_ENV 
+          value: integration         
+        - name: DATABASE_HOST
+          value: "son-postgres"
+        - name: MQSERVER
+          value: "amqp://guest:guest@son-broker:5672"
+        - name: DATABASE_PORT
+          value: "5432" 
+        - name: POSTGRES_PASSWORD
+          value: "sonata"
+        - name: POSTGRES_USER
+          value: "sonatatest"
+        - name: POSTGRES_DB
+          value: "gatekeeper"
+      restartPolicy: Never

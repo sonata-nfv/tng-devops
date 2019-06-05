@@ -1,0 +1,24 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: tng-sec-gtw
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tng-sec-gtw
+        platform: sonata
+    spec:
+      containers:
+      - name: tng-sec-gtw
+        image: sonatanfv/tng-sec-gtw:dev
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        - containerPort: 443
+      volumes:
+        - name: cert
+          hostPath:
+            path: "/etc/nginx/cert/"

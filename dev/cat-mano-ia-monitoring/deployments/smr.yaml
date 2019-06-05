@@ -1,0 +1,29 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: specificmanagerregistry
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: specificmanagerregistry
+        platform: sonata
+    spec:
+      containers:
+      - name: specificmanagerregistry
+        image: sonatanfv/specificmanagerregistry:dev
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: broker_host
+          value: "amqp://guest:guest@son-broker:5672/%2F"
+        - name: broker_name
+          value: "son-broker,broker"
+        volumeMounts:
+          - mountPath: "/var/run/docker.sock"
+            name: docker 
+      volumes:
+        - name: docker
+          hostPath:
+            path: "/var/run/docker.sock"

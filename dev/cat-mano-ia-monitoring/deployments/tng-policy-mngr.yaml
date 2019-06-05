@@ -1,0 +1,28 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: tng-policy-mngr
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tng-policy-mngr
+        platform: sonata
+    spec:
+      containers:
+      - name: tng-policy-mngr
+        image: sonatanfv/tng-policy-mngr:dev
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: MONGO_DB
+          value: "son-mongo"
+        - name: HOST_BROKER 
+          value: "son-broker"
+        - name: CATALOGUE
+          value: "tng-cat:4011"
+        - name: MONITORING_MANAGER
+          value: "son-monitor-manager:8000"
+        ports:
+        - containerPort: 8081

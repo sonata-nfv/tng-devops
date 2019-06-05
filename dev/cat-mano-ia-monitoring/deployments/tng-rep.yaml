@@ -1,0 +1,20 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: tng-rep
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tng-rep
+        platform: sonata
+    spec:
+      containers:
+      - name: tng-rep
+        image: sonatanfv/tng-rep:dev
+        imagePullPolicy: IfNotPresent
+
+        ports:
+        - containerPort: 4012

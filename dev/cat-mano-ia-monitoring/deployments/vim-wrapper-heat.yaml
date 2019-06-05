@@ -1,0 +1,30 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: vim-wrapper-heat
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: vim-wrapper-heat
+        platform: sonata
+    spec:
+      containers:
+      - name: vim-wrapper-heat
+        image: sonatanfv/vim-wrapper-heat:dev
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: broker_host
+          value: "son-broker"
+        - name: broker_uri
+          value: "amqp://guest:guest@son-broker:5672/%2F"
+        - name: repo_host
+          value: "son-postgres"
+        - name: repo_port
+          value: "5432"
+        - name: repo_user
+          value: "{{ ia_repo_user }}"
+        - name: repo_pass
+          value: "{{ ia_repo_pass }}"

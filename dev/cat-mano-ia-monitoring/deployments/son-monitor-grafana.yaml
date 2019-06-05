@@ -1,0 +1,24 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: son-monitor-grafana
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: son-monitor-grafana
+        platform: sonata
+    spec:
+      containers:
+      - name: son-monitor-grafana
+        image: sonatanfv/son-monitor-grafana:dev
+        imagePullPolicy: IfNotPresent
+        env:
+          - name: GF_SERVER_DOMAIN
+            value: "{{ gk_base_domain }}"
+          - name: GF_SERVER_ROOT_URL
+            value: "http://{{ gk_base_domain }}/api/v3/monitoring/graphs"
+        ports:
+        - containerPort: 3000

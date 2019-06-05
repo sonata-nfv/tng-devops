@@ -1,0 +1,36 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: ia-nbi
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ia-nbi
+        platform: sonata
+    spec:
+      containers:
+      - name: ia-nbi
+        image: sonatanfv/ia-nbi:dev
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8083
+        env:
+        - name: broker_host
+          value: "son-broker"
+        - name: broker_uri
+          value: "amqp://guest:guest@son-broker:5672/%2F"
+        - name: repo_host
+          value: "son-postgres"
+        - name: repo_port
+          value: "5432"
+        - name: repo_user
+          value: "{{ ia_repo_user }}"
+        - name: repo_pass
+          value: "{{ ia_repo_pass }}"
+        - name: ia_api_port
+          value: "8083"
+        - name: POSTGRES_DB
+          value: "gatekeeper"

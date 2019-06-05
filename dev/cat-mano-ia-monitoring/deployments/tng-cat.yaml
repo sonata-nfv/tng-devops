@@ -1,0 +1,19 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: tng-cat
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tng-cat
+        platform: sonata
+    spec:
+      containers:
+      - name: tng-cat
+        image: sonatanfv/tng-cat:dev
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 4011

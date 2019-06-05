@@ -1,0 +1,19 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: gtk-api-gtw
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gtk-api-gtw
+        platform: sonata
+    spec:
+      containers:
+      - name: gtk-api-gtw
+        image: sonatanfv/gtk-api-gtw:dev
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5000

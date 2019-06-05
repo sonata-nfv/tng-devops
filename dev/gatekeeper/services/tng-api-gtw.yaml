@@ -1,0 +1,16 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tng-api-gtw
+  labels:
+    app: tng-api-gtw
+    platform: sonata
+spec:
+  ports:
+  - port: 5000
+    name: http
+    targetPort:
+  selector:
+    app: tng-api-gtw
+  type: ClusterIP

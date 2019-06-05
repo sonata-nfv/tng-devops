@@ -1,0 +1,49 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: tng-sla-mgmt
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tng-sla-mgmt
+        platform: sonata
+    spec:
+      containers:
+      - name: tng-sla-mgmt
+        image: sonatanfv/tng-sla-mgmt:dev
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+        env:
+        - name: CATALOGUES_URL
+          value: "http://tng-cat:4011/catalogues/api/v2/"
+        - name: MONITORING_URL
+          value: "http://son-monitor-manager:8000/api/v1/"
+        - name: MONITORING_URL_V2
+          value: "http://son-monitor-manager:8000/api/v2/"
+        - name: MONITORING_PUSH_GATEWAY
+          value: "son-monitor-pushgateway:9091"
+        - name: RACK_ENV
+          value: "integration"
+        - name: MQSERVER
+          value: "amqp://guest:guest@son-broker:5672"
+        - name: DATABASE_HOST
+          value: "son-postgres"
+        - name: DATABASE_PORT
+          value: "5432"
+        - name: POSTGRES_PASSWORD
+          value: "sonata"
+        - name: POSTGRES_USER
+          value: "sonatatest"
+        - name: POSTGRES_DB
+          value: "gatekeeper"
+        - name: BROKER_EXCHANGE
+          value: "son-kernel"
+        - name: BROKER_HOST
+          value: "son-broker"
+        - name: GATEKEEPER_URL
+          value: "http://tng-gtk-sp:5000/"
+

@@ -1,0 +1,20 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: son-monitor-prometheus
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: son-monitor-prometheus
+        platform: sonata
+    spec:
+      containers:
+      - name: son-monitor-prometheus
+        image: sonatanfv/son-monitor-prometheus:dev
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 9090
+        - containerPort: 9089
