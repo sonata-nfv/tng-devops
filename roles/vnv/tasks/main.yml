@@ -148,7 +148,19 @@
 - import_tasks: monitmgr.yml
   when: (component == 'monitoring') or
         (component == 'monitoring-manager') or
-        (component == 'all')         
+        (component == 'all')     
+        
+# deploy Analytics Engine
+- import_tasks: tng-analytics-engine.yml
+  when: (component == 'analytics') or
+        (component == 'tng-analytics-engine') or
+        (component == 'all') 
+        
+# deploy R Analytics Server
+- import_tasks: analyticserver.yml
+  when: (component == 'analytics') or
+        (component == 'analyticserver') or
+        (component == 'all') 
 
 # configure qual sp bcn
 - import_tasks: add-qual-sp-bcn.yml
