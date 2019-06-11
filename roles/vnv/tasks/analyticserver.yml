@@ -16,5 +16,5 @@
       - name: "{{ docker_network_name }}"
         aliases:
           - analyticserver
-    published_ports: "80:80"
+    published_ports: "8083:80"
     restart_policy: "always"
