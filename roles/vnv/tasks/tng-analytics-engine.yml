@@ -16,5 +16,5 @@
       - name: "{{ docker_network_name }}"
         aliases:
           - tng-analytics-engine
-    published_ports: "8082:8082"
+    published_ports: "8085:8085"
     restart_policy: "always"
