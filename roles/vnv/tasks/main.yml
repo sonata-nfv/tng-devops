@@ -157,9 +157,9 @@
         (component == 'all') 
         
 # deploy R Analytics Server
-- import_tasks: analyticserver.yml
+- import_tasks: tng-analytics-rserver.yml
   when: (component == 'analytics') or
-        (component == 'analyticserver') or
+        (component == 'tng-analytics-rserver') or
         (component == 'all') 
 
 # configure qual sp bcn

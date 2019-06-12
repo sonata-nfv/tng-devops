@@ -6,8 +6,8 @@
 
 - name: R Analytics Server - running Docker containers
   docker_container:
-    name: analyticserver
-    image: "{{ repository }}/analyticserver:{{ version }}"
+    name: tng-analytics-rserver
+    image: "{{ repository }}/tng-analytics-rserver:{{ version }}"
     state: started
     recreate: yes
     pull: true
@@ -15,6 +15,6 @@
     networks:
       - name: "{{ docker_network_name }}"
         aliases:
-          - analyticserver
+          - tng-analytics-rserver
     published_ports: "8083:80"
     restart_policy: "always"
