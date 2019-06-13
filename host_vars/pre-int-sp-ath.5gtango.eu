@@ -62,7 +62,7 @@ ia_repo_pass: !vault |
           3961
 
 # Monitoring
-gk_base_domain: pre-int-sp-ath.5gtango.eu:32002
+gk_base_domain: tng-api-gtw:5000
 mon_db_name: monitoring
 mon_db_user: monitoringuser
 mon_db_pass: !vault |
