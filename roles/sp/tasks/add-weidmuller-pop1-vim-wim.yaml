@@ -1,0 +1,25 @@
+---
+# Adding mock VIM to SP
+- debug: msg="##### 5GTANGO Adding MOCK VIM and WIM {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
+
+#ADDING THE WIM
+- name: "Adding the VIM-Compute"
+  shell: | 
+    /usr/bin/docker exec -t son-postgres psql -h localhost -U sonatatest -d vimregistry -c "INSERT INTO VIM (UUID, TYPE, VENDOR, ENDPOINT, USERNAME, CONFIGURATION, CITY, COUNTRY, PASS, AUTHKEY, NAME, DOMAIN) VALUES ('11111111-2222-3333-4444-555555555555', 'compute', 'Heat', '10.220.0.2', 'tango', '{\"tenant_ext_net\":\"f1cf5264-5583-4994-8c8f-8efac57a3752\", \"tenant_private_net_id\":\"172.16.0.0\", \"tenant_private_net_length\":\"18\", \"tenant\":\"admin\", \"tenant_ext_router\":\"2df0fdfb-150e-43cd-8328-cd7c6ded1473\"}', 'Factory', 'Germany', 't4ng0', null, 'weidmuller', 'default');"
+
+- name: "Adding the VIM-Network"
+  shell: |
+    /usr/bin/docker exec -t son-postgres psql -h localhost -U sonatatest -d vimregistry -c "INSERT INTO VIM (UUID, TYPE, VENDOR, ENDPOINT, USERNAME, CONFIGURATION, CITY, COUNTRY, PASS, AUTHKEY, NAME, DOMAIN) VALUES ('aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee', 'network', 'ovs', '10.220.0.2', 't4ng0', '{\"compute_uuid\":\"11111111-2222-3333-4444-555555555555\"}', 'Factory', 'Germany', 't4ng0', null,'weidmuller','default');"
+
+- name: "Linking VIM Compute-Network"
+  shell: |
+    /usr/bin/docker exec -t son-postgres psql -h localhost -U sonatatest -d vimregistry -c "INSERT INTO LINK_VIM (COMPUTE_UUID, NETWORKING_UUID) VALUES ('11111111-2222-3333-4444-555555555555', 'aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee');"
+
+#ADDING THE WIM
+- name: "ADDING WIM"
+  shell: | 
+    /usr/bin/docker exec -t son-postgres psql -h localhost -U postgres -d wimregistry -c "INSERT INTO WIM (UUID, TYPE, VENDOR, ENDPOINT, USERNAME, PASS, AUTHKEY, NAME) VALUES ('12345678-1234-1234-1234-123456789012', 'WIM', 'VTN', '10.30.0.13', 'admin', 'admin', null, 'WeidmullerWan');"
+
+- name: "Linking VIM - WIM"
+  shell: |
+    /usr/bin/docker exec -t son-postgres psql -h localhost -U postgres -d wimregistry -c "INSERT INTO ATTACHED_VIM (VIM_UUID, VIM_ADDRESS, WIM_UUID) VALUES ('11111111-2222-3333-4444-555555555555','10.220.0.2', '12345678-1234-1234-1234-123456789012');"
