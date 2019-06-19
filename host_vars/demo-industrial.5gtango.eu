@@ -4,8 +4,7 @@
 docker_network_name: tango
 
 ## Version
-#version: qual
-version: int
+version: qual
 
 ## Private Docker repository
 repository: registry.sonata-nfv.eu:5000
