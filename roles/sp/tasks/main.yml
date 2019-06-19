@@ -292,6 +292,12 @@
   ignore_errors: True
   when: target == 'sta-sp-ave'
 
+# Configuring Weidmuller PoP-1
+- import_tasks: add-weidmuller-pop1-vim-wim.yaml
+  ignore_errors: True
+  when: (target == 'demo-industrial-sp.5gtango.eu') and
+        (component == 'all')
+
 # Installation Start
 - name: Installation Finished
   uri:
