@@ -11,6 +11,7 @@
     env:
       REPOSITORY_URL: "{{ repository_url }}"
       CATALOGUE_URL: "{{ catalogue_url }}"
+      NO_CACHE: "cache_disabled"
     restart_policy: "always"
     network_mode: bridge
     networks:
