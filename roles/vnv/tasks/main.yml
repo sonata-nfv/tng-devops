@@ -33,11 +33,6 @@
   when: (component == 'database') or
         (component == 'all')
 
-# deploy Redis database engine
-- import_tasks: redis.yml
-  when: (component == 'database') or
-        (component == 'all')
-
 # Deploying VnV Components
 
 # deploy tng-vnv-planner
