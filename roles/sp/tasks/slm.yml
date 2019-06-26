@@ -12,6 +12,7 @@
       vnfr_collection: vnfrs
       monitoring_path: http://son-monitor-manager:8000/api/v2
       broker_host: amqp://guest:guest@son-broker:5672/%2F
+      json_logger: True
     network_mode: bridge
     networks:
       - name: "{{ docker_network_name }}"

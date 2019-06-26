@@ -49,6 +49,7 @@ sta-vnv-ath-v4-0.5gtango.eu ansible_user=tango component=all
 
 [demo]
 demo-comm-sp.5gtango.eu ansible_user=tango component=all
+demo-industrial-sp.5gtango.eu ansible_user=tango component=all
 
 [all:vars]
 task_output_limit = 100

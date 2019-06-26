@@ -1,0 +1,20 @@
+---
+
+- debug: msg="##### VnV Analytics Engine Deployment {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
+
+# Running the 5GTANGO VnV Analytics Engine (Docker container)
+
+- name: VnV Analytics Engine - running Docker containers
+  docker_container:
+    name: tng-analytics-engine
+    image: "{{ repository }}/tng-analytics-engine:{{ version }}"
+    state: started
+    recreate: yes
+    pull: true
+    network_mode: bridge
+    networks:
+      - name: "{{ docker_network_name }}"
+        aliases:
+          - tng-analytics-engine
+    published_ports: "8085:8085"
+    restart_policy: "always"

@@ -71,7 +71,7 @@ ia_repo_pass: !vault |
 # Monitoring
 mon_db_name: monitoring
 mon_db_user: monitoringuser
-gk_base_domain: int-vnv:32002
+gk_base_domain: tng-api-gtw:5000
 mon_db_pass: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           31343063326138383564633036303164396430663966613434613561343334316563316535373130
@@ -86,15 +86,18 @@ mon_db_pass: !vault |
 app_vnv_logging_level: DEBUG
 app_gk_base_url: http://sta-sp-ave.5gtango.eu:32002/api/v3
 app_vnv_logging_level: DEBUG
+recommender_url: http://tng-vnv-dsm:4010/api/v1/pair
 app_gk_base_url: http://sta-sp-ave.5gtango.eu:32002/api/v3
 routes_file: vnv_routes.yml
+# PLANNER pgSQL database
+planner_db_name: planner
 
 unpackager_url: http://tng-sdk-package:5099/api/v1/packages
 catalogue_url: http://tng-cat:4011/catalogues/api/v2
 
 repository_url: http://tng-rep:4012
-external_callback_url: http://tng-vnv-planner:6100/api/v1/packages/on-change
-internal_callback_url: http://tng-vnv-planner:6100/api/v1/packages/on-change
+new_package_callback_url: http://tng-vnv-planner:6100/api/v1/packages/on-change
+uploaded_callback_url: http://tng-gtk-common:5000/packages/on-change
 
 clean: false
 platform: vnv

@@ -33,11 +33,6 @@
   when: (component == 'database') or
         (component == 'all')
 
-# deploy Redis database engine
-- import_tasks: redis.yml
-  when: (component == 'database') or
-        (component == 'all')
-
 # Deploying VnV Components
 
 # deploy tng-vnv-planner
@@ -148,7 +143,19 @@
 - import_tasks: monitmgr.yml
   when: (component == 'monitoring') or
         (component == 'monitoring-manager') or
-        (component == 'all')         
+        (component == 'all')     
+        
+# deploy Analytics Engine
+- import_tasks: tng-analytics-engine.yml
+  when: (component == 'analytics') or
+        (component == 'tng-analytics-engine') or
+        (component == 'all') 
+        
+# deploy R Analytics Server
+- import_tasks: tng-analytics-rserver.yml
+  when: (component == 'analytics') or
+        (component == 'tng-analytics-rserver') or
+        (component == 'all') 
 
 # configure qual sp bcn
 - import_tasks: add-qual-sp-bcn.yml
