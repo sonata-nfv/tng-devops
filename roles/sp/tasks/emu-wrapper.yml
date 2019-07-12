@@ -7,7 +7,7 @@
     image: "tsoenen/tng-ia-emu"
     env:
       broker_host: amqp://guest:guest@son-broker:5672/%2F
-      # broker_exchange: son-kernel-ia
+      broker_exchange: son-kernel-ia
       topic_prefix: "emu"
       path_to_nbi: "http://pre-int-sp-ath.5gtango.eu:8083/api/ia/v1"
       emulator_path: "http://vim-emu:5001/restapi/"
