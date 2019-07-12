@@ -13,7 +13,7 @@
           - vim-emu
     state: started
     recreate: yes
-    pull: false
+    pull: true
     privileged: true
     pid_mode: 'host'
     tty: true
