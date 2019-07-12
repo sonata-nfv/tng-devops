@@ -19,6 +19,4 @@
           - tng-sp-ia-emu
     state: started
     recreate: yes
-    pull: false
-  async: 20
-  poll: 0
+    pull: true

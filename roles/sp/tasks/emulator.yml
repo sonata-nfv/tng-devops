@@ -13,13 +13,10 @@
           - vim-emu
     state: started
     recreate: yes
-    pull: false
+    pull: true
     privileged: true
     pid_mode: 'host'
     tty: true
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
     command: 'python examples/tango_default_cli_topology_2_pop.py'
-  async: 20
-  poll: 0
-
