@@ -2,10 +2,6 @@
 
 - debug: msg="##### VnV Planner Deployment {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
 
-- name: create planner's database for {{ gtk_db_user }}
-  shell: /usr/bin/docker exec -ti son-postgres psql -h localhost -U {{ gtk_db_user }} -d {{ gtk_db_name }}  -c 'CREATE DATABASE {{ planner_db_name }};'
-  ignore_errors: True
-
 # Running the 5GTANGO VnV Planner (Docker container)
 
 - name: VnV Planner - running Docker containers
