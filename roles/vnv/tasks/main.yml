@@ -104,12 +104,6 @@
   when: (component == 'gatekeeper') or
         (component == 'packager') or
         (component == 'all')
-
-# deploy tng-sdk-analyze-weight.yml
-- import_tasks: tng-sdk-analyze-weight.yml
-  when: (component == 'analyze-weight') or
-        (component == 'tng-sdk-analyze-weight') or
-        (component == 'all')
         
 # deploy Portal
 - import_tasks: portal.yml
