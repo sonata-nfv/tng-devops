@@ -28,5 +28,5 @@
 
 - name: Create planner db
   shell: |
-    /usr/bin/docker exec -t son-postgres psql -h localhost -U {{ gtk_db_user }} -d {{ gtk_db_name }} -c "CREATE DATABASE planner"
+    /usr/bin/docker exec -t son-postgres psql -h localhost -U {{ gtk_db_user }} -d {{ gtk_db_name }} -c "CREATE DATABASE {{ planner_db_name }};"
   ignore_errors: True
