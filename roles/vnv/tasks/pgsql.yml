@@ -24,3 +24,9 @@
 
 - name: Wait until the string "Postgres" is UP
   wait_for: host=0.0.0.0 port=5432 timeout=30 delay=10 state=started
+
+
+- name: Create planner db
+  shell: |
+    /usr/bin/docker exec -t son-postgres psql -h localhost -U {{ gtk_db_user }} -d {{ gtk_db_name }} -c "CREATE DATABASE planner"
+  ignore_errors: True
