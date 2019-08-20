@@ -6,12 +6,13 @@ metadata:
   labels:
     app: tng-sec-gtw
     platform: sonata
+    version: "5"
 spec:
   ports:
   - port: 80
-    name: http
+    name: http-gtw
   - port: 443
-    name: https
+    name: https-gtw
   selector:
     app: tng-sec-gtw
-  type: NodePort
+  type: LoadBalancer

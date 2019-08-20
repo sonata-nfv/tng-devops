@@ -10,6 +10,7 @@ spec:
       labels:
         app: servicelifecyclemanagement
         platform: sonata
+        version: "5"
     spec:
       containers:
       - name: servicelifecyclemanagement
@@ -25,6 +26,6 @@ spec:
         - name: cat_path
           value: "http://tng-cat:4011/api/catalogues/v2"
         - name: monitoring_path
-          value: "http://son-monitor-manager:8000/api/v1/"
+          value: "http://son-monitor-manager:8000/api/v2/"
         - name: broker_host
           value: "amqp://guest:guest@son-broker:5672/%2F"

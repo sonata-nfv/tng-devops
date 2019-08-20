@@ -6,10 +6,12 @@ metadata:
   labels:
     app: tng-gtk-common
     platform: sonata
+    version: "5"
 spec:
   ports:
   - port: 5000
-    name: http
+    name: http-common
+    targetPort: 5000
   selector:
     app: tng-gtk-common
   type: ClusterIP

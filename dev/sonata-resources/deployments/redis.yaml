@@ -2,18 +2,19 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: gtk-api-gtw
+  name: son-redis
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: gtk-api-gtw
+        app: son-redis
         platform: sonata
+        version: "5"
     spec:
       containers:
-      - name: gtk-api-gtw
-        image: sonatanfv/gtk-api-gtw:dev
+      - name: son-redis
+        image: redis
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 5000
+        - containerPort: 6379

@@ -2,23 +2,19 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: son-gui
+  name: tng-api-gtw
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: son-gui
+        app: tng-api-gtw
         platform: sonata
+        version: "5"
     spec:
       containers:
-      - name: son-gui
-        image: sonatanfv/son-gui:dev
+      - name: tng-api-gtw
+        image: sonatanfv/tng-api-gtw:dev
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5000
-        env:
-        - name: MON_URL
-          value: "http://{{ target }}/monitoring"
-        - name: GK_URL
-          value: "http://{{ target }}/api/v2"

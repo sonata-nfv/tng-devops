@@ -2,14 +2,15 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: broker
+  name: son-broker
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: broker
+        app: son-broker
         platform: sonata
+        version: "5"
     spec:
       containers:
       - name: rabbitmq
@@ -17,5 +18,5 @@ spec:
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5672
-        ports:
+        - containerPort: 4369
         - containerPort: 15672

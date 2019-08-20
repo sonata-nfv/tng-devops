@@ -6,11 +6,32 @@ metadata:
   labels:
     app: tng-api-gtw
     platform: sonata
+    version: "5"
 spec:
   ports:
   - port: 5000
-    name: http
-    targetPort:
+    name: http-internal
+    targetPort: 5000
   selector:
     app: tng-api-gtw
   type: ClusterIP
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tng-api-gtw-external
+  labels:
+    app: tng-api-gtw
+    platform: sonata
+    version: "5"
+spec:
+  ports:
+  - port: 32002
+    name: http-external
+    targetPort: 5000
+  selector:
+    app: tng-api-gtw
+  type: LoadBalancer
+

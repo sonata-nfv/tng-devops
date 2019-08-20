@@ -6,11 +6,12 @@ metadata:
   labels:
     app: tng-cat
     platform: sonata
+    version: "5"
 spec:
   ports:
   - port: 4011
-    name: http
-    targetPort:
+    name: http-catalogue
+    targetPort: 4011
   selector:
     app: tng-cat
   type: ClusterIP

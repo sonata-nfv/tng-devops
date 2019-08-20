@@ -6,11 +6,12 @@ metadata:
   labels:
     app: mongo
     platform: sonata
+    version: "5"
 spec:
   ports:
   - port: 27017
-    name: http
+    name: mongo-mongo
     targetPort: 27017
   selector:
     app: mongo
-  type: NodePort
+  type: ClusterIP

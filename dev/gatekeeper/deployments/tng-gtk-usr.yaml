@@ -10,29 +10,30 @@ spec:
       labels:
         app: tng-gtk-usr
         platform: sonata
+        version: "5"
     spec:
       containers:
       - name: tng-gtk-usr
         image: sonatanfv/tng-gtk-usr:dev
         imagePullPolicy: IfNotPresent
         env:
-          - name: CATALOGUES_URL
-            value: http://tng-cat:4011/catalogues/api/v2
-          - name: RACK_ENV
-            value: integration
-          - name: MQSERVER
-            value: "amqp://guest:guest@son-broker:5672"
-          - name: MQSERVER:_URL
-            value: amqp://guest:guest@son-broker:5672
-          - name: DATABASE_URL
-            value: "postgres://sonatatest:sonata@son-postgres:5432/gatekeeper"
-          - name: POSTGRES_PASSWORD
-            value: "sonata"
-          - name: POSTGRES_USER
-            value: "sonatatest"
-          - name: DATABASE_HOST
-            value: "son-postgres"
-          - name: DATABASE_PORT
-            value: 5432
+        - name: CATALOGUES_URL
+          value: http://tng-cat:4011/catalogues/api/v2
+        - name: RACK_ENV
+          value: integration
+        - name: MQSERVER
+          value: "amqp://guest:guest@son-broker:5672"
+        - name: MQSERVER_URL
+          value: amqp://guest:guest@son-broker:5672
+        - name: DATABASE_URL
+          value: "postgres://sonatatest:sonata@son-postgres:5432/gatekeeper"
+        - name: POSTGRES_PASSWORD
+          value: "sonata"
+        - name: POSTGRES_USER
+          value: "sonatatest"
+        - name: DATABASE_HOST
+          value: "son-postgres"
+        - name: DATABASE_PORT
+          value: "5432"
         ports:
         - containerPort: 4567

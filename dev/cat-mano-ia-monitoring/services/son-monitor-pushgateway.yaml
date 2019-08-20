@@ -6,6 +6,7 @@ metadata:
   labels:
     app: son-monitor-pushgateway
     platform: sonata
+    version: "5"
 spec:
   ports:
   - port: 9091

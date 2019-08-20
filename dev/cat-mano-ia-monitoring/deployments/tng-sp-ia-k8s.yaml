@@ -10,10 +10,11 @@ spec:
       labels:
         app: tng-sp-ia-k8s
         platform: sonata
+        version: "5"
     spec:
       containers:
       - name: tng-sp-ia-k8s
-        image: sonatanfv/tng-sp-ia-k8:dev
+        image: sonatanfv/tng-sp-ia-k8s:dev
         imagePullPolicy: IfNotPresent
         env:
         - name: broker_host

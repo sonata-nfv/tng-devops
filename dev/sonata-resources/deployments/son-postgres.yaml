@@ -10,10 +10,11 @@ spec:
       labels:
         app: son-postgres
         platform: sonata
+        version: "5"
     spec:
       containers:
       - name: son-postgres
-        image: ntboes/postgres-uuid
+        image: sonatanfv/son-postgres:dev
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5432
@@ -24,3 +25,9 @@ spec:
           value: sonatatest
         - name: POSTGRES_PASSWORD
           value: sonata
+        volumeMounts:
+        - name: postgres-storage
+          mountPath: /var/lib/postgresql/data
+      volumes:
+      - name: postgres-storage
+        emptyDir: {}

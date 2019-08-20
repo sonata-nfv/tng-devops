@@ -2,16 +2,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: pluginmanager
+  name: ia-nbi
   labels:
-    app: pluginmanager
+    app: ia-nbi
     platform: sonata
     version: "5"
 spec:
   ports:
-  - port: 8001
-    targetPort: 8001
-    name: http-pluginmanager
+  - port: 8083
+    name: http-ianbi
+    targetPort: 8083
   selector:
-    app: pluginmanager
+    app: ia-nbi
   type: ClusterIP

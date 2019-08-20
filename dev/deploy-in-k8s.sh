@@ -5,4 +5,4 @@ kubectl apply -f gatekeeper/deployments
 sleep 60
 kubectl apply -f database-population/jobs
 kubectl apply -f cat-mano-ia-monitoring/services
-kubectl apply -f cat-mano-ia-monitoring/deployment
+kubectl apply -f cat-mano-ia-monitoring/deployments

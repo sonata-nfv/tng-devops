@@ -6,11 +6,12 @@ metadata:
   labels:
     app: tng-sdk-package
     platform: sonata
+    version: "5"
 spec:
   ports:
   - port: 5099
-    name: http
-    targetPort:
+    name: http-package
+    targetPort: 5099
   selector:
     app: tng-sdk-package
   type: ClusterIP

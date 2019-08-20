@@ -6,11 +6,12 @@ metadata:
   labels:
     app: tng-sla-mgmt
     platform: sonata
+    version: "5"
 spec:
   ports:
   - port: 8080
-    name: http
-    targetPort:
+    name: http-sla
+    targetPort: 8080
   selector:
     app: tng-sla-mgmt
   type: ClusterIP

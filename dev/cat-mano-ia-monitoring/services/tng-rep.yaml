@@ -6,11 +6,12 @@ metadata:
   labels:
     app: tng-rep
     platform: sonata
+    version: "5"
 spec:
   ports:
   - port: 4012
-    name: http
-    targetPort:
+    name: http-repository
+    targetPort: 4012
   selector:
     app: tng-rep
   type: ClusterIP

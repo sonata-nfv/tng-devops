@@ -10,6 +10,7 @@ spec:
       labels:
         app: mongo
         platform: sonata
+        version: "5"
     spec:
       containers:
       - name: mongo

@@ -10,6 +10,7 @@ spec:
       labels:
         app: son-monitor-grafana
         platform: sonata
+        version: "5"
     spec:
       containers:
       - name: son-monitor-grafana
@@ -17,8 +18,8 @@ spec:
         imagePullPolicy: IfNotPresent
         env:
           - name: GF_SERVER_DOMAIN
-            value: "{{ gk_base_domain }}"
+            value: "tng-api-gtw:5000"
           - name: GF_SERVER_ROOT_URL
-            value: "http://{{ gk_base_domain }}/api/v3/monitoring/graphs"
+            value: "http://tng-api-gtw:5000/api/v3/monitoring/graphs"
         ports:
         - containerPort: 3000

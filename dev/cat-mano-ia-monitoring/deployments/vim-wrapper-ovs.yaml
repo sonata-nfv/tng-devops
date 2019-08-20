@@ -10,6 +10,7 @@ spec:
       labels:
         app: vim-wrapper-ovs
         platform: sonata
+        version: "5"
     spec:
       containers:
       - name: vim-wrapper-ovs
@@ -25,6 +26,6 @@ spec:
         - name: repo_port
           value: "5432"
         - name: repo_user
-          value: "{{ ia_repo_user }}"
+          value: "sonatatest"
         - name: repo_pass
-          value: "{{ ia_repo_pass }}"
+          value: "sonata"

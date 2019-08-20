@@ -10,6 +10,7 @@ spec:
       labels:
         app: son-monitor-spprobe
         platform: sonata
+        version: "5"
     spec:
       containers:
       - name: son-monitor-spprobe
@@ -17,7 +18,7 @@ spec:
         imagePullPolicy: IfNotPresent
         env:
         - name: NODE_NAME
-          value: "{{ target }}"
+          value: "my_node"
         - name: PROM_SRV
           value: "http://son-monitor-pushgateway:9091/metrics"
         volumeMounts:

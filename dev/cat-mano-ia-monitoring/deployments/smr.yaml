@@ -10,6 +10,7 @@ spec:
       labels:
         app: specificmanagerregistry
         platform: sonata
+        version: "5"
     spec:
       containers:
       - name: specificmanagerregistry
@@ -19,7 +20,7 @@ spec:
         - name: broker_host
           value: "amqp://guest:guest@son-broker:5672/%2F"
         - name: broker_name
-          value: "son-broker,broker"
+          value: "son-broker"
         volumeMounts:
           - mountPath: "/var/run/docker.sock"
             name: docker 

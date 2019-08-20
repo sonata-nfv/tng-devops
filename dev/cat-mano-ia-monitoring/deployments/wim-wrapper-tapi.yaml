@@ -2,19 +2,20 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: win-wrapper-tapi
+  name: wim-wrapper-tapi
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: win-wrapper-tapi
+        app: wim-wrapper-tapi
         platform: sonata
+        version: "5"
     spec:
       containers:
-      - name: win-wrapper-tapi
-        image: sonatanfv/win-wrapper-tapi:dev
-        imagePullPolicy: IfNotPresent
+      - name: wim-wrapper-tapi
+        image: sonatanfv/tng-sp-ia-wtapi:dev
+        imagePullPolicy: Always
         env:
         - name: broker_host
           value: "amqp://guest:guest@son-broker:5672/%2F"
@@ -23,6 +24,6 @@ spec:
         - name: DATABASE_PORT
           value: "5432"
         - name: POSTGRES_USER
-          value: "{{ ia_repo_user }}"
+          value: "sonatatest"
         - name: POSTGRES_PASSWORD
-          value: "{{ ia_repo_pass }}"
+          value: "sonata"

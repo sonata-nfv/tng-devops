@@ -10,6 +10,7 @@ spec:
       labels:
         app: tng-gtk-sp
         platform: sonata
+        version: "5"
     spec:
       containers:
       - name: tng-gtk-sp
@@ -23,6 +24,8 @@ spec:
         - name: RACK_ENV
           value: integration
         - name: MQSERVER
+          value: "amqp://guest:guest@son-broker:5672"
+        - name: MQSERVER_URL
           value: "amqp://guest:guest@son-broker:5672"
         - name: DATABASE_URL
           value: "postgres://sonatatest:sonata@son-postgres:5432/gatekeeper"

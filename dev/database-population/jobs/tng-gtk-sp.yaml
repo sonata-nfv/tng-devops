@@ -4,6 +4,11 @@ metadata:
   name: tng-gtk-sp
 spec:
   template:
+    metadata:
+      labels:
+        app: tng-gtk-sp
+        platform: sonata
+        version: "5"
     spec:
       containers:
       - name: tng-gtk-sp
@@ -25,4 +30,6 @@ spec:
           value: "sonatatest"
         - name: POSTGRES_DB
           value: "gatekeeper"
+        ports:
+        - containerPort: 5000
       restartPolicy: Never

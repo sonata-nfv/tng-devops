@@ -6,11 +6,12 @@ metadata:
   labels:
     app: tng-slice-mngr
     platform: sonata
+    version: "5"
 spec:
   ports:
   - port: 5998
     targetPort: 5998
-    name: http
+    name: http-slice
   selector:
     app: tng-slice-mngr
   type: ClusterIP

@@ -10,6 +10,7 @@ spec:
       labels:
         app: tng-policy-mngr
         platform: sonata
+        version: "5"
     spec:
       containers:
       - name: tng-policy-mngr

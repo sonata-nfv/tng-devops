@@ -2,16 +2,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: pluginmanager
+  name: son-redis
   labels:
-    app: pluginmanager
+    app: son-redis
     platform: sonata
     version: "5"
 spec:
   ports:
-  - port: 8001
-    targetPort: 8001
-    name: http-pluginmanager
+  - port: 6379
+    name: redis-redis
+    targetPort: 6379
   selector:
-    app: pluginmanager
+    app: son-redis
   type: ClusterIP

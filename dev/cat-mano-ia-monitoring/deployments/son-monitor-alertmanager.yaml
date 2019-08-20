@@ -10,6 +10,7 @@ spec:
       labels:
         app: son-monitor-alertmanager
         platform: sonata
+        version: "5"
     spec:
       containers:
       - name: son-monitor-alertmanager

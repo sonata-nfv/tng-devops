@@ -6,13 +6,16 @@ metadata:
   labels:
     app: influxdb
     platform: sonata
+    version: "5"
 spec:
   ports:
   - port: 8086
-    name: http
+    name: tcp-influx
+    targetPort: 8086
   selector:
     app: influxdb
-  type: NodePort
+  type: ClusterIP
+
 ---
 apiVersion: v1
 kind: Service
@@ -21,10 +24,12 @@ metadata:
   labels:
     app: influxdb
     platform: sonata
+    version: "5"
 spec:
   ports:
   - port: 8086
-    name: http
+    name: tcp-influx2
+    targetPort: 8086
   selector:
     app: influxdb
-  type: NodePort
+  type: ClusterIP

@@ -6,10 +6,12 @@ metadata:
   labels:
     app: son-postgres
     platform: sonata
+    version: "5"
 spec:
   ports:
   - port: 5432
-    name: tcp
+    name: tcp-postgres
+    targetPort: 5432
   selector:
     app: son-postgres
   type: ClusterIP

@@ -6,11 +6,12 @@ metadata:
   labels:
     app: tng-policy-mngr
     platform: sonata
+    version: "5"
 spec:
   ports:
   - port: 8081
-    name: http
-    targetPort:
+    name: tcp-policy
+    targetPort: 8081
   selector:
     app: tng-policy-mngr
   type: ClusterIP
