@@ -27,7 +27,7 @@
       POSTGRES_PASSWORD: "{{ gtk_db_pass }}"
       POSTGRES_USER: "{{ gtk_db_user }}"
       DATABASE_HOST: "son-postgres"
-      DATABASE_PORT: 5432
+      DATABASE_PORT: "5432"
     restart_policy: "always"
     network_mode: bridge
     networks:
