@@ -80,20 +80,16 @@ mon_db_pass: !vault |
           3566396637616561660a383363373366646565333631386165653162326366623237636538653761
           3362
 
-# PLANNER pgSQL database
-planner_db_name: planner
-
 clean: false
+
+# To be changed in case of SP or VnV installation
 platform: sp
 
 ## VnV Specific Variables
-## Please replace ip-of-sp by the IP address of the service platform
-app_gk_base_url: http://ip-of-sp:32002/api/v3
 app_vnv_logging_level: DEBUG
 routes_file: vnv_routes.yml
-unpackager_url: http://ip-of-sp:5099/api/v1/packages
-catalogue_url: http://ip-of-sp:4011/catalogues/api/v2
 repository_url: http://tng-rep:4012
 new_package_callback_url: http://tng-vnv-planner:6100/api/v1/packages/on-change
 uploaded_callback_url: http://tng-gtk-common:5000/packages/on-change
 recommender_url: http://tng-vnv-dsm:4010/api/v1/pair
+planner_db_name: planner
