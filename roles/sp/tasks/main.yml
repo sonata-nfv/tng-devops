@@ -125,14 +125,6 @@
         (component == 'emulator') or
         (component == 'all')
 
-## Deploying Mano Components
-# deploy PluginManager of MANO framework
-- import_tasks: pluginmgr.yml
-  when: (component == 'mano-framework') or
-        (component == 'plugin-manager') or
-        (component == 'emulator') or
-        (component == 'all')
-
 # deploy Service Lifecycle Manager of MANO framework
 - import_tasks: slm.yml
   when: (component == 'mano-framework') or
@@ -151,13 +143,6 @@
 - import_tasks: smr.yml
   when: (component == 'mano-framework') or
         (component == 'smr') or
-        (component == 'emulator') or
-        (component == 'all')
-
-# deploy Placement of MANO framework
-- import_tasks: placement.yml
-  when: (component == 'mano-framework') or
-        (component == 'placement') or
         (component == 'emulator') or
         (component == 'all')
 
