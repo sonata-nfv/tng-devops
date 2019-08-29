@@ -116,6 +116,7 @@
         (component == 'tng-vnv-platform-adapter') or
         (component == 'all') 
 
+# deploy Monitoring Pushgateway
 - import_tasks: pushgw.yml
   when: (component == 'monitoring') or
         (component == 'pushgateway') or
@@ -137,6 +138,12 @@
 - import_tasks: monitmgr.yml
   when: (component == 'monitoring') or
         (component == 'monitoring-manager') or
+        (component == 'all')
+
+# deploy Monitoring Probe
+- import_tasks: probe.yml
+  when: (component == 'monitoring') or
+        (component == 'monitoring-probe') or
         (component == 'all')     
         
 # deploy Analytics Engine
