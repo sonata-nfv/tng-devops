@@ -88,6 +88,7 @@ platform: sp
 ## VnV Specific Variables
 app_vnv_logging_level: DEBUG
 routes_file: vnv_routes.yml
+catalogue_url: http://tng-cat:4011/catalogues/api/v2
 repository_url: http://tng-rep:4012
 new_package_callback_url: http://tng-vnv-planner:6100/api/v1/packages/on-change
 uploaded_callback_url: http://tng-gtk-common:5000/packages/on-change
