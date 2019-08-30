@@ -1,10 +1,10 @@
 ---
 # Running the VnV MONIT GRAFANA (Docker container)
-- debug: msg="##### Vnv MONIT GRAFANA DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
+- debug: msg="##### VnV MONIT GRAFANA DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M') }}"
 - name: VnV MONIT GRAFANA - running Docker containers
   docker_container:
     name: son-monitor-grafana
-    image: "{{ repository }}/son-monitor-grafana:{{ version }}"
+    image: "{{ repository }}/son-monitor-vnv-grafana:{{ version }}"
     restart_policy: "always"
     state: started
     recreate: yes
