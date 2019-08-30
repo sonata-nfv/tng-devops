@@ -5,6 +5,9 @@
   docker_container:
     name: son-monitor-grafana
     image: "{{ repository }}/son-monitor-vnv-grafana:{{ version }}"
+    env:
+      GF_SERVER_DOMAIN: "{{ gk_base_domain }}"
+      GF_SERVER_ROOT_URL: "http://{{ gk_base_domain }}/api/v3/monitoring/graphs"
     restart_policy: "always"
     state: started
     recreate: yes
