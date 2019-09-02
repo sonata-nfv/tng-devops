@@ -4,7 +4,7 @@
 - name: Infrastructure abstraction Emulator Wrapper (Docker container)
   docker_container:
     name: tng-sp-ia-emu
-    image: "tsoenen/tng-ia-emu"
+    image: "tsoenen/sonmano-emuwrapper:5.0"
     env:
       broker_host: amqp://guest:guest@son-broker:5672/%2F
       broker_exchange: son-kernel-ia
