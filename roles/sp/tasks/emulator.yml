@@ -4,7 +4,7 @@
 - name: Emulator (Docker container)
   docker_container:
     name: vim-emu
-    image: "mpeuster/vim-emu"
+    image: "mpeuster/vim-emu:5.0"
     restart_policy: "always"
     network_mode: bridge
     networks:
