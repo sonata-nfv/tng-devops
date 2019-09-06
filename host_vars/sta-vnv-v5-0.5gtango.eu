@@ -7,22 +7,49 @@ docker_network_name: tango
 version: v5.0
 
 # Ruby env
-rack_env : staging
+rack_env : qual
 
 ## Docker repository
 repository: registry.sonata-nfv.eu:5000
 
-## VnV Specific Variables
 
+# GATEKEEPER pgSQL databaseplanner_db_pass
+gtk_db_name: gatekeeper
+gtk_db_user: sonatatest
+gtk_db_pass: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          63386438636538636637613639366365396639313732643935633038653764393366343566626530
+          3665333738653635613863363830656438623933633234310a653434363435656133393562343065
+          35623365303237633331386435633138346432616438626532343564366437356338386565326539
+          6230366161326462390a333738363030313735323430626130383833396663353064316433363930
+          6531
+
+# PLANNER pgSQL database
+planner_db_name: planner
+
+## VnV Specific Variables
 app_vnv_logging_level: DEBUG
-app_gk_base_url: http://sta-sp-ath-v4-0.5gtango.eu:32002/api/v3
+app_gk_base_url: http://tng-api-gtw:5000/api/v3
 routes_file: vnv_routes.yml
-unpackager_url: http://sta-sp-ath-v4-0.5gtango.eu:5099/api/v1/packages
-catalogue_url: http://sta-sp-ath-v4-0.5gtango.eu:4011/catalogues/api/v2
+unpackager_url: http://tng-sdk-package:5099/api/v1/packages
+catalogue_url: http://tng-cat:4011/catalogues/api/v2
 repository_url: http://tng-rep:4012
 new_package_callback_url: http://tng-vnv-planner:6100/api/v1/packages/on-change
 recommender_url: http://tng-vnv-dsm:4010/api/v1/pair
 uploaded_callback_url: http://tng-gtk-common:5000/packages/on-change
 
+clean: false
+
+# Monitoring
+mon_db_name: monitoring
+mon_db_user: monitoringuser
+gk_base_domain: tng-api-gtw:5000
+mon_db_pass: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          31343063326138383564633036303164396430663966613434613561343334316563316535373130
+          6466616532643030363962366639623531646630386435320a623236353964636239653861333731
+          37313336363864363662363866343937656334316563623763646665666237383261333561333163
+          3566396637616561660a383363373366646565333631386165653162326366623237636538653761
+          3362
 clean: false
 platform: vnv
