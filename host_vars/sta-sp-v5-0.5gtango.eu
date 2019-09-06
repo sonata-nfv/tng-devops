@@ -8,6 +8,9 @@ version: v5.0
 
 component: all
 
+# Ruby env
+rack_env : qual
+
 ## Private Docker repository
 repository: registry.sonata-nfv.eu:5000
 
@@ -29,9 +32,6 @@ urootpw: !vault |
           3161
 dbname: monitoring
 dbuser: monitoringuser
-
-# Ruby env
-rack_env : integration
 
 # GATEKEEPER pgSQL database
 gtk_db_name: gatekeeper
