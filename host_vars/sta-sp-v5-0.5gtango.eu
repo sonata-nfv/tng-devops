@@ -11,8 +11,8 @@ component: all
 ## Private Docker repository
 repository: registry.sonata-nfv.eu:5000
 
-# MONITOR pgSQL database
 
+# MONITOR pgSQL database
 upassword: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           39636466306132653264376131363734643863653439343862623132353566653338653337636631
@@ -31,7 +31,7 @@ dbname: monitoring
 dbuser: monitoringuser
 
 # Ruby env
-rack_env : staging
+rack_env : integration
 
 # GATEKEEPER pgSQL database
 gtk_db_name: gatekeeper
@@ -65,6 +65,7 @@ ia_repo_pass: !vault |
           3961
 
 # Monitoring
+gk_base_domain: tng-api-gtw:5000
 mon_db_name: monitoring
 mon_db_user: monitoringuser
 mon_db_pass: !vault |
@@ -76,15 +77,3 @@ mon_db_pass: !vault |
           3362
 clean: false
 platform: sp
-
-## VnV Specific Variables
-## Please replace ip-of-sp by the IP address of the service platform
-app_gk_base_url: http://ip-of-sp:32002/api/v3
-app_vnv_logging_level: DEBUG
-app_gk_base_url: http://ip-of-sp:32002/api/v3
-routes_file: vnv_routes.yml
-unpackager_url: http://ip-of-sp:5099/api/v1/packages
-catalogue_url: http://ip-of-sp:4011/catalogues/api/v2
-repository_url: http://tng-rep:4012
-new_package_callback_url: http://tng-vnv-planner:6100/api/v1/packages/on-change
-uploaded_callback_url: http://tng-gtk-common:5000/packages/on-change
