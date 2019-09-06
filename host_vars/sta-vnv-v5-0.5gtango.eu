@@ -7,7 +7,7 @@ docker_network_name: tango
 version: v5.0
 
 # Ruby env
-rack_env : staging
+rack_env : qual
 
 ## Docker repository
 repository: registry.sonata-nfv.eu:5000
