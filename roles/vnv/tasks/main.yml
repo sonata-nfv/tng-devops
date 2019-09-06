@@ -2,7 +2,7 @@
 # Installation Start
 - name: Installation Start
   uri:
-    url: http://bit.ly/2VCHrnH
+    url: http://bit.ly/2m1wG0J
     method: GET
     validate_certs: no
     headers:
@@ -171,7 +171,7 @@
 # Installation Finish
 - name: Installation Finish
   uri:
-    url: http://bit.ly/2M1yqjp
+    url: http://bit.ly/2lC5CVG
     method: GET
     validate_certs: no
     headers:
