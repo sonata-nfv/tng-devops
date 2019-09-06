@@ -50,7 +50,13 @@ sta-vnv-ath-v4-0.5gtango.eu ansible_user=tango component=all
 [sta-sp-v5.0]
 sta-sp-v5-0.5gtango.eu ansible_user=tango component=all
 
+[sta-sp-v5-0]
+sta-sp-v5-0.5gtango.eu ansible_user=tango component=all
+
 [sta-vnv-v5.0]
+sta-vnv-v5-0.5gtango.eu ansible_user=tango component=all
+
+[sta-vnv-v5-0]
 sta-vnv-v5-0.5gtango.eu ansible_user=tango component=all
 
 [demo]
