@@ -4,7 +4,7 @@
 docker_network_name: tango
 
 ## Version
-version: dev
+version: v5.0
 
 component: all
 
