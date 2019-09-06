@@ -2,7 +2,7 @@
 # Installation Start
 - name: Installation Start
   uri:
-    url: http://bit.ly/2HhYU1J
+    url: http://bit-ly/2k7porO
     method: GET
     validate_certs: no
     headers:
@@ -322,10 +322,10 @@
   when: (target == 'demo-industrial-sp.5gtango.eu') and
         (component == 'all')
 
-# Installation Start
+# Installation Finished
 - name: Installation Finished
   uri:
-    url: http://bit.ly/2SHwPC8
+    url: http://bit.ly/2kySY9E
     method: GET
     validate_certs: no
     headers:
