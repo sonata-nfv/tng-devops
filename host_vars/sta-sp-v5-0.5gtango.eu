@@ -9,7 +9,7 @@ version: v5.0
 component: all
 
 # Ruby env
-rack_env : qual
+rack_env : staging
 
 ## Private Docker repository
 repository: registry.sonata-nfv.eu:5000
