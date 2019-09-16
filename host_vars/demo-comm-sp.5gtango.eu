@@ -5,13 +5,20 @@ docker_network_name: tango
 
 ## Version
 #version: qual
-version: int
+#version: int
+version: v5.0
+
+component: all
+
+# Ruby env
+# rack_env : qualification
+# rack_env : integration
+rack_env: staging
 
 ## Private Docker repository
 repository: registry.sonata-nfv.eu:5000
 
 # MONITOR pgSQL database
-
 upassword: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           39636466306132653264376131363734643863653439343862623132353566653338653337636631
@@ -28,10 +35,6 @@ urootpw: !vault |
           3161
 dbname: monitoring
 dbuser: monitoringuser
-
-# Ruby env
-# rack_env : qualification
-rack_env : integration
 
 # GATEKEEPER pgSQL database
 gtk_db_name: gatekeeper
