@@ -1,6 +1,6 @@
-## Experimental deployment of sonata v4.0 in kubernetes
+## Experimental deployment of sonata v5.0 in kubernetes
 
-To install the SP, you should have a kubernetes cluster already configured and your kubectl pointing to it.
+To install the SP, you should have a kubernetes cluster already configured and your kubectl pointing to it and also metallb.
 
 Run the command:
 ```bash
@@ -12,77 +12,86 @@ After the deployment you will have the folling list of pods
 ```
 kubectl get pods
 
-NAME                                           READY     STATUS    RESTARTS   AGE
-broker-57856d968f-p4hld                        1/1       Running   0          17m
-functionlifecyclemanagement-7f976c579b-zrlc8   1/1       Running   0          43m
-influxdb-657957856d-8svk9                      1/1       Running   0          51m
-mongo-85bf558ff9-bdswv                         1/1       Running   0          51m
-placementexecutive-5d8565ddbb-fpl6r            1/1       Running   0          43m
-placementplugin-789cb69785-v5k4v               1/1       Running   0          43m
-pluginmanager-6c5bf594f8-9kbnx                 1/1       Running   0          43m
-servicelifecyclemanagement-5954c9d846-b7ffl    1/1       Running   0          42m
-son-monitor-manager-568f96cdd4-6d2nc           1/1       Running   0          34m
-son-monitor-postgres-7c9c64cd6-sswks           1/1       Running   0          51m
-son-monitor-prometheus-f8d466767-ns9hc         1/1       Running   0          43m
-son-monitor-pushgateway-54848b5478-qbbhx       1/1       Running   0          29m
-son-monitor-snmpmng-777c6b7bc9-5bppg           1/1       Running   0          43m
-son-postgres-596cc46b48-2t84b                  1/1       Running   0          51m
-son-sp-infrabstract-7ff5f9655c-2l6qj           1/1       Running   0          43m
-specificmanagerregistry-64f5446598-hgnhw       1/1       Running   1          17m
-tng-api-gtw-7b69679d5c-bgkzb                   1/1       Running   0          49m
-tng-cat-7f6559968f-n2cqr                       1/1       Running   0          37m
-tng-gtk-common-767b79d7d4-htqhg                1/1       Running   0          49m
-tng-gtk-sp-7974c5ffd5-rcz5w                    1/1       Running   0          49m
-tng-policy-mngr-9d79497b5-85gps                1/1       Running   0          43m
-tng-portal-7d68d49845-glhpm                    1/1       Running   0          43m
-tng-rep-fd94b5945-jsfgh                        1/1       Running   0          43m
-tng-sdk-package-7854fdfdff-8q9qc               1/1       Running   0          29m
-tng-sec-gtw-7759d44bbc-nxhkr                   1/1       Running   0          43m
-tng-sla-mgmt-d574df768-zhw7x                   1/1       Running   0          43m
-tng-slice-mngr-6886fc6fc5-prws5                1/1       Running   0          43m
-wim-adaptor-67544f66bd-vxqhr                   1/1       Running   0          43m
+NAME                                           READY   STATUS    RESTARTS   AGE
+functionlifecyclemanagement-84997f4f8c-sbrc9   1/1     Running   0          6d6h
+ia-nbi-5c7968c6b7-pgrw5                        1/1     Running   0          6d6h
+influxdb-d6ccc5b44-twl64                       1/1     Running   0          6d6h
+mongo-58597d47fc-hcw6l                         1/1     Running   0          6d6h
+placementplugin-646d558bdc-tgqwv               1/1     Running   0          6d6h
+servicelifecyclemanagement-7bd9689f86-hlh2b    1/1     Running   0          6d6h
+son-broker-d6dff75f8-chtzq                     1/1     Running   0          6d6h
+son-monitor-alertmanager-5c9fd7cd9b-vmbdn      1/1     Running   0          6d6h
+son-monitor-grafana-5cc8795c84-s2brb           1/1     Running   0          6d6h
+son-monitor-manager-c9467957-lj92g             1/1     Running   0          6d6h
+son-monitor-postgres-6cc87cbc9b-hdbbb          1/1     Running   0          6d6h
+son-monitor-prometheus-7877586cb6-bknpf        1/1     Running   0          6d6h
+son-monitor-pushgateway-7db554889-b4rwl        1/1     Running   0          6d6h
+son-monitor-snmpmng-bd95c4584-5bd6k            1/1     Running   0          6d6h
+son-monitor-spprobe-6ddf78cc6b-7tsz4           1/1     Running   0          6d6h
+son-postgres-64ffdc8755-49md9                  1/1     Running   1          6d6h
+son-redis-549f8cc464-z5v46                     1/1     Running   0          6d6h
+specificmanagerregistry-57c797f8f4-gkvsl       1/1     Running   1          6d6h
+tng-api-gtw-8669b57774-mwdnn                   1/1     Running   0          6d6h
+tng-cat-76f97d9d76-k5r49                       1/1     Running   0          6d6h
+tng-gtk-common-6d86bbfc59-g74x4                1/1     Running   0          6d6h
+tng-gtk-sp-6d8dcd99b5-8928f                    1/1     Running   0          6d6h
+tng-gtk-usr-6ff59f8788-rk4dg                   1/1     Running   0          6d6h
+tng-policy-mngr-7d88b449-lpknt                 1/1     Running   0          6d6h
+tng-portal-84c464c8b6-zdjks                    1/1     Running   0          6d6h
+tng-rep-fbcdf7986-2f2wh                        1/1     Running   0          6d6h
+tng-sdk-package-c6599978d-9jd6r                1/1     Running   0          6d6h
+tng-sec-gtw-56f965c744-crsz4                   1/1     Running   0          6d6h
+tng-sla-mgmt-5656d5fcd5-xjg55                  1/1     Running   0          6d6h
+tng-slice-mngr-6df944c5cb-l7bmg                1/1     Running   0          6d6h
+tng-sp-ia-k8s-6b548d774d-5ddgm                 1/1     Running   0          6d6h
+vim-wrapper-heat-66c76f8c6f-hvr9b              1/1     Running   0          6d6h
+vim-wrapper-mock-595f846c85-mhrr6              1/1     Running   0          6d6h
+vim-wrapper-ovs-599bf98dd5-bqlzz               1/1     Running   0          6d6h
+wim-wrapper-mock-5b559d45c4-bfhdt              1/1     Running   0          6d6h
+wim-wrapper-tapi-5dd9b89f9f-q76qp              1/1     Running   0          6d6h
+wim-wrapper-vtn-8b9496dd-6cxzb                 1/1     Running   0          6d6h
 ```
 
 The following list of services:
 
 ```
 kubectl get svc
+NAME                      TYPE           CLUSTER-IP       EXTERNAL-IP    PORT(S)                         AGE
+broker                    ClusterIP      10.101.246.30    <none>         4369/TCP,5672/TCP,15672/TCP     6d6h
+ia-nbi                    ClusterIP      10.110.179.60    <none>         8083/TCP                        6d6h
+influxdb                  ClusterIP      10.96.252.209    <none>         8086/TCP                        6d6h
+kubernetes                ClusterIP      10.96.0.1        <none>         443/TCP                         6d6h
+mongo                     ClusterIP      10.106.175.48    <none>         27017/TCP                       6d6h
+pluginmanager             ClusterIP      10.106.135.227   <none>         8001/TCP                        6d6h
+postgsql                  ClusterIP      10.98.189.241    <none>         5432/TCP                        6d6h
+prometheus                ClusterIP      10.96.44.207     <none>         9090/TCP,9089/TCP               6d6h
+son-broker                ClusterIP      10.105.192.17    <none>         5672/TCP,15672/TCP,4369/TCP     6d6h
+son-mongo                 ClusterIP      10.101.48.189    <none>         27017/TCP                       6d6h
+son-monitor-grafana       ClusterIP      10.101.16.24     <none>         3000/TCP                        6d6h
+son-monitor-influxdb      ClusterIP      10.104.196.103   <none>         8086/TCP                        6d6h
+son-monitor-manager       LoadBalancer   10.109.41.211    10.121.0.151   8000:30693/TCP,8888:30866/TCP   6d6h
+son-monitor-postgres      ClusterIP      10.96.232.191    <none>         5433/TCP                        6d6h
+son-monitor-prometheus    LoadBalancer   10.105.106.234   10.121.0.152   9090:31025/TCP,9089:31670/TCP   6d6h
+son-monitor-pushgateway   ClusterIP      10.107.25.43     <none>         9091/TCP                        6d6h
+son-postgres              ClusterIP      10.108.149.192   <none>         5432/TCP                        6d6h
+son-redis                 ClusterIP      10.108.135.68    <none>         6379/TCP                        6d6h
+tng-api-gtw               ClusterIP      10.109.14.52     <none>         5000/TCP                        6d6h
+tng-api-gtw-external      LoadBalancer   10.100.217.138   10.121.0.150   32002:31347/TCP                 6d6h
+tng-cat                   ClusterIP      10.111.163.209   <none>         4011/TCP                        6d6h
+tng-gtk-common            ClusterIP      10.100.217.160   <none>         5000/TCP                        6d6h
+tng-gtk-sp                ClusterIP      10.102.119.2     <none>         5000/TCP                        6d6h
+tng-gtk-usr               ClusterIP      10.104.3.39      <none>         4567/TCP                        6d6h
+tng-policy-mngr           ClusterIP      10.111.125.154   <none>         8081/TCP                        6d6h
+tng-portal                ClusterIP      10.97.49.66      <none>         4200/TCP                        6d6h
+tng-rep                   ClusterIP      10.103.107.8     <none>         4012/TCP                        6d6h
+tng-sdk-package           ClusterIP      10.102.175.84    <none>         5099/TCP                        6d6h
+tng-sec-gtw               LoadBalancer   10.108.230.135   10.121.0.153   80:30944/TCP,443:32632/TCP      6d6h
+tng-sla-mgmt              ClusterIP      10.107.168.46    <none>         8080/TCP                        6d6h
+tng-slice-mngr            ClusterIP      10.103.195.150   <none>         5998/TCP                        6d6h
 
-NAME                      TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                          AGE
-broker                    NodePort    10.107.144.22    <none>        5672:32171/TCP,15672:30430/TCP   52m
-influxdb                  NodePort    10.105.19.172    <none>        8086:31269/TCP                   52m
-kubernetes                ClusterIP   10.96.0.1        <none>        443/TCP                          4d
-mongo                     NodePort    10.101.16.113    <none>        27017:30995/TCP                  52m
-pluginmanager             ClusterIP   10.104.93.95     <none>        8001/TCP                         45m
-postgsql                  ClusterIP   10.98.214.210    <none>        5432/TCP                         52m
-son-broker                NodePort    10.111.230.6     <none>        5672:31181/TCP,15672:32062/TCP   21m
-son-mongo                 NodePort    10.100.128.73    <none>        27017:30596/TCP                  52m
-son-monitor-influxdb      NodePort    10.101.233.81    <none>        8086:32116/TCP                   52m
-son-monitor-manager       NodePort    10.110.249.175   <none>        8000:32516/TCP,8888:31957/TCP    35m
-son-monitor-postgres      ClusterIP   10.109.5.110     <none>        5432/TCP                         52m
-son-monitor-prometheus    ClusterIP   10.102.14.91     <none>        9090/TCP,9089/TCP,8002/TCP       45m
-son-monitor-pushgateway   ClusterIP   10.103.161.135   <none>        9091/TCP                         45m
-son-postgres              ClusterIP   10.103.1.101     <none>        5432/TCP                         52m
-task-pv-pod               ClusterIP   10.106.129.105   <none>        80/TCP                           3d
-tng-api-gtw               ClusterIP   10.109.37.76     <none>        5000/TCP                         50m
-tng-cat                   ClusterIP   10.101.206.201   <none>        4011/TCP                         45m
-tng-gtk-common            ClusterIP   10.100.78.207    <none>        5000/TCP                         50m
-tng-gtk-sp                ClusterIP   10.101.153.85    <none>        5000/TCP                         50m
-tng-policy-mngr           ClusterIP   10.97.85.83      <none>        8081/TCP                         45m
-tng-portal                NodePort    10.103.138.252   <none>        4200:32010/TCP                   45m
-tng-rep                   ClusterIP   10.103.62.36     <none>        4012/TCP                         45m
-tng-sdk-package           ClusterIP   10.106.98.49     <none>        5099/TCP                         30m
-tng-sec-gtw               NodePort    10.98.239.114    <none>        80:30985/TCP,443:30425/TCP       45m
-tng-sla-mgmt              ClusterIP   10.109.233.188   <none>        8080/TCP                         45m
-tng-slice-mngr            ClusterIP   10.103.217.215   <none>        5998/TCP                         45m
 ```
 
-For now until we develop the ingress controller for the SP, you can use the port exported by nodeport in the tng-sec-gtw container:
-
-1. Search in which node was deployed the tng-sec-gtw:
-kubectl get po -o wide | grep tng-sec-gtw | awk {'print $7'}
-
-2. Get the PORT exposed in the node
-kubef get svc | grep tng-portal | tr ":" "\t" | awk '{print $6}'
-
-3. Use the IP of the node and the port obtained in point 2, to open the tng-portal
+To open the Portal just check the IP of the load balancer given by metallb with the command:
+```
+kubectl get svc -o wide | grep tng-sec-gtw | awk '{print $4}'
+```
