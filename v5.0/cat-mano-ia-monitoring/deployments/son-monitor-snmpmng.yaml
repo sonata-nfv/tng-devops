@@ -1,0 +1,29 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: son-monitor-snmpmng
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: son-monitor-snmpmng
+        platform: sonata
+        version: "5"
+    spec:
+      containers:
+      - name: son-monitor-snmpmng
+        image: sonatanfv/son-monitor-snmpmng:v5.0
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: POSTGS_PORT
+          value: "5433"
+        - name: POSTGS_HOST 
+          value: "son-monitor-postgres"
+        - name: DB_USER_NAME
+          value: "monitoringuser"
+        - name: DB_USER_PASS
+          value: "sonata"
+        - name: PROM_SRV
+          value: "[\"son-monitor-pushgateway:9091\"]"

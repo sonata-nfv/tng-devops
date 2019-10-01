@@ -1,0 +1,29 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: wim-wrapper-tapi
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: wim-wrapper-tapi
+        platform: sonata
+        version: "5"
+    spec:
+      containers:
+      - name: wim-wrapper-tapi
+        image: sonatanfv/tng-sp-ia-wtapi:v5.0
+        imagePullPolicy: Always
+        env:
+        - name: broker_host
+          value: "amqp://guest:guest@son-broker:5672/%2F"
+        - name: DATABASE_HOST
+          value: "son-postgres"
+        - name: DATABASE_PORT
+          value: "5432"
+        - name: POSTGRES_USER
+          value: "sonatatest"
+        - name: POSTGRES_PASSWORD
+          value: "sonata"

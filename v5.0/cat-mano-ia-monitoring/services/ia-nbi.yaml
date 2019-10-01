@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ia-nbi
+  labels:
+    app: ia-nbi
+    platform: sonata
+    version: "5"
+spec:
+  ports:
+  - port: 8083
+    name: http-ianbi
+    targetPort: 8083
+  selector:
+    app: ia-nbi
+  type: ClusterIP

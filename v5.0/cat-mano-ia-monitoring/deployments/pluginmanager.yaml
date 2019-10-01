@@ -1,0 +1,25 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: pluginmanager
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: pluginmanager
+        platform: sonata
+        version: "5"
+    spec:
+      containers:
+      - name: pluginmanager
+        image: sonatanfv/pluginmanager:v5.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8001
+        env:
+        - name: broker_host
+          value: "amqp://guest:guest@son-broker:5672/%2F"
+        - name: mongo_host
+          value: "son-mongo"

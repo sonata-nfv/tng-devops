@@ -1,0 +1,36 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: son-monitor-spprobe
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: son-monitor-spprobe
+        platform: sonata
+        version: "5"
+    spec:
+      containers:
+      - name: son-monitor-spprobe
+        image: sonatanfv/son-monitor-spprobe:v5.0
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: NODE_NAME
+          value: "my_node"
+        - name: PROM_SRV
+          value: "http://son-monitor-pushgateway:9091/metrics"
+        volumeMounts:
+          - mountPath: "/var/run/docker.sock"
+            name: docker
+      volumes:
+        - name: docker
+          hostPath:
+            path: "/var/run/docker.sock"
+        - name: root
+          hostPath:
+            path: "/rootfs:ro"
+        - name: proc
+          hostPath:
+            path: "/myhost/proc"

@@ -1,0 +1,31 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: vim-wrapper-mock
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: vim-wrapper-mock
+        platform: sonata
+        version: "5"
+    spec:
+      containers:
+      - name: vim-wrapper-mock
+        image: sonatanfv/vim-wrapper-mock:v5.0
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: broker_host
+          value: "son-broker"
+        - name: broker_uri
+          value: "amqp://guest:guest@son-broker:5672/%2F"
+        - name: repo_host
+          value: "son-postgres"
+        - name: repo_port
+          value: "5432"
+        - name: repo_user
+          value: "sonatatest"
+        - name: repo_pass
+          value: "sonata"

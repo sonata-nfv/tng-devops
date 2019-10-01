@@ -1,0 +1,20 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: son-monitor-pushgateway
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: son-monitor-pushgateway
+        platform: sonata
+        version: "5"
+    spec:
+      containers:
+      - name: son-monitoring-pushgateway
+        image: sonatanfv/son-monitor-pushgateway:v5.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 9091

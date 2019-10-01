@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: son-monitor-manager
+    platform: sonata
+    version: "5"
+  name: son-monitor-manager
+spec:
+  ports:
+  - name: http-8000
+    port: 8000
+    protocol: TCP
+    targetPort: 8000
+  - name: http-8888
+    port: 8888
+    protocol: TCP
+    targetPort: 8888
+  selector:
+    app: son-monitor-manager
+  type: LoadBalancer

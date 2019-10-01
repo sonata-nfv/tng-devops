@@ -1,0 +1,93 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: tng-gtk-usr
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tng-gtk-usr
+        platform: sonata
+        version: "5"
+    spec:
+      containers:
+      - name: tng-gtk-usr
+        image: sonatanfv/tng-gtk-usr:v5.0
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: CATALOGUES_URL
+          value: http://tng-cat:4011/catalogues/api/v2
+        - name: RACK_ENV
+          value: integration
+        - name: MQSERVER
+          value: "amqp://guest:guest@son-broker:5672"
+        - name: MQSERVER_URL
+          value: amqp://guest:guest@son-broker:5672
+        - name: DATABASE_URL
+          value: "postgres://sonatatest:sonata@son-postgres:5432/gatekeeper"
+        - name: POSTGRES_PASSWORD
+          value: "sonata"
+        - name: POSTGRES_USER
+          value: "sonatatest"
+        - name: DATABASE_HOST
+          value: "son-postgres"
+        - name: DATABASE_PORT
+          value: "5432"
+        ports:
+        - containerPort: 4567
+      initContainers:
+      - name: tng-gtk-usr-init
+        image: sonatanfv/tng-gtk-usr:v5.0
+        command: ["bundle"]
+        args: ["exec", "rake", "db:migrate"]
+        env:
+        - name: RACK_ENV
+          value: integration
+        - name: DATABASE_HOST
+          value: "son-postgres"
+        - name: MQSERVER
+          value: "amqp://guest:guest@son-broker:5672"
+        - name: DATABASE_PORT
+          value: "5432"
+        - name: POSTGRES_PASSWORD
+          value: "sonata"
+        - name: POSTGRES_USER
+          value: "sonatatest"
+        - name: POSTGRES_DB
+          value: "gatekeeper"
+        - name: CATALOGUES_URL
+          value: http://tng-cat:4011/catalogues/api/v2
+        - name: MQSERVER_URL
+          value: amqp://guest:guest@son-broker:5672
+        - name: DATABASE_URL
+          value: "postgres://sonatatest:sonata@son-postgres:5432/gatekeeper"  
+  
+      - name: tng-gtk-usr-init-2
+        image: sonatanfv/tng-gtk-usr:v5.0
+        command: ["bundle"]
+        args: ["exec", "rake", "db:seed"]
+        env:
+        - name: RACK_ENV
+          value: integration
+        - name: DATABASE_HOST
+          value: "son-postgres"
+        - name: MQSERVER
+          value: "amqp://guest:guest@son-broker:5672"
+        - name: DATABASE_PORT
+          value: "5432"
+        - name: POSTGRES_PASSWORD
+          value: "sonata"
+        - name: POSTGRES_USER
+          value: "sonatatest"
+        - name: POSTGRES_DB
+          value: "gatekeeper"
+        - name: CATALOGUES_URL
+          value: http://tng-cat:4011/catalogues/api/v2
+        - name: MQSERVER_URL
+          value: amqp://guest:guest@son-broker:5672
+        - name: DATABASE_URL
+          value: "postgres://sonatatest:sonata@son-postgres:5432/gatekeeper"
+      restartPolicy: Always
+      

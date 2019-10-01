@@ -1,0 +1,41 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: son-monitor-prometheus
+  labels:
+    app: son-monitor-prometheus
+    platform: sonata
+    version: "5"
+spec:
+  ports:
+  - port: 9090
+    targetPort: 9090
+    name: http-api
+  - port: 9089
+    targetPort: 9089
+    name: http-api2
+  selector:
+    app: son-monitor-prometheus
+  type: LoadBalancer
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: prometheus
+  labels:
+    app: prometheus
+    platform: sonata
+    version: "5"
+spec:
+  ports:
+  - port: 9090
+    targetPort: 9090
+    name: http-api
+  - port: 9089
+    targetPort: 9089
+    name: http-api2
+  selector:
+    app: son-monitor-prometheus
+  type: ClusterIP

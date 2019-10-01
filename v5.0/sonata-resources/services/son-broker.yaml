@@ -1,0 +1,23 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: son-broker
+  labels:
+    app: son-broker
+    platform: sonata
+    version: "5"
+spec:
+  ports:
+  - port: 5672
+    name: tcp-broker
+    targetPort: 5672
+  - port: 15672
+    name: tcp-api
+    targetPort: 15672
+  - port: 4369
+    name: epmd
+    targetPort: 4369
+  selector:
+    app: son-broker
+  type: ClusterIP
