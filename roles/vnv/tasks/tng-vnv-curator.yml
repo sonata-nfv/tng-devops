@@ -8,6 +8,14 @@
   docker_container:
     name: tng-vnv-curator
     image: "{{ repository }}/tng-vnv-curator:{{ version }}"
+    env:
+      CAT_BASE: "http://tng-cat:4011"
+      PLATFORM_ADAPTER_BASE: "http://tng-vnv-platform-adapter:5001"
+      PLANNER_BASE: "http://tng-vnv-planner:6100"
+      EXECUTOR_BASE: "http://tng-vnv-executor:8080"
+      LB_ALGO: "round_robin"
+      DOCKER_HOST: "unix://var/run/docker.sock"
+
     state: started
     recreate: yes
     pull: true
