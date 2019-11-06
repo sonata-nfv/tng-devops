@@ -70,7 +70,7 @@
         (component == 'all')
         
 # deploy SDK Portal Backend
-- import_tasks: portal.yml
+- import_tasks: tng-sdk-portal-backend.yml
   when: (component == 'portal') or
         (component == 'all')
 
