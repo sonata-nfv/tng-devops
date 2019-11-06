@@ -68,6 +68,11 @@
         (component == 'packager') or
         (component == 'emulator') or
         (component == 'all')
+        
+# deploy SDK Portal Backend
+- import_tasks: portal.yml
+  when: (component == 'portal') or
+        (component == 'all')
 
 # deploy Gatekepper API module
 - import_tasks: api-gtw.yml

@@ -1,0 +1,17 @@
+---
+# Running the 5GTANGO SDK portal backend (Docker container) 
+- debug: msg="##### SP TNG-SDK-PORTAL-BACKEND DEPLOYMENT {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
+- name: TNG-SDK-PORTAL-BACKEND (tng-sdk-portal-backend) (Docker container)
+  docker_container:
+    name: tng-sdk-portal-backend
+    image: "{{ repository }}/tng-sdk-portal-backend:{{ version }}"
+    state: started
+    recreate: yes
+    pull: true
+    restart_policy: "always"
+    exposed_ports: 
+      - 5098
+      - 8888
+    published_ports: 
+      - "5098:5098"
+      - "8888:8888"
