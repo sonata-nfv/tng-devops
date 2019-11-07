@@ -11,7 +11,7 @@
     restart_policy: "always"
     exposed_ports: 
       - 5098
-      - 8888
+      - 8884
     published_ports: 
       - "5098:5098"
-      - "8888:8888"
+      - "8884:8888"
