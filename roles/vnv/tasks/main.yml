@@ -10,6 +10,11 @@
   ignore_errors: True
   when: target == "localhost"
 
+# HARD RESET
+# cleaning databases
+- import_tasks: clean_db.yml
+  when: (clean == 'true')
+
 # Deploying VnV Databases
 
 # deploy postgreSQL database engine
