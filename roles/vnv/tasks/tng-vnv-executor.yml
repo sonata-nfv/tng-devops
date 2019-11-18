@@ -11,6 +11,7 @@
     image: "{{ repository }}/tng-vnv-executor:{{ version }}"
     env:
       RESULTS_REPO_URL: "{{ repository_url }}"
+      VNV_NFS_SERVER_IP: "{{ target }}"
     state: started
     recreate: yes
     pull: true
