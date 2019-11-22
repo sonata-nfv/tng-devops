@@ -8,6 +8,8 @@
   docker_container:
     name: tng-analytics-engine
     image: "{{ repository }}/tng-analytics-engine:{{ version }}"
+    volumes_from:
+      - tng-analytics-results
     state: started
     recreate: yes
     pull: true

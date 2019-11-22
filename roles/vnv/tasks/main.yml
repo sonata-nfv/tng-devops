@@ -162,6 +162,12 @@
   when: (component == 'analytics') or
         (component == 'tng-analytics-rserver') or
         (component == 'all') 
+        
+# deploy Analytics Results Server
+- import_tasks: tng-analytics-results.yml
+  when: (component == 'analytics') or
+        (component == 'tng-analytics-results') or
+        (component == 'all') 
 
 # configure qual sp bcn
 - import_tasks: add-qual-sp-bcn.yml
