@@ -9,6 +9,10 @@
     recreate: yes
     pull: true
     restart_policy: "always"
+    networks:
+      - name: "{{ docker_network_name }}"
+        aliases:
+          - tng-sdk-portal-backend
     exposed_ports: 
       - 5098
       - 8884
