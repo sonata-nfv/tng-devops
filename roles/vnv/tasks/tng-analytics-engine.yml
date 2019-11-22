@@ -8,8 +8,8 @@
   docker_container:
     name: tng-analytics-engine
     image: "{{ repository }}/tng-analytics-engine:{{ version }}"
-    volumes_from:
-      - tng-analytics-results
+    volumes:
+      - "/etc/sonata/data/asset-volume:/var/www/html"
     state: started
     recreate: yes
     pull: true
