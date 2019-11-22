@@ -29,6 +29,7 @@ sta-sp-ath.5gtango.eu ansible_user=tango component=all
 sta-sp-pad.5gtango.eu ansible_user=tango component=all
 sta-sp-ave.5gtango.eu ansible_user=tango component=all
 sta-sp-ave-2.5gtango.eu ansible_user=tango component=all
+sta-sp-ave-3.5gtango.eu ansible_user=tango component=all
 
 [sta-vnv]
 sta-vnv-ath.5gtango.eu ansible_user=tango component=all
