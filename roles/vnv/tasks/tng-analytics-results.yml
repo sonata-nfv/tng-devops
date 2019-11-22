@@ -9,7 +9,7 @@
     name: tng-analytics-results
     image: "{{ repository }}/tng-analytics-results:{{ version }}"
     volumes:
-      - "asset-volume:/var/www/html"
+      - "/etc/sonata/data/asset-volume:/var/www/html"
     state: started
     recreate: yes
     pull: true
