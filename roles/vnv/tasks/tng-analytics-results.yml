@@ -1,0 +1,22 @@
+---
+
+- debug: msg="#####Analytics Results Server {{ lookup('pipe', 'date +%Y%m%d-%H%M%S') }}"
+
+# Running the 5GTANGO Analytics Results Server (Docker container)
+
+- name: Analytics Results Server - running Docker containers
+  docker_container:
+    name: tng-analytics-results
+    image: "{{ repository }}/tng-analytics-results:{{ version }}"
+    volumes:
+      - "asset-volume:/var/www/html"
+    state: started
+    recreate: yes
+    pull: true
+    network_mode: bridge
+    networks:
+      - name: "{{ docker_network_name }}"
+        aliases:
+          - tng-analytics-results
+    published_ports: "8086:80"
+    restart_policy: "always"
