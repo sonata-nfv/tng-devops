@@ -23,6 +23,7 @@ new_package_callback_url: http://tng-vnv-planner:6100/api/v1/packages/on-change
 recommender_url: http://tng-vnv-dsm:4010/api/v1/pair
 uploaded_callback_url: http://tng-gtk-common:5000/packages/on-change
 clean: false
+nfs_active: disabled
 
 # PLANNER pgSQL database
 planner_db_name: planner
