@@ -16,5 +16,5 @@
       - name: "{{ docker_network_name }}"
         aliases:
           - tng-analytics-pserver
-    published_ports: "8087:80"
+    published_ports: "8087:5000"
     restart_policy: "always"
