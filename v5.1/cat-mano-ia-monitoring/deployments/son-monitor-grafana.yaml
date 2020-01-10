@@ -1,0 +1,25 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: son-monitor-grafana
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: son-monitor-grafana
+        platform: sonata
+        version: "5"
+    spec:
+      containers:
+      - name: son-monitor-grafana
+        image: sonatanfv/son-monitor-grafana:v5.1
+        imagePullPolicy: IfNotPresent
+        env:
+          - name: GF_SERVER_DOMAIN
+            value: "tng-api-gtw:5000"
+          - name: GF_SERVER_ROOT_URL
+            value: "http://tng-api-gtw:5000/api/v3/monitoring/graphs"
+        ports:
+        - containerPort: 3000

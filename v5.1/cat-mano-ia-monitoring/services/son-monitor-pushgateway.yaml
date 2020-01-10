@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: son-monitor-pushgateway
+  labels:
+    app: son-monitor-pushgateway
+    platform: sonata
+    version: "5"
+spec:
+  ports:
+  - port: 9091
+    targetPort: 9091
+    name: http-api
+  selector:
+    app: son-monitor-pushgateway
+  type: ClusterIP

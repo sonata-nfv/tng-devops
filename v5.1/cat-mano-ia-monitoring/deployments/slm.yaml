@@ -1,0 +1,31 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: servicelifecyclemanagement
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: servicelifecyclemanagement
+        platform: sonata
+        version: "5"
+    spec:
+      containers:
+      - name: servicelifecyclemanagement
+        image: sonatanfv/servicelifecyclemanagement:v5.1
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: nsr_collection
+          value: "nsrs"
+        - name: vnfr_collection
+          value: "vnfrs"          
+        - name: repo_path 
+          value: "http://tng-rep:4012"
+        - name: cat_path
+          value: "http://tng-cat:4011/api/catalogues/v2"
+        - name: monitoring_path
+          value: "http://son-monitor-manager:8000/api/v2/"
+        - name: broker_host
+          value: "amqp://guest:guest@son-broker:5672/%2F"

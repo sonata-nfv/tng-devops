@@ -1,0 +1,30 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: tng-sec-gtw
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tng-sec-gtw
+        platform: sonata
+        version: "5"
+    spec:
+      containers:
+      - name: tng-sec-gtw
+        image: sonatanfv/tng-sec-gtw:v5.1
+        imagePullPolicy: Always
+        env:
+        - name: DOMAIN
+          value: .sonata.svc.cluster.local
+        - name: KUBERNETES
+          value: "true"
+        ports:
+        - containerPort: 80
+        - containerPort: 443
+      volumes:
+        - name: cert
+          hostPath:
+            path: "/etc/nginx/cert/"

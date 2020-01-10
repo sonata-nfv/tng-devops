@@ -1,0 +1,20 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: tng-api-gtw
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tng-api-gtw
+        platform: sonata
+        version: "5"
+    spec:
+      containers:
+      - name: tng-api-gtw
+        image: sonatanfv/tng-api-gtw:v5.1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5000

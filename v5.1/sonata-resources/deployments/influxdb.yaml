@@ -1,0 +1,20 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: influxdb
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: influxdb
+        platform: sonata
+        version: "5"
+    spec:
+      containers:
+      - name: influxdb
+        image: influxdb
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8086

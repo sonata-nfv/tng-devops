@@ -1,0 +1,24 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: son-monitor-alertmanager
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: son-monitor-alertmanager
+        platform: sonata
+        version: "5"
+    spec:
+      containers:
+      - name: son-monitor-alertmanager
+        image: sonatanfv/son-monitor-alertmanager:v5.1
+        imagePullPolicy: IfNotPresent
+        env:
+          - name: RABBIT_URL
+            value: "son-broker:5672"
+        ports:
+        - containerPort: 9093
+        - containerPort: 5001

@@ -1,0 +1,20 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: tng-sdk-package
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tng-sdk-package
+        platform: sonata
+        version: "5"
+    spec:
+      containers:
+      - name: tng-sdk-package
+        image: sonatanfv/tng-sdk-package:v5.1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 5099

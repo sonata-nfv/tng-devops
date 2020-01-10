@@ -1,0 +1,20 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: son-redis
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: son-redis
+        platform: sonata
+        version: "5"
+    spec:
+      containers:
+      - name: son-redis
+        image: redis
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 6379

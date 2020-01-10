@@ -1,0 +1,21 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: son-monitor-manager
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: son-monitor-manager
+        platform: sonata
+        version: "5"
+    spec:
+      containers:
+      - name: son-monitor-manager
+        image: sonatanfv/son-monitor-manager:v5.1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000
+        - containerPort: 8888
