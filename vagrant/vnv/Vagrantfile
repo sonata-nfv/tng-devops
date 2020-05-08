@@ -38,6 +38,7 @@ fi
 cd tng-devops
 git checkout v5.1
 sudo docker network create tango ||
+sudo sed -i "s/platform: sp/platform: vnv/g" host_vars/localhost
 sudo bash -c "echo sonata > sonata"
 chmod -x sonata
 sudo ansible-playbook roles/vnv.yml -i environments -e target=localhost --vault-password-file sonata

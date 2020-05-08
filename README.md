@@ -185,6 +185,12 @@ You will need:
 * [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
 * [git](https://git-scm.com/downloads)
 
+Resources:
+
+* CPU: 2vCPU
+* RAM: 4GB
+* Storage: 20GB
+
 After installing the requirements you will need to clone this repository:
 
 ```bash
