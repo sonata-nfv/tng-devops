@@ -1,0 +1,75 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+$post_up_message = <<WELCOME
+Use your SONATA SP at http://localhost:8081/
+  user: tango , password: admin
+
+Prepare development environment and run tests via:
+$ vagrant ssh
+WELCOME
+
+$build_and_test = <<SCRIPT
+set -o errexit
+echo "Provisioning system to install sonata sp."
+sudo DEBIAN_FRONTEND=noninteractive apt-get update -qq -y
+date > /etc/vagrant.provisioned
+echo "INSTALLING SONATA SP"
+DEBIAN_FRONTEND=noninteractive
+
+sudo apt-get update
+sudo apt-get install -y software-properties-common apt-transport-https ca-certificates curl software-properties-common build-essential libssl-dev libffi-dev python-dev python3 python3-pip git
+sudo apt-add-repository ppa:ansible/ansible
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu  $(lsb_release -cs) stable"
+sudo apt-get update
+sudo apt-get install -y ansible
+sudo apt-get install -y docker-ce
+pip3 install docker
+pip3 install ansible
+
+DIR="tng-devops/"
+if [ -d "$DIR" ]; then
+  echo "tng-devops exists"
+else
+  git clone https://github.com/sonata-nfv/tng-devops.git
+fi
+
+cd tng-devops
+git checkout v5.1
+sudo docker network create tango ||
+sudo bash -c "echo sonata > sonata"
+chmod -x sonata
+sudo ansible-playbook roles/sp.yml -i environments -e target=localhost --vault-password-file sonata
+SCRIPT
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/xenial64"
+  config.vm.post_up_message = $post_up_message
+  config.vm.synced_folder ".", "/vagrant", disabled: true
+  config.vm.provider "virtualbox" do |vbox|
+    required_plugins = %w( vagrant-vbguest vagrant-disksize )
+    _retry = false
+    required_plugins.each do |plugin|
+        unless Vagrant.has_plugin? plugin
+            system "vagrant plugin install #{plugin}"
+            _retry=true
+        end
+    end
+
+    if (_retry)
+        exec "vagrant " + ARGV.join(' ')
+    end
+
+    vbox.customize ["modifyvm", :id, "--memory", "4096"]
+    vbox.customize ["modifyvm", :id, "--cpus", "2"]
+    config.disksize.size = "20GB"
+  end
+
+  config.vm.network "forwarded_port", guest: 80, host: 8081
+
+  # call the script
+  config.vm.provision "shell" do |shell|
+    shell.inline = $build_and_test
+  end
+end
