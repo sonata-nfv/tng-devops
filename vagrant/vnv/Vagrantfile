@@ -28,6 +28,15 @@ sudo apt-get install -y docker-ce
 pip3 install docker
 pip3 install ansible
 
+## SDK Installation
+pip3 install git+https://github.com/sonata-nfv/tng-sdk-project.git
+pip3 install git+https://github.com/sonata-nfv/tng-sdk-validation.git
+pip3 install git+https://github.com/sonata-nfv/tng-sdk-package
+pip3 install git+https://github.com/sonata-nfv/tng-cli
+
+# Configure the cli for the local SP
+export SP_PATH=http://localhost >> .bashrc
+
 DIR="tng-devops/"
 if [ -d "$DIR" ]; then
   echo "tng-devops exists"
