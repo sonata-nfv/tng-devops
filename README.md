@@ -170,10 +170,59 @@ These scripts were built with ansible > 2.4
 
 Here's a brief intro about what a developer must do in order to start developing the project further:
 
-```
+```bash
 git clone https://github.com/sonata-nfv/tng-devops.git
 cd tng-devops/
 ```
+
+## Vagrant
+
+To generate a VM for testing or development purposes, you can install vagrant and virtualbox in your PC and use the Vagrant script we prepared for you.
+
+You will need:
+
+* [Vagrant](https://www.vagrantup.com/downloads.html)
+* [Virtualbox](https://www.virtualbox.org/wiki/Downloads)
+* [git](https://git-scm.com/downloads)
+
+Resources:
+
+* CPU: 2vCPU
+* RAM: 4GB
+* Storage: 20GB
+
+After installing the requirements you will need to clone this repository:
+
+```bash
+git clone https://github.com/sonata-nfv/tng-devops.git
+cd tng-devops/vagrant
+```
+
+Then you have two folders inside tng-devops/vagrant. One for the SP and other for the VnV.
+
+### Vagrant sonata SP
+
+Start your Machine:
+
+```bash
+cd sp
+vagrant up
+```
+
+After the installation, to use your SONATA SP at http://localhost:8081/
+    user: tango , password: admin
+
+### Vagrant sonata VnV
+
+Start your Machine:
+
+```bash
+cd vnv
+vagrant up
+```
+
+After the installation, to use your SONATA VnV at http://localhost:8082/
+    user: tango , password: admin
 
 ## Usage
 
