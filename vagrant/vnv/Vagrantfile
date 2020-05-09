@@ -35,7 +35,7 @@ pip3 install git+https://github.com/sonata-nfv/tng-sdk-package
 pip3 install git+https://github.com/sonata-nfv/tng-cli
 
 # Configure the cli for the local SP
-export SP_PATH=http://localhost >> .bashrc
+echo "export SP_PATH=http://localhost >> .bashrc"
 
 DIR="tng-devops/"
 if [ -d "$DIR" ]; then
@@ -47,10 +47,9 @@ fi
 cd tng-devops
 git checkout v5.1
 sudo docker network create tango ||
-sudo sed -i "s/platform: sp/platform: vnv/g" host_vars/localhost
 sudo bash -c "echo sonata > sonata"
 chmod -x sonata
-sudo ansible-playbook roles/vnv.yml -i environments -e target=localhost --vault-password-file sonata
+sudo ansible-playbook roles/vnv.yml -i environments -e target=localhost -e platform=vnv --vault-password-file sonata
 SCRIPT
 
 Vagrant.configure("2") do |config|
@@ -76,7 +75,7 @@ Vagrant.configure("2") do |config|
     config.disksize.size = "20GB"
   end
 
-  config.vm.network "forwarded_port", guest: 80, host: 8081
+  config.vm.network "forwarded_port", guest: 80, host: 8082
 
   # call the script
   config.vm.provision "shell" do |shell|

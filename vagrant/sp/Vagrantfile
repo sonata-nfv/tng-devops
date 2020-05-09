@@ -35,7 +35,7 @@ pip3 install git+https://github.com/sonata-nfv/tng-sdk-package
 pip3 install git+https://github.com/sonata-nfv/tng-cli
 
 # Configure the cli for the local SP
-export SP_PATH=http://localhost >> .bashrc
+echo "export SP_PATH=http://localhost >> .bashrc"
 
 DIR="tng-devops/"
 if [ -d "$DIR" ]; then
