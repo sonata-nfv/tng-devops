@@ -2,7 +2,7 @@
 pre-int-sp-ath.5gtango.eu ansible_user=tango component=all
 
 [pre-int-vnv]
-pre-int-vnv-bcn.5gtango.eu ansible_user=tango component=all
+#pre-int-vnv-bcn.5gtango.eu ansible_user=tango component=all
 #pre-int-vnv-ave.5gtango.eu ansible_user=tango component=all
 
 [pre-int-sdk]
@@ -14,56 +14,56 @@ int-sp-ath.5gtango.eu ansible_user=tango component=all
 [int-vnv]
 #int-vnv-bcn.5gtango.eu ansible_user=tango component=all
 #int-vnv-ave.5gtango.eu ansible_user=tango component=all
-int-vnv.5gtango.eu ansible_user=tango component=all
+#int-vnv.5gtango.eu ansible_user=tango component=all
 
 
 [qual-sp]
-qual-sp-bcn.5gtango.eu ansible_user=tango component=all
+#qual-sp-bcn.5gtango.eu ansible_user=tango component=all
 qual-sp-ave.5gtango.eu ansible_user=tango component=all
 
 [qual-vnv]
-qual-vnv-bcn.5gtango.eu ansible_user=tango component=all
+#qual-vnv-bcn.5gtango.eu ansible_user=tango component=all
 
 [sta-sp]
 sta-sp-ath.5gtango.eu ansible_user=tango component=all
-sta-sp-pad.5gtango.eu ansible_user=tango component=all
-sta-sp-ave.5gtango.eu ansible_user=tango component=all
-sta-sp-ave-2.5gtango.eu ansible_user=tango component=all
-sta-sp-ave-3.5gtango.eu ansible_user=tango component=all
+#sta-sp-pad.5gtango.eu ansible_user=tango component=all
+#sta-sp-ave.5gtango.eu ansible_user=tango component=all
+#sta-sp-ave-2.5gtango.eu ansible_user=tango component=all
+#sta-sp-ave-3.5gtango.eu ansible_user=tango component=all
 
 [sta-vnv]
 sta-vnv-ath.5gtango.eu ansible_user=tango component=all
-sta-vnv-pad.5gtango.eu ansible_user=tango component=all
-sta-vnv-ave.5gtango.eu ansible_user=tango component=all
+#sta-vnv-pad.5gtango.eu ansible_user=tango component=all
+#sta-vnv-ave.5gtango.eu ansible_user=tango component=all
 
 [sta-sdk]
-sta-sdk-ath.5gtango.eu ansible_user=tango component=all
-sta-sdk-pad.5gtango.eu ansible_user=tango component=all
-sta-sdk-ave.5gtango.eu ansible_user=tango component=all
+#sta-sdk-ath.5gtango.eu ansible_user=tango component=all
+#sta-sdk-pad.5gtango.eu ansible_user=tango component=all
+#sta-sdk-ave.5gtango.eu ansible_user=tango component=all
 
 [sta-sp-v4.0]
-sta-sp-ath-v4-0.5gtango.eu ansible_user=tango component=all
+#sta-sp-ath-v4-0.5gtango.eu ansible_user=tango component=all
 #sta-sp-ave-v4-0.5gtango.eu ansible_user=tango component=all
 
 [sta-vnv-v4.0]
-sta-vnv-ath-v4-0.5gtango.eu ansible_user=tango component=all
+#sta-vnv-ath-v4-0.5gtango.eu ansible_user=tango component=all
 #sta-vnv-ave-v4-0.5gtango.eu ansible_user=tango component=all
 
 [sta-sp-v5.0]
-sta-sp-v5-0.5gtango.eu ansible_user=tango component=all
+#sta-sp-v5-0.5gtango.eu ansible_user=tango component=all
 
 [sta-sp-v5-0]
-sta-sp-v5-0.5gtango.eu ansible_user=tango component=all
+#sta-sp-v5-0.5gtango.eu ansible_user=tango component=all
 
 [sta-vnv-v5.0]
-sta-vnv-v5-0.5gtango.eu ansible_user=tango component=all
+#sta-vnv-v5-0.5gtango.eu ansible_user=tango component=all
 
 [sta-vnv-v5-0]
-sta-vnv-v5-0.5gtango.eu ansible_user=tango component=all
+#sta-vnv-v5-0.5gtango.eu ansible_user=tango component=all
 
 [demo]
-demo-comm-sp.5gtango.eu ansible_user=tango component=all
-demo-industrial-sp.5gtango.eu ansible_user=tango component=all
+#demo-comm-sp.5gtango.eu ansible_user=tango component=all
+#demo-industrial-sp.5gtango.eu ansible_user=tango component=all
 
 [all:vars]
 task_output_limit = 100
