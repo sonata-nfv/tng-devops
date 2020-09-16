@@ -83,7 +83,7 @@ mon_db_pass: !vault |
 clean: false
 
 # To be changed in case of SP or VnV installation
-platform: sp
+platform: vnv
 
 ## VnV Specific Variables
 app_vnv_logging_level: DEBUG
