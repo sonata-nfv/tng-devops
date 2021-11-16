@@ -4,7 +4,7 @@
 - name: deploy MongoDB as a Container (used by Monitory)
   docker_container:
     name: "son-mongo"
-    image: "mongo"
+    image: "mongo:4.4.0"
     volumes:
       - "/etc/sonata/data/mongodb:/data/db"
     state: started
